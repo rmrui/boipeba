@@ -1,0 +1,63 @@
+﻿/* Responsive Tables Elite */
+@media only screen and (max-width: 650px) {
+    
+    /* Force table to not be like tables anymore */
+    .rte table, 
+    .rte thead, 
+	.rte tbody, 
+	.rte th, 
+	.rte td, 
+	.rte tr { 
+		display: block; 
+	}
+ 
+	/* Hide table headers (but not display: none;, for accessibility) */
+	.rte thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+ 
+	.rte tr { border: 1px solid #ccc; }
+ 
+	.rte td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 35% !important; 
+		white-space: normal;
+        height:35px;
+	}
+ 
+	.rte td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+		font-weight: bold;
+	}
+ 
+	/*
+	Label the data
+	*/
+	.rte td:before { content: attr(data-title); }
+}
+
+/* Responsive Tables Elite */
+@media only screen and (max-width: 500px) 
+{
+    	.rte td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 35% !important; 
+		white-space: normal;
+        height:50px;
+	}
+}

@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2000
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boipeba.Web", "Boipeba.Web\Boipeba.Web.csproj", "{D81334C2-C9EB-4972-A4CB-3DD41CE2D1BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boipeba.Core", "Boipeba.Core\Boipeba.Core.csproj", "{2446FA9A-776D-4B00-90E0-B06F71243F57}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{25536CF4-C44C-4966-A8CE-41FF6C6F657F}"
+	ProjectSection(SolutionItems) = preProject
+		..\build.config = ..\build.config
+		..\ClickToBuild - Debug.cmd = ..\ClickToBuild - Debug.cmd
+		..\ClickToBuild - Release.cmd = ..\ClickToBuild - Release.cmd
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D81334C2-C9EB-4972-A4CB-3DD41CE2D1BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D81334C2-C9EB-4972-A4CB-3DD41CE2D1BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D81334C2-C9EB-4972-A4CB-3DD41CE2D1BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D81334C2-C9EB-4972-A4CB-3DD41CE2D1BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2446FA9A-776D-4B00-90E0-B06F71243F57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2446FA9A-776D-4B00-90E0-B06F71243F57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2446FA9A-776D-4B00-90E0-B06F71243F57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2446FA9A-776D-4B00-90E0-B06F71243F57}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1AC04F88-F924-408E-9ED3-1416A767A32B}
+	EndGlobalSection
+EndGlobal

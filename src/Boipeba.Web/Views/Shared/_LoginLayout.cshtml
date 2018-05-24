@@ -1,0 +1,55 @@
+﻿@using Boipeba.Web.HtmlHelpers
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="robots" content="noindex,nofollow" />
+    <meta http-equiv="CACHE-CONTROL" content="NO-CACHE">
+    <meta http-equiv="CACHE-CONTROL" content="NO-STORE">
+    <meta content="pt-br" http-equiv="Content-Language" />
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=9;" />
+    <link rel="icon" href="~/images/favicon.png" type="image/x-icon">
+    <title>CSI</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body class="full">
+    @Html.TopMessage()
+    <div class="page-header page-header-cion">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <img ID="img_logo" Class="img-responsive defaultLogo" src="~/images/HeaderCSI.jpg" />
+                </div>
+                <div class="col-md-6 text-right">
+
+                </div>
+                <div class="col-md-3 text-right">
+                    <img ID="img_logo" Class="img-responsive defaultLogo" src="~/images/logo_mp.jpg" />
+                </div>
+            </div>
+        </div>
+        <div class="linha-header">
+        </div>
+        <div class="clearfix">
+        </div>
+    </div>
+
+
+    <br /><br /><br />
+
+    <div>
+
+        @RenderBody()
+    </div>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jquery-plugins")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
