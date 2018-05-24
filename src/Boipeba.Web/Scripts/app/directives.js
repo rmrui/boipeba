@@ -14,17 +14,17 @@
         };
     }
 
-    function simnaoswitch() {
-        return {
-            restrict: "A",
-            link: function (scope, element, attrs) {
+    //function simnaoswitch() {
+    //    return {
+    //        restrict: "A",
+    //        link: function (scope, element, attrs) {
 
-                $(element).bootstrapSwitch({
-                    onText: "Sim", offText: "Não", onColor: "primary", offColor: "default", state: true
-                });
-            }
-        };
-    }
+    //            $(element).bootstrapSwitch({
+    //                onText: "Sim", offText: "Não", onColor: "primary", offColor: "default", state: true
+    //            });
+    //        }
+    //    };
+    //}
 
     function loading() {
         return {
@@ -50,9 +50,9 @@
     }
 
     angular
-        .module("scsi.global")
+        .module("boipeba")
         .directive("loading", loading)
         .directive("ajuda", ajuda)
-        .directive("simnaoswitch", simnaoswitch)
+        //.directive("simnaoswitch", simnaoswitch)
         .directive("tooltip", tooltip);
 })();

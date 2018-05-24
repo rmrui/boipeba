@@ -1,5 +1,6 @@
 ﻿using System.Web;
 using System.Web.Optimization;
+using Boipeba.Web.Bundles;
 
 namespace Boipeba.Web
 {
@@ -96,14 +97,7 @@ namespace Boipeba.Web
                 "~/Scripts/app/filters.js"));
 
             #endregion
-
-            //TODO: remover ao refatorar todas as views que ainda fazem referencia
-            bundles.Add(new ScriptBundle("~/plugins/dataTables").Include());
-            bundles.Add(new StyleBundle("~/Content/plugins/dataTables/dataTablesStyles").Include());
-            bundles.Add(new ScriptBundle("~/plugins/bootstrap-tour").Include());
-            bundles.Add(new StyleBundle("~/bundles/bootstrap-tour").Include());
-
-
+            
             RegisterContentCSS(bundles);
 
             RegisterApp(bundles);
@@ -115,7 +109,9 @@ namespace Boipeba.Web
         {
             bundles.Add(new ScriptBundle("~/bundles/loginManager").Include("~/Scripts/app/Login/loginManager.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/dashboard").Include("~/Scripts/app/Dashboard/dashboardCtrl.js"));
+            bundles.Add(new ScriptBundle("~/bundles/dashboardCtrl").Include("~/Scripts/app/Dashboard/dashboardCtrl.js"));
+
+            ConfigBundles.RegisterBundles(bundles);
         }
 
         private static void RegisterContentCSS(BundleCollection bundles)

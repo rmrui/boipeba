@@ -1,7 +1,9 @@
-﻿@using System.Web.Optimization
+﻿@using System.Web.Mvc.Html
+@using System.Web.Optimization
+
 <br />
 
-<div ng-app="" ng-controller="" ng-init="setup()" class="ng-cloak">
+<div ng-controller="">
 
     <div class="container bg-azul">
         <div class="row">
@@ -11,46 +13,67 @@
             </div>
         </div>
     </div>
-    
-    <button class="form-control btn btn-success ladda-button" ladda="view.xxxxxx" data-style="expand-left" ng-click="xxxxxxx()">xxxxxxx</button>
 
 
     <div class="container bg-branco">
         <br />
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Opções</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-lg-3 pull-right">
+                                <button class="form-control btn btn-success ladda-button" data-style="expand-left" ng-click="nova()">Nova</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <hr />
+
+        <loading target="view.loadingList"></loading>
+
         <table datatable="ng" dt-options="view.dtOptions" class="table table-hover">
             <thead>
-            <tr>
-                <th>xxxxx</th>
-                <th>xxxxx</th>
-                <th>xxxxx</th>
-                <th></th>
-            </tr>
+                <tr>
+                    <th>xxxxx</th>
+                    <th>xxxxx</th>
+                    <th>xxxxx</th>
+                    <th></th>
+                </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="item in viewdata.list track by $index">
-                <td>{{item.xxxxx}}</td>
-                <td>{{item.xxxxx}}</td>
-                <td>{{item.xxxxx}}</td>
-                <td>
-                    <div class="col-lg-6">
-                        <button class="form-control btn btn-primary" ng-click="editar(item)">
-                            Editar
-                            <span class="fa fa-pencil-square-o"></span>
-                        </button>
-                    </div>
-                    <div class="col-lg-6">
-                        <button class="form-control btn btn-danger" ng-click="excluir(item)">
-                            Excluir
-                            <span class="fa fa-ban"></span>
-                        </button>
-                    </div>
+                <tr ng-repeat="item in viewdata.list track by $index">
+                    <td>{{item.xxxxx}}</td>
+                    <td>{{item.xxxxx}}</td>
+                    <td>{{item.xxxxx}}</td>
+                    <td>
+                        <div class="col-lg-6">
+                            <button class="form-control btn btn-primary" ng-click="editar(item)">
+                                Editar
+                                <span class="fa fa-pencil-square-o"></span>
+                            </button>
+                        </div>
+                        <div class="col-lg-6">
+                            <button class="form-control btn btn-danger" ng-click="excluir(item)">
+                                Excluir
+                                <span class="fa fa-ban"></span>
+                            </button>
+                        </div>
 
-                </td>
-            </tr>
+                    </td>
+                </tr>
             </tbody>
         </table>
     </div>
+
+    @Html.Partial("_form")
 </div>
 
 @section Scripts {

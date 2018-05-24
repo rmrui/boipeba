@@ -5,6 +5,9 @@ namespace Boipeba.Web.Controllers
 {
     public class BaseController: Controller, IBoipebaController
     {
-        
+        public JsonResult Done()
+        {
+            return Json(new { }, "text/html");
+        }
     }
 }

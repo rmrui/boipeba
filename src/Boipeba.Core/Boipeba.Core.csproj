@@ -116,13 +116,14 @@
     <Compile Include="Infra\NHibernate\TransactionInterceptor.cs" />
     <Compile Include="Infra\NHibernate\XmlType.cs" />
     <Compile Include="Infra\Services\TripleDESEncryptionService.cs" />
+    <Compile Include="Modulos\Cadastro\Map\StatusMap.cs" />
+    <Compile Include="Modulos\Cadastro\Repositories\StatusRepository.cs" />
+    <Compile Include="Modulos\Cadastro\Status.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Modulos\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

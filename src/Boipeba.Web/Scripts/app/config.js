@@ -13,6 +13,6 @@
     }
 
     angular
-        .module("scsi.global")
+        .module("boipeba")
         .config(config);
 })();

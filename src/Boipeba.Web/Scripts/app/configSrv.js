@@ -82,6 +82,6 @@
     }
 
     angular
-        .module("scsi.global")
+        .module("boipeba")
         .factory("configSrv", configSrv);
 })();

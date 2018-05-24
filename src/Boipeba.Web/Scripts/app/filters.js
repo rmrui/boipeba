@@ -64,7 +64,7 @@
     }
 
     angular
-        .module("scsi.global")
+        .module("boipeba")
         .filter("leftpad", leftpad)
         .filter("simnao", simnao)
         .filter("cpfmask", cpfmask)

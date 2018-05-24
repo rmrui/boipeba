@@ -1,7 +1,7 @@
 ﻿@using System.Web.Optimization
 <br />
 
-<div ng-app="" ng-controller="" ng-init="setup()" class="ng-cloak">
+<div ng-app="boipeba" ng-controller="dashboardCtrl" ng-init="setup()" class="ng-cloak">
 
     <div class="container bg-azul">
         <div class="row">
@@ -13,7 +13,7 @@
     </div>
 
     <div class="container bg-branco">
-        Bem vindo!
+        Bem vindo! {{msg}}
         <br />
     </div>
 
@@ -21,5 +21,5 @@
 </div>
 
 @section Scripts {
-    @*@Scripts.Render("~/bundles/xxxxxCtrl")*@
+    @Scripts.Render("~/bundles/dashboardCtrl")
 }

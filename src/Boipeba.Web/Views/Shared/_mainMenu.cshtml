@@ -58,17 +58,12 @@
                         Segunda Opção de Menu
                     </a>
                 </li>
-                <li>
-                    <a href="#">
-                        Terceira Opção de Menu
-                    </a>
-                </li>
 
 
-                @*@if (User.IsInRole(SCSI.Core.Auth.Roles.CSI))
+                @if (true /*User.IsInRole(SCSI.Core.Auth.Roles.Admin)*/)
                 {
-                    Html.RenderPartial("_menucsi");
-                }*@
+                    Html.RenderPartial("_menuboipeba");
+                }
 
                 <li id="fat-menu" class="dropdown">
                     <a id="drop3" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">

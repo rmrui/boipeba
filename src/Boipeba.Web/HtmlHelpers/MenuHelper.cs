@@ -37,6 +37,7 @@ namespace Boipeba.Web.HtmlHelpers
         /// </summary>
         public static bool MenuCadastros(this HtmlHelper helder, IPrincipal user)
         {
+            return true;
             return user.IsInRole(Roles.Admin);
         }
     }

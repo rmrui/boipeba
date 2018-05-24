@@ -186,10 +186,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\Bundles\ConfigBundles.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Config\ConfigAreaRegistration.cs" />
+    <Compile Include="Areas\Config\Controllers\StatusController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -207,6 +210,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Config\Scripts\Controllers\statusCtrl.js" />
     <Content Include="Content\bootstrap-checkbox.css" />
     <Content Include="Content\bootstrap-datepicker.css" />
     <Content Include="Content\bootstrap-datepicker.min.css" />
@@ -406,6 +410,10 @@
     <Content Include="fonts\summernote.eot" />
     <Content Include="fonts\summernote.ttf" />
     <Content Include="fonts\summernote.woff" />
+    <Content Include="Areas\Config\Views\web.config" />
+    <Content Include="Areas\Config\Views\Status\Index.cshtml" />
+    <Content Include="Areas\Config\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Config\Views\Status\_form.cshtml" />
     <None Include="Scripts\jquery\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery\jquery-2.2.0.min.js" />
@@ -464,12 +472,13 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\_LoginLayout.cshtml" />
     <Content Include="Views\Shared\_mainMenu.cshtml" />
-    <Content Include="Views\Shared\_menucsi.cshtml" />
+    <Content Include="Views\Shared\_menuBoipeba.cshtml" />
     <Content Include="Views\Home\SignIn.cshtml" />
     <Content Include="Views\Dashboard\Index.cshtml" />
     <Content Include="Views\Default\Index.cshtml" />
     <Content Include="Templates\Views\Empty.cshtml" />
     <Content Include="Templates\Views\SimpleCrud.cshtml" />
+    <Content Include="Templates\Views\_form.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
