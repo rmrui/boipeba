@@ -194,6 +194,7 @@
     <Compile Include="Areas\Config\ConfigAreaRegistration.cs" />
     <Compile Include="Areas\Config\Controllers\CasinhaController.cs" />
     <Compile Include="Areas\Config\Controllers\StatusController.cs" />
+    <Content Include="Areas\Config\Scripts\Tours\statusTour.js" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
