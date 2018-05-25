@@ -4,7 +4,6 @@ using System.DirectoryServices;
 using System.DirectoryServices.AccountManagement;
 using System.Linq;
 using Boipeba.Core.Auth.Exceptions;
-using SCSI.Core.Auth;
 
 namespace Boipeba.Core.Auth
 {

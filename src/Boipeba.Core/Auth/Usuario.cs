@@ -1,5 +1,4 @@
 using System.Security.Principal;
-using SCSI.Core.Auth;
 
 namespace Boipeba.Core.Auth
 {

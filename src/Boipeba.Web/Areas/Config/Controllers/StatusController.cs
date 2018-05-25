@@ -1,10 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Web.Mvc;
-using Boipeba.Core.Auth;
+﻿using System.Web.Mvc;
 using Boipeba.Core.Modulos.Cadastro;
 using Boipeba.Core.Modulos.Cadastro.Repositories;
 using Boipeba.Web.Controllers;
-using NHibernate.Event.Default;
 
 namespace Boipeba.Web.Areas.Config.Controllers
 {

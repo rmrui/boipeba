@@ -192,6 +192,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Config\ConfigAreaRegistration.cs" />
+    <Compile Include="Areas\Config\Controllers\CasinhaController.cs" />
     <Compile Include="Areas\Config\Controllers\StatusController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
@@ -210,6 +211,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Config\Scripts\Controllers\casinhaCtrl.js" />
     <Content Include="Areas\Config\Scripts\Controllers\statusCtrl.js" />
     <Content Include="Content\bootstrap-checkbox.css" />
     <Content Include="Content\bootstrap-datepicker.css" />
@@ -414,6 +416,8 @@
     <Content Include="Areas\Config\Views\Status\Index.cshtml" />
     <Content Include="Areas\Config\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Config\Views\Status\_form.cshtml" />
+    <Content Include="Areas\Config\Views\Casinha\Index.cshtml" />
+    <Content Include="Areas\Config\Views\Casinha\_form.cshtml" />
     <None Include="Scripts\jquery\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery\jquery-2.2.0.min.js" />

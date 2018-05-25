@@ -9,7 +9,6 @@ using System.Web.Routing;
 using Boipeba.Core;
 using Boipeba.Core.Auth.Services;
 using Boipeba.Web.Infra;
-using SCSI.Web.Infra;
 using IDependencyResolver = System.Web.Http.Dependencies.IDependencyResolver;
 
 

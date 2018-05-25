@@ -1,6 +1,5 @@
 ﻿using Boipeba.Core.Auth.Exceptions;
 using Boipeba.Core.Domain.Services;
-using SCSI.Core.Auth;
 
 namespace Boipeba.Core.Auth.Services
 {
@@ -14,8 +13,7 @@ namespace Boipeba.Core.Auth.Services
         /// </summary>
         /// <param name="id">Matricula</param>
         /// <param name="membro">Usuario membro</param>
-        /// <param name="csi">Usuário CSI</param>
-        string[] FindRolesFor(int id, bool membro, bool csi);
+        string[] FindRolesFor(int id, bool membro);
     }
 
     /// <summary>
@@ -38,13 +36,12 @@ namespace Boipeba.Core.Auth.Services
         /// </summary>
         /// <param name="id">Matricula</param>
         /// <param name="membro">Usuário membro</param>
-        /// <param name="csi">Usuário CSI</param>
-        public string[] FindRolesFor(int id, bool membro, bool csi)
+        public string[] FindRolesFor(int id, bool membro)
         {
-            return membro? MembroRoles(id) : ServidorRoles(id, csi);
+            return membro? MembroRoles(id) : ServidorRoles(id);
         }
 
-        private string[] ServidorRoles(int id, bool csi)
+        private string[] ServidorRoles(int id)
         {
             return new[] {Roles.Servidor};
         }

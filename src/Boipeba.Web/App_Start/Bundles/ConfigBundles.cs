@@ -9,6 +9,8 @@ namespace Boipeba.Web.Bundles
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/statusCtrl").Include($"{Path}/statusCtrl.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/casinhaCtrl").Include($"{Path}/casinhaCtrl.js"));
         }
     }
 }

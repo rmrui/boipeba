@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Web.Mvc;
 using Boipeba.Core.Domain.Services;
-using SCSI.Core.Auth;
 
 namespace Boipeba.Core.Auth.Services
 {

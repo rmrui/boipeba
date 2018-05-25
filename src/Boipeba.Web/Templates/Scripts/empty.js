@@ -8,6 +8,6 @@
     }
     
     angular
-        .module("scsi.modulo")
+        .module("boipeba")
         .controller("controllerCtrl", controllerCtrl);
 })();

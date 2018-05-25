@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http.Dependencies;
-using Boipeba.Web.Infra;
 using Castle.Windsor;
+
 #pragma warning disable 1591
 
-namespace SCSI.Web.Infra
+namespace Boipeba.Web.Infra
 {
     public class WindsorHttpDependencyResolver : IDependencyResolver
     {

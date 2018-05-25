@@ -4,12 +4,12 @@ using NHibernate;
 
 namespace Boipeba.Core.Modulos.Cadastro.Repositories
 {
-    public interface IStatusRepository: ICrudRepository<Status, long>
+    public interface IStatusRepository : ICrudRepository<Status, long>
     {
         IList<Status> FindAll();
     }
 
-    public class StatusRepository: DefaultRepository<Status, long>, IStatusRepository
+    public class StatusRepository : DefaultRepository<Status, long>, IStatusRepository
     {
         public StatusRepository(ISession session) : base(session)
         {

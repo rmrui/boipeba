@@ -105,6 +105,8 @@
     <Compile Include="DefaultContainer.cs" />
     <Compile Include="Domain\Controller\IBoipebaController.cs" />
     <Compile Include="Domain\Model\IIdentifiable.cs" />
+    <Compile Include="Modulos\Cadastro\Map\CasinhaMap.cs" />
+    <Compile Include="Modulos\Cadastro\Repositories\CasinhaRepository.cs" />
     <Compile Include="Domain\Repositories\DefaultRepository.cs" />
     <Compile Include="Domain\Repositories\ICrudRepository.cs" />
     <Compile Include="Domain\Repositories\IRepository.cs" />
@@ -116,6 +118,7 @@
     <Compile Include="Infra\NHibernate\TransactionInterceptor.cs" />
     <Compile Include="Infra\NHibernate\XmlType.cs" />
     <Compile Include="Infra\Services\TripleDESEncryptionService.cs" />
+    <Compile Include="Modulos\Cadastro\Casinha.cs" />
     <Compile Include="Modulos\Cadastro\Map\StatusMap.cs" />
     <Compile Include="Modulos\Cadastro\Repositories\StatusRepository.cs" />
     <Compile Include="Modulos\Cadastro\Status.cs" />

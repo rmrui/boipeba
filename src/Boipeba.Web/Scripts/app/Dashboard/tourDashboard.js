@@ -9,8 +9,8 @@
             element: ".tour-ajuda",
             placement: "auto",
             backdrop: true,
-            title: "Bem vindo ao Portal CSI",
-            content: "<strong><p>Agradecemos a utilização do novo Portal CSI.</p></strong>" +
+            title: "Bem vindo ao Tramite",
+            content: "<strong><p>Agradecemos a utilização.</p></strong>" +
                 "<p>Esta ajuda interativa pode ser acionada neste botão indicado a qualquer momento. Utilize os botões de setas para navegar no tutorial ou 'fechar' para encerrar.</p>" +
                 "<p>Caso possua alguma dúvida na utilização das funcionalidades, clique na Ajuda Interativa para obter dicas contextualizadas à pagina acessada.</p>"
         },

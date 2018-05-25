@@ -1,13 +1,11 @@
 ﻿#pragma warning disable 1591
 
-using System.Collections.Generic;
 using System.Linq;
 using System.Security.Principal;
 using System.Web;
-using Boipeba.Core.Auth;
 using Castle.Windsor;
 
-namespace SCSI.Core.Auth
+namespace Boipeba.Core.Auth
 {
     public static class Roles
     {

@@ -6,7 +6,6 @@ using System.Web.Security;
 using Boipeba.Core.Auth.Exceptions;
 using Boipeba.Core.Domain.Services;
 using Boipeba.Core.Infra.Services;
-using SCSI.Core.Auth;
 
 namespace Boipeba.Core.Auth.Services
 {
@@ -95,10 +94,10 @@ namespace Boipeba.Core.Auth.Services
             {
                 //ValidateMembro(id);
 
-                return _roleService.FindRolesFor(id, true, false);
+                return _roleService.FindRolesFor(id, true);
             }
 
-            var roles = _roleService.FindRolesFor(id, false, false);
+            var roles = _roleService.FindRolesFor(id, false);
 
             return roles;
         }
@@ -152,7 +151,7 @@ namespace Boipeba.Core.Auth.Services
             
         //    if (usuario.IsMembro)
         //    {
-        //        var roles = ValidateAccess(usuario.Matricula, true, usuario.IsCSI);
+        //        var roles = ValidateAccess(usuario.Matricula, true);
 
         //        if (roles.Length == 0)
         //            throw new Exception("Refazer Login.");
@@ -171,7 +170,7 @@ namespace Boipeba.Core.Auth.Services
 
         //    if (!usuario.IsExterno)
         //    {
-        //        var roles = ValidateAccess(usuario.Matricula, false, usuario.IsCSI);
+        //        var roles = ValidateAccess(usuario.Matricula, false);
 
         //        if (roles.Length == 0)
         //            throw new Exception("Refazer Login.");

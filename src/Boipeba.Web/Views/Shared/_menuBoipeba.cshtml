@@ -1,4 +1,5 @@
 ﻿@using Boipeba.Web.HtmlHelpers
+@using Roles = Boipeba.Core.Auth.Roles
 <li id="fat-menu" class="dropdown">
     <a id="drop3" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
         <span class="fa fa-cogs text-primary"></span>
@@ -10,7 +11,7 @@
     </a>
     <ul class="dropdown-menu" aria-labelledby="drop3">
 
-        @if (User.IsInRole(SCSI.Core.Auth.Roles.SuperAdmin))
+        @if (User.IsInRole(Roles.SuperAdmin))
         {
             <li class="dropdown-submenu">
                 <a tabindex="-1" href="#" class="text-danger">Infra</a>

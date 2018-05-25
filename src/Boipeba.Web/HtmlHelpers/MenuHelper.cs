@@ -1,7 +1,7 @@
 ﻿using System.Security.Principal;
 using System.Web;
 using System.Web.Mvc;
-using SCSI.Core.Auth;
+using Boipeba.Core.Auth;
 
 namespace Boipeba.Web.HtmlHelpers
 {

@@ -1,5 +1,4 @@
 ﻿@using Boipeba.Core.Auth
-@using SCSI.Core.Auth
 <nav class="navbar navbar-default navbar-cion">
     <div class="container">
         <div class="navbar-header">
@@ -60,7 +59,7 @@
                 </li>
 
 
-                @if (true /*User.IsInRole(SCSI.Core.Auth.Roles.Admin)*/)
+                @if (true /*User.IsInRole(Boipeba.Core.Auth.Roles.Admin)*/)
                 {
                     Html.RenderPartial("_menuboipeba");
                 }

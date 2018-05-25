@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.DirectoryServices.AccountManagement;
 using Boipeba.Core.Auth.Exceptions;
-using SCSI.Core.Auth;
 
 namespace Boipeba.Core.Auth.Services
 {

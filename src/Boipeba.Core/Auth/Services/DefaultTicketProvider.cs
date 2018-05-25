@@ -3,7 +3,6 @@ using System.Web;
 using System.Web.Script.Serialization;
 using System.Web.Security;
 using Boipeba.Core.Domain.Services;
-using SCSI.Core.Auth;
 
 namespace Boipeba.Core.Auth.Services
 {
