@@ -1,12 +1,13 @@
 ﻿(function () {
     "use strict";
 
-    statusCtrl.$inject = ["$scope", "$http", "$filter", "toastr", "configSrv"];
+    statusCtrl.$inject = ["$scope", "$http", "$filter", "toastr", "configSrv", "statusTour"];
     
-    function statusCtrl($scope, $http, $filter, toastr, configSrv) {
+    function statusCtrl($scope, $http, $filter, toastr, configSrv, statusTour) {
 
         $scope.view = {
-            dtOptions: configSrv.getDtOptions("Nenhum registro encontrado")
+            dtOptions: configSrv.getDtOptions("Nenhum registro encontrado"),
+            tour: configSrv.getTour(statusTour)
         };
 
         $scope.viewdata = {

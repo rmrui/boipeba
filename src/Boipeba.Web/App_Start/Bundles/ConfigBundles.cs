@@ -8,7 +8,11 @@ namespace Boipeba.Web.Bundles
 
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.Add(new ScriptBundle("~/bundles/statusCtrl").Include($"{Path}/statusCtrl.js"));
+            bundles.Add(new ScriptBundle("~/bundles/statusCtrl")
+                .Include(
+                $"{Path}/statusCtrl.js",
+                $"~/Areas/Config/Scripts/Tours/statusTour.js"
+                ));
         }
     }
 }
