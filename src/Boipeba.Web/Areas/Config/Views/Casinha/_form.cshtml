@@ -25,13 +25,18 @@
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label for="Numero">Número</label>
-                                <input type="number" class="form-control" width="100" id="Numero" name="Numero" ng-model="viewdata.casinha.Numero" />
+                                <input type="text" class="form-control" width="100" id="Numero" name="Numero" ng-model="viewdata.casinha.Numero" />
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label for="DataCasinha">Data da Casinha</label>
-                                <input type="text" class="form-control datepicker" id="DataCasinha" name="DataCasinha" ng-model="viewdata.casinha.Data" />
+                                <div class="input-group date" data-provide="datepicker">
+                                    <input type="text" class="form-control" id="DataCasinha" name="DataCasinha" ng-model="viewdata.casinha.Data"/>
+                                    <div class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

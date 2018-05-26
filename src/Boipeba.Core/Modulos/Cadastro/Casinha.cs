@@ -11,7 +11,7 @@ namespace Boipeba.Core.Modulos.Cadastro
         
         public virtual string Rua { get; set; }
 
-        public virtual int? Numero { get; set; }
+        public virtual string Numero { get; set; }
 
         public virtual DateTime? Data { get; set; }
     }
