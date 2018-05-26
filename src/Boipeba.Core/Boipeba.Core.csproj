@@ -106,6 +106,8 @@
     <Compile Include="Domain\Controller\IBoipebaController.cs" />
     <Compile Include="Domain\Model\IIdentifiable.cs" />
     <Compile Include="Modulos\Cadastro\Map\CasinhaMap.cs" />
+    <Compile Include="Modulos\Cadastro\Map\SpacecraftMap.cs" />
+    <Compile Include="Modulos\Cadastro\Map\PlayerMap.cs" />
     <Compile Include="Modulos\Cadastro\Repositories\CasinhaRepository.cs" />
     <Compile Include="Domain\Repositories\DefaultRepository.cs" />
     <Compile Include="Domain\Repositories\ICrudRepository.cs" />
@@ -121,6 +123,8 @@
     <Compile Include="Modulos\Cadastro\Casinha.cs" />
     <Compile Include="Modulos\Cadastro\Map\StatusMap.cs" />
     <Compile Include="Modulos\Cadastro\Repositories\StatusRepository.cs" />
+    <Compile Include="Modulos\Cadastro\Player.cs" />
+    <Compile Include="Modulos\Cadastro\Spacecraft.cs" />
     <Compile Include="Modulos\Cadastro\Status.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

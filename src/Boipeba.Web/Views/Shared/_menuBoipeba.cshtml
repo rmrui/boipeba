@@ -27,17 +27,6 @@
                             <span class="fa fa-lock text-danger fa-fw"></span><span class="text-danger">&nbsp;Configuração de Acesso</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="@Url.Action("", "AuditoriaAcesso", new { area = "NTI" })">
-                            <span class="fa fa-calendar text-danger fa-fw"></span><span class="text-danger">&nbsp;Auditoria de Acesso</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="@Url.Action("", "BackgroundJob", new { area = "NTI" })">
-                            <span class="fa fa-tasks text-danger fa-fw"></span><span class="text-danger">&nbsp;Background Jobs</span>
-                        </a>
-                    </li>
-
                 </ul>
             </li>
         }
@@ -50,6 +39,16 @@
                     <li>
                         <a href="@Url.Action("", "Status", new { area = "Config" })">
                             <span class="fa fa-tasks fa-fw"></span><span>&nbsp;Situações</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("", "Player", new { area = "Config" })">
+                            <span class="fa fa-user fa-fw"></span><span>&nbsp;Jogadores</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("", "Spacecraft", new { area = "Config" })">
+                            <span class="fa fa-space-shuttle fa-fw"></span><span>&nbsp;Naves</span>
                         </a>
                     </li>
                 </ul>

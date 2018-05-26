@@ -1,4 +1,6 @@
-﻿using System.Web.Mvc;
+﻿using System.Net;
+using System.Web.Http;
+using System.Web.Mvc;
 using Boipeba.Core.Domain.Controller;
 
 namespace Boipeba.Web.Controllers
@@ -8,6 +10,13 @@ namespace Boipeba.Web.Controllers
         public JsonResult Done()
         {
             return Json(new { }, "text/html");
+        }
+
+        public JsonResult JsonError(string msg = "Serviço indisponível")
+        {
+            Response.StatusCode = (int) HttpStatusCode.InternalServerError;
+
+            return Json(new {message = msg});
         }
     }
 }

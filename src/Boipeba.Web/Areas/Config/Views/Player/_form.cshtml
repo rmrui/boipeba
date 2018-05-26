@@ -1,0 +1,47 @@
+﻿<div class="modal fade" id="formModal">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Jogador</h4>
+            </div>
+            <div class="modal-body">
+                <form name="simpleForm" ng-validate="{}">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="Nome">Nome</label>
+                                <input type="text" class="form-control required" width="100" id="Nome" name="Nome" ng-model="viewdata.model.Name" />
+                            </div>
+
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="Position">Posição</label>
+                                <input type="text" class="form-control required" width="100" id="Position" name="Position" ng-model="viewdata.model.Position" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="Team">Time</label>
+                                <input type="text" class="form-control required" width="100" id="Team" name="Team" ng-model="viewdata.model.Team" />
+                            </div>
+
+                        </div>
+                        <div class="col-lg-6">
+
+                        </div>
+                    </div>
+                </form>
+                
+                <loading target="view.loading"></loading>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-primary" ng-click="salvar(simpleForm)">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>

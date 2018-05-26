@@ -1,0 +1,79 @@
+﻿@using System.Web.Mvc.Html
+@using System.Web.Optimization
+
+<br />
+
+<div ng-app="boipeba" ng-controller="simpleCrudCtrl" ng-init="setup('/Config/Spacecraft')" class="ng-cloak">
+
+    <div class="container bg-azul">
+        <div class="row">
+            <div class="col-xs-10">Cadastro de Naves</div>
+            <div class="col-xs-2 text-right">
+                <ajuda></ajuda>
+            </div>
+        </div>
+    </div>
+
+    <div class="container bg-branco">
+        <br />
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Opções</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-lg-3 pull-right">
+                                <button class="form-control btn btn-success ladda-button" data-style="expand-left" ng-click="novo()">Novo</button>        
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>                
+            </div>
+        </div>
+        
+        <hr/>
+        
+        <loading target="view.loading"></loading>
+
+        <table datatable="ng" dt-options="view.dtOptions" class="table table-hover">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Agencia</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in viewdata.list track by $index">
+                    <td>{{item.Id}}</td>
+                    <td>{{item.Name}}</td>
+                    <td>{{item.Agency}}</td>
+                    <td>
+                        <div class="col-lg-6">
+                            <button class="form-control btn btn-primary" ng-click="editar(item)">
+                                Editar
+                                <span class="fa fa-pencil-square-o"></span>
+                            </button>
+                        </div>
+                        <div class="col-lg-6">
+                            <button class="form-control btn btn-danger" ng-click="excluir(item)">
+                                Excluir
+                                <span class="fa fa-pencil-square-o"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    @Html.Partial("_form")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/simpleCrudCtrl")
+}

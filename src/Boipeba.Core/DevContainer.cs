@@ -7,6 +7,7 @@ using Boipeba.Core.Auth.Services;
 using Boipeba.Core.Domain.Repositories;
 using Boipeba.Core.Domain.Services;
 using Boipeba.Core.Infra.NHibernate;
+using Boipeba.Core.Modulos.Cadastro;
 using Castle.Core;
 using Castle.Facilities.Startable;
 using Castle.MicroKernel.Registration;
@@ -144,10 +145,7 @@ namespace Boipeba.Core
         }
 
         #region SQLite Setup
-
-
-
-
+        
         public class SQLiteSchemaService : IStartable
         {
             private readonly Configuration _config;
@@ -188,7 +186,16 @@ namespace Boipeba.Core
             {
                 using (var session = _sessionFactory.OpenSession())
                 {
+                    var player1 = new Player {Name = "Aaron Rogers", Position = "QB", Team = "Green Bay Packers"};
+                    var player2 = new Player { Name = "Tom Brady", Position = "QB", Team = "New England Patriots" };
 
+                    var ship1 = new Spacecraft {Name = "Apollo", Agency = "NASA"};
+                    var ship2 = new Spacecraft { Name = "Soyuz", Agency = "Roscosmos" };
+
+                    session.Save(player1);
+                    session.Save(player2);
+                    session.Save(ship1);
+                    session.Save(ship2);
                 }
             }
 

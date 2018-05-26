@@ -193,11 +193,14 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Config\ConfigAreaRegistration.cs" />
     <Compile Include="Areas\Config\Controllers\CasinhaController.cs" />
+    <Compile Include="Areas\Config\Controllers\SpacecraftController.cs" />
+    <Compile Include="Areas\Config\Controllers\PlayerController.cs" />
     <Compile Include="Areas\Config\Controllers\StatusController.cs" />
     <Content Include="Areas\Config\Scripts\Tours\statusTour.js" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SimpleCrudController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -381,6 +384,7 @@
     <Content Include="Scripts\app\app.js" />
     <Content Include="Scripts\app\config.js" />
     <Content Include="Scripts\app\configSrv.js" />
+    <Content Include="Scripts\app\crud\simpleCrudCtrl.js" />
     <Content Include="Scripts\app\Dashboard\dashboardCtrl.js" />
     <Content Include="Scripts\app\Dashboard\tourDashboard.js" />
     <Content Include="Scripts\app\directives.js" />
@@ -419,6 +423,10 @@
     <Content Include="Areas\Config\Views\Status\_form.cshtml" />
     <Content Include="Areas\Config\Views\Casinha\Index.cshtml" />
     <Content Include="Areas\Config\Views\Casinha\_form.cshtml" />
+    <Content Include="Areas\Config\Views\Player\_form.cshtml" />
+    <Content Include="Areas\Config\Views\Player\Index.cshtml" />
+    <Content Include="Areas\Config\Views\Spacecraft\_form.cshtml" />
+    <Content Include="Areas\Config\Views\Spacecraft\Index.cshtml" />
     <None Include="Scripts\jquery\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery\jquery-2.2.0.min.js" />
