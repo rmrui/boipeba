@@ -243,6 +243,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Config\container-tst.config" />
     <Content Include="images\captcha.png" />
+    <Content Include="images\favicon_2.png" />
     <Content Include="images\loadingsm.gif" />
     <Content Include="images\LogoCinza.png" />
     <Content Include="images\logo_mp.jpg" />
@@ -417,7 +418,6 @@
     <Content Include="Areas\Config\Views\Player\Index.cshtml" />
     <Content Include="Areas\Config\Views\Spacecraft\_form.cshtml" />
     <Content Include="Areas\Config\Views\Spacecraft\Index.cshtml" />
-    <None Include="Properties\PublishProfiles\Desenvolvimento.pubxml" />
     <None Include="Scripts\jquery\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery\jquery-2.2.0.min.js" />
@@ -487,6 +487,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Filters\" />
+    <Folder Include="Properties\PublishProfiles\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
