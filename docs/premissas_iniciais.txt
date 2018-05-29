@@ -1,0 +1,41 @@
+------------- Fluxo? ------------------
+
+1) Protocolar - iniciar o processo com capa referenciada com anexos os documentos importantes para iniciar o processo em questão (diárias, pedido de férias, licenças,....) assinado todas as páginas diferentes da capa para garantir a autenticidade;
+2) Passar para o interessado;
+3) O interessado receber o procedimento para se pronunciar e assinar (com assinatura digital em todas as novas páginas juntadas ou preenchidas) e enviar para o próximo interessado;
+4) seguir o ciclo até o último movimento para o arquivo.
+
+A qualquer momento posso ver o pdf do movimento 1, 2, 3, 4... ou o documento todo devidamente carimbado, paginado e assinado.
+
+------------ Comandos -------------------
+
+VER PROCESSO | TRAMITAR | BAIXAR 
+
+VER TRAMITAÇÃO: ANTERIOR (SE NÃO FOR A PRIMEIRA) | PRÓXIMA (SE NÃO FOR A ÚLTIMA)
+
+INCLUIR ANEXO
+
+ENCAMINHAR CÓPIA: ESTA TRAMITAÇÃO | TODO PROCESSO
+
+ASSINAR
+
+SALVAR EDIÇÕES
+
+ASSISTENTE JURÍDICO
+
+ASSISTENTE MATEMÁTICO
+
+------------ Campos -------------------
+
+NÚMERO (vindo do sistema SIGA)
+DATA (hoje por default)
+INTERESSADO (pessoa que fez o pedido/reclamação)
+ÓRGÃO/UNIDADE INTERESSADO (órgão da pessoa interessada, se particular, "a sociedade")
+ASSUNTO (com autocomplete e botão "+" para adicionar temas(*))
+SUBASSUNTO (quando houver)
+SUBSUBASSUNTO (...) (quando houver)
+RESUMO DA TRAMITAÇÃO: 
+1) Primeira pessoa que juntou ou se pronunciou;
+2) Segunda pessoa que juntou ou se pronunciou;
+3 ) Terceira pessoa que juntou ou se pronunciou; ....
+(*) na verdade submeter a COGI para acréscimo na árvore de assuntos do MPBA)
