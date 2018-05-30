@@ -1,4 +1,9 @@
-------------- Fluxo? ------------------
+------------- Premissas -------------
+Os procedimentos hoje correm tanto no simp como no siga. no futuro talvez seja possível uniformizá-los e vir do próprio sistema novo. Então deve ser possível gerar um novo número ou usar algum digitando ou puxando de outro sistema.
+Cada tipo de documento pode ter campos específicos para gravar na base de dados pertinente. Os campos para tramitar são os comuns usados nas capas processuais.
+O tipo de documento pode determinar o fluxo de trabalho.
+
+------------- Fluxo? -------------
 
 1) Protocolar - iniciar o processo com capa referenciada com anexos os documentos importantes para iniciar o processo em questão (diárias, pedido de férias, licenças,....) assinado todas as páginas diferentes da capa para garantir a autenticidade;
 2) Passar para o interessado;
@@ -25,7 +30,7 @@ ASSISTENTE JURÍDICO
 
 ASSISTENTE MATEMÁTICO
 
------------- Campos -------------------
+------------ Campos para tramitar -------------------
 
 NÚMERO (vindo do sistema SIGA)
 DATA (hoje por default)
@@ -39,3 +44,6 @@ RESUMO DA TRAMITAÇÃO: 
 2) Segunda pessoa que juntou ou se pronunciou;
 3 ) Terceira pessoa que juntou ou se pronunciou; ....
 (*) na verdade submeter a COGI para acréscimo na árvore de assuntos do MPBA)
+
+------------- Inferências -------------
+Campos para tramitar = campos do processo/procedimento/solicitação (SIMP/SIGA)?
