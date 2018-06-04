@@ -111,6 +111,8 @@ namespace Boipeba.Web
 
             bundles.Add(new ScriptBundle("~/bundles/dashboardCtrl").Include("~/Scripts/app/Dashboard/dashboardCtrl.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/simpleCrudCtrl").Include("~/Scripts/app/crud/solicitarDiariaCtrl.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/simpleCrudCtrl").Include("~/Scripts/app/crud/simpleCrudCtrl.js"));
 
             ConfigBundles.RegisterBundles(bundles);

@@ -201,6 +201,7 @@
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SimpleCrudController.cs" />
+    <Compile Include="Controllers\TramitacaoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -383,6 +384,7 @@
     <Content Include="Scripts\app\jquery.config.js" />
     <Content Include="Scripts\app\jquerySetupMasks.js" />
     <Content Include="Scripts\app\Login\loginManager.js" />
+    <Content Include="Scripts\app\Tramitacao\solicitarDiaria.js" />
     <Content Include="Scripts\bootstrap\bootstrap-checkbox.js" />
     <Content Include="Scripts\bootstrap\bootstrap-datepicker.js" />
     <Content Include="Scripts\bootstrap\bootstrap-datepicker.min.js" />
@@ -483,6 +485,7 @@
     <Content Include="Templates\Views\Empty.cshtml" />
     <Content Include="Templates\Views\SimpleCrud.cshtml" />
     <Content Include="Templates\Views\_form.cshtml" />
+    <Content Include="Views\Tramitacao\Diaria\SolicitarDiaria.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

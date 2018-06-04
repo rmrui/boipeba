@@ -1,0 +1,137 @@
+﻿@using System.Web.Optimization
+<br />
+
+<div ng-controller="solicitarDiaria" ng-app="boipeba" class="ng-cloak">
+
+    <div class="container bg-azul">
+        <div class="row">
+            <div class="col-xs-10">Solicitar Diária</div>
+            <div class="col-xs-2 text-right">
+                <a href="#" class="button-tour" style="color: white; display: none"><span class="fa fa-question-circle"></span><span>&nbsp;Ajuda Interativa</span></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container bg-branco">
+        <br />
+        <div class="row">
+            <div class="col-xs-12">
+                <form name="solicitarDiaria" ng-validate="{}">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h5>Diárias Administrativas</h5>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+
+                                <div class="form-group col-xs-10">
+                                    <label for="comarca">Comarca</label>
+                                    <input type="text" class="form-control" name="comarca" id="comarca" disabled="disabled" ng-model="viewdata.model.Comarca" />
+                                </div>
+
+                                <div class="form-group col-xs-2">
+                                    <label for="data">Data</label>
+                                    <input type="text" class="form-control" name="data" id="data" disabled="disabled" ng-model="viewdata.model.Data" />
+                                </div>
+
+                                <div class="form-group col-xs-12">
+                                    <label for="tipoDiaria">Tipo de Diária</label>
+                                    <input type="text" class="form-control" name="tipoDiaria" id="tipoDiaria" ng-model="viewdata.model.TipoDiaria" />
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h5>Beneficiário</h5>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="form-group col-xs-12">
+                                    <label for="matricula">Matrícula</label>
+                                    <input type="text" class="form-control" name="matricula" id="matricula" ng-model="viewdata.model.Matricula" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-xs-12">
+                                    <label for="email">E-mail</label>
+                                    <input type="text" class="form-control" id="email" name="email" ng-model="viewdata.model.Email" placeholder="mpba.mp.br">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-xs-8">
+                                    <label for="nomeCompleto">Nome Completo</label>
+                                    <input type="text" class="form-control" id="nomeCompleto" name="nomeCompleto" disabled="disabled" ng-model="viewdata.model.NomeCompleto">
+                                </div>
+                                <div class="form-group col-xs-4">
+                                    <label for="cpf">CPF</label>
+                                    <input type="text" class="form-control" id="cpf" name="cpf" disabled="disabled" ng-model="viewdata.model.CPF">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-xs-8">
+                                    <label for="cargoEfetivo">Cargo Efetivo</label>
+                                    <input type="text" class="form-control" id="cargoEfetivo" name="cargoEfetivo" disabled="disabled" ng-model="viewdata.model.CargoEfetivo">
+                                </div>
+                                <div class="form-group col-xs-4">
+                                    <label for="classeNivel">Classe/Nível</label>
+                                    <input type="text" class="form-control" id="classeNivel" name="classeNivel" disabled="disabled" ng-model="viewdata.model.ClasseNivel">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-xs-8">
+                                    <label for="cargoComissao">Cargo Comissão / de Confiança</label>
+                                    <input type="text" class="form-control" id="cargoComissao" name="cargoComissao" disabled="disabled" ng-model="viewdata.model.CargoComissao">
+                                </div>
+                                <div class="form-group col-xs-4">
+                                    <label class="control-label" for="simboloCargo">Símbolo</label>
+                                    <input type="text" class="form-control" id="simboloCargo" name="simboloCargo" disabled="disabled" ng-model="viewdata.model.SimboloCargo">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-xs-12">
+                                    <label for="ouSolicitante">Órgão/Unidade Solicitante</label>
+                                    <input type="text" class="form-control" id="ouSolicitante" name="ouSolicitante" disabled="disabled" ng-model="viewdata.model.OuSolicitante">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-xs-12">
+                                    <label for="enderecoResidencial">Endereço Residencial</label>
+                                    <input type="text" class="form-control" id="enderecoResidencial" name="enderecoResidencial" disabled="disabled" ng-model="viewdata.model.EnderecoResidencial">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-xs-12">
+                                    <label for="bairroResidencial">Bairro</label>
+                                    <input type="text" class="form-control" id="bairroResidencial" name="bairroResidencial" disabled="disabled" ng-model="viewdata.model.BairroResidencial">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-xs-12">
+                                    <label for="cidadeResidencial">Cidade</label>
+                                    <input type="text" class="form-control" id="cidadeResidencial" name="cidadeResidencial" disabled="disabled" ng-model="viewdata.model.CidadeResidencial">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Unidade Gestora</div>
+                        <div class="panel-body">
+                            <div class="row">
+
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <br />
+    </div>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/solicitarDiariaCtrl")
+    }
