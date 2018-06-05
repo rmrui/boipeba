@@ -384,7 +384,7 @@
     <Content Include="Scripts\app\jquery.config.js" />
     <Content Include="Scripts\app\jquerySetupMasks.js" />
     <Content Include="Scripts\app\Login\loginManager.js" />
-    <Content Include="Scripts\app\Tramitacao\solicitarDiaria.js" />
+    <Content Include="Scripts\app\Tramitacao\solicitarDiariaCtrl.js" />
     <Content Include="Scripts\bootstrap\bootstrap-checkbox.js" />
     <Content Include="Scripts\bootstrap\bootstrap-datepicker.js" />
     <Content Include="Scripts\bootstrap\bootstrap-datepicker.min.js" />

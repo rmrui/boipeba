@@ -1,0 +1,2 @@
+tProcessoDiaria
+tDetalheDiaria
