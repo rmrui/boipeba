@@ -6,11 +6,15 @@
     function solicitarDiariaCtrl($scope) {
         $scope.viewdata = {
             model: {
-                SituacaoRisco: false
+                SituacaoRisco: false,
+                AlimentacaoHospedagem: false
             }
         };
-    }
 
+        $scope.abrirModalBeneficiario = function() {
+            $("#modalExibirBeneficiario").modal("show");
+        }
+    }
 
     angular
         .module("boipeba")

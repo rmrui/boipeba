@@ -486,6 +486,7 @@
     <Content Include="Templates\Views\SimpleCrud.cshtml" />
     <Content Include="Templates\Views\_form.cshtml" />
     <Content Include="Views\Tramitacao\Diaria\SolicitarDiaria.cshtml" />
+    <Content Include="Views\Tramitacao\Modals\_exibirBeneficiario.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

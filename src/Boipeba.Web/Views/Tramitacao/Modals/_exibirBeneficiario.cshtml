@@ -1,0 +1,71 @@
+﻿<div class="modal fade" id="modalExibirBeneficiario" tabindex="-1" role="dialog" aria-labelledby="modalExibirBeneficiario-label">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="modalExibirBeneficiario-label">Dados do Beneficiário</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="row col-xs-12">
+                        <div class="form-group col-xs-8">
+                            <label for="nomeCompleto">Nome Completo</label>
+                            <input type="text" class="form-control" id="nomeCompleto" name="nomeCompleto" disabled="disabled" ng-model="viewdata.model.Beneficiario.NomeCompleto">
+                        </div>
+                        <div class="form-group col-xs-4">
+                            <label for="cpf">CPF</label>
+                            <input type="text" class="form-control" id="cpf" name="cpf" disabled="disabled" ng-model="viewdata.model.Beneficiario.CPF">
+                        </div>
+                    </div>
+                    <div class="row  col-xs-12">
+                        <div class="form-group col-xs-8">
+                            <label for="cargoEfetivo">Cargo Efetivo</label>
+                            <input type="text" class="form-control" id="cargoEfetivo" name="cargoEfetivo" disabled="disabled" ng-model="viewdata.model.Beneficiario.CargoEfetivo">
+                        </div>
+                        <div class="form-group col-xs-4">
+                            <label for="classeNivel">Classe/Nível</label>
+                            <input type="text" class="form-control" id="classeNivel" name="classeNivel" disabled="disabled" ng-model="viewdata.model.Beneficiario.ClasseNivel">
+                        </div>
+                    </div>
+                    <div class="row col-xs-12">
+                        <div class="form-group col-xs-8">
+                            <label for="cargoComissao">Cargo Comissão / de Confiança</label>
+                            <input type="text" class="form-control" id="cargoComissao" name="cargoComissao" disabled="disabled" ng-model="viewdata.model.Beneficiario.CargoComissao">
+                        </div>
+                        <div class="form-group col-xs-4">
+                            <label class="control-label" for="simboloCargo">Símbolo</label>
+                            <input type="text" class="form-control" id="simboloCargo" name="simboloCargo" disabled="disabled" ng-model="viewdata.model.Beneficiario.SimboloCargo">
+                        </div>
+                    </div>
+                    <div class="row col-xs-12">
+                        <div class="form-group col-xs-12">
+                            <label for="ouSolicitante">Órgão/Unidade Solicitante</label>
+                            <input type="text" class="form-control" id="ouSolicitante" name="ouSolicitante" disabled="disabled" ng-model="viewdata.model.Beneficiario.OuSolicitante">
+                        </div>
+                    </div>
+                    <div class="row col-xs-12">
+                        <div class="form-group col-xs-12">
+                            <label for="enderecoResidencial">Endereço Residencial</label>
+                            <input type="text" class="form-control" id="enderecoResidencial" name="enderecoResidencial" disabled="disabled" ng-model="viewdata.model.Beneficiario.EnderecoResidencial">
+                        </div>
+                    </div>
+                    <div class="row col-xs-12">
+                        <div class="form-group col-xs-12">
+                            <label for="bairroResidencial">Bairro</label>
+                            <input type="text" class="form-control" id="bairroResidencial" name="bairroResidencial" disabled="disabled" ng-model="viewdata.model.Beneficiario.BairroResidencial">
+                        </div>
+                    </div>
+                    <div class="row col-xs-12">
+                        <div class="form-group col-xs-12">
+                            <label for="cidadeResidencial">Cidade</label>
+                            <input type="text" class="form-control" id="cidadeResidencial" name="cidadeResidencial" disabled="disabled" ng-model="viewdata.model.Beneficiario.CidadeResidencial">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
