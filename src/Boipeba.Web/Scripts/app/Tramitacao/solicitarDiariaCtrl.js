@@ -6,7 +6,8 @@
     function solicitarDiariaCtrl($scope) {
         $scope.viewdata = {
             model: {
-                SituacaoRisco: false
+                SituacaoRisco: false,
+                AlimentacaoHospedagem: false
             }
         };
     }
