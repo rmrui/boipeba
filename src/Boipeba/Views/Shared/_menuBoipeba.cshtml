@@ -1,0 +1,59 @@
+﻿@using Boipeba.HtmlHelpers
+@using Roles = Boipeba.Core.Auth.Roles
+<li id="fat-menu" class="dropdown">
+    <a id="drop3" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+        <span class="fa fa-cogs text-primary"></span>
+        <span>&nbsp;</span>
+
+        @Html.TituloMenu(User)
+
+        <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="drop3">
+
+        @if (User.IsInRole(Roles.SuperAdmin))
+        {
+            <li class="dropdown-submenu">
+                <a tabindex="-1" href="#" class="text-danger">Infra</a>
+                <ul class="dropdown-menu">
+
+                    <li>
+                        <a target="_blank" href="@Url.Action("", "elmah.axd", new { area = "" })">
+                            <span class="fa fa-user-secret text-danger fa-fw"></span><span class="text-danger">&nbsp;Elmah Log</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("", "AuthorizeMap", new { area = "NTI" })">
+                            <span class="fa fa-lock text-danger fa-fw"></span><span class="text-danger">&nbsp;Configuração de Acesso</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        }
+        
+        @if (Html.MenuCadastros(User))
+        {
+            <li class="dropdown-submenu">
+                <a tabindex="-1" href="#" class="text-danger">Configuração</a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="@Url.Action("", "Status", new { area = "Config" })">
+                            <span class="fa fa-tasks fa-fw"></span><span>&nbsp;Situações</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("", "Player", new { area = "Config" })">
+                            <span class="fa fa-user fa-fw"></span><span>&nbsp;Jogadores</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("", "Spacecraft", new { area = "Config" })">
+                            <span class="fa fa-space-shuttle fa-fw"></span><span>&nbsp;Naves</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        }
+
+    </ul>
+</li>

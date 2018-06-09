@@ -1,0 +1,85 @@
+﻿@using Boipeba.Core.Auth
+<nav class="navbar navbar-default navbar-cion">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target="#navbar-collapse-cion" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand brandLogo" href="#">
+                <img src="~/images/mpbaicon.jpg" />
+            </a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-collapse-cion">
+            <ul class="nav navbar-nav">
+                <li class="menu-inicio">
+                    <a href="@Url.Action("Index", "Dashboard", new { area = "" })">
+                        <span class="fa fa-tachometer"></span><span>&nbsp;Início</span>
+                    </a>
+                </li>
+
+                <li id="fat-menu" class="dropdown">
+                    <a id="drop3" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <span class="glyphicon glyphicon-search"></span>
+                        Consultar Tramitações
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="drop3">
+
+                        <li><a href="#"><i class="fa fa-user"></i>&nbsp;&nbsp;&nbsp; Primeiro Item</a></li>
+                        <li><a href="#"><i class="glyphicon glyphicon-list-alt"></i>&nbsp;&nbsp;&nbsp; Outro item</a></li>
+                    </ul>
+                </li>
+
+                <li id="fat-menu" class="dropdown">
+                    <a id="drop3" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+
+                        Cadastrar Tramitações
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="drop3">
+                        <li><a href="/Institucional/Index#moti">Motivações e Objetivos</a></li>
+                        <li><a href="/Institucional/Index#legi">Legislação</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="@Url.Action("SolicitarDiaria", "Tramitacao", new { area = "" })">
+                        Solicitar Diária
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        Segunda Opção de Menu
+                    </a>
+                </li>
+
+
+                @if (true /*User.IsInRole(Boipeba.Core.Auth.Roles.Admin)*/)
+                {
+                    Html.RenderPartial("_menuboipeba");
+                }
+
+                <li id="fat-menu" class="dropdown">
+                    <a id="drop3" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+
+                        <span class="glyphicon glyphicon-user"></span><span>&nbsp;@ViewBag.Username</span>
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="drop3">
+                        <li>
+                            <a href="@Url.Action("SignOut", "Home", new { area = ""})">
+                                <span class="glyphicon glyphicon-log-out"></span><span>&nbsp;Sair</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>

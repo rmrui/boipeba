@@ -5,6 +5,9 @@
     
     function casinhaCtrl($scope, $http, $filter, toastr, configSrv) {
 
+        $scope.DateFormat = "dd/mm/yyyy";
+        $scope.language = "pt-BR";
+
         $scope.view = {
             dtOptions: configSrv.getDtOptions("Nenhum registro encontrado")
         };

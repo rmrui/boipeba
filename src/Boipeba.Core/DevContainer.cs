@@ -77,7 +77,7 @@ namespace Boipeba.Core
                 .Configure(x => x.Interceptors(typeof(TransactionInterceptor)))
                 .Configure(c => c.LifestyleTransient()));
             
-            Register(Component.For<IActiveDirectoryService>().ImplementedBy<ActiveDirectoryService>()
+            Register(Component.For<IActiveDirectoryService>().ImplementedBy<FakeActiveDirectoryService>()
                 .DependsOn(Dependency.OnValue("adConnectionString", adConnectionString))
                 .LifeStyle.Transient);
 

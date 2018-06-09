@@ -92,6 +92,7 @@
     <Compile Include="Auth\Map\AcessoMap.cs" />
     <Compile Include="Auth\Membro.cs" />
     <Compile Include="Auth\Roles.cs" />
+    <Compile Include="Auth\Services\FakeActiveDirectoryService.cs" />
     <Compile Include="Auth\Services\ActiveDirectoryService.cs" />
     <Compile Include="Auth\Services\AuthenticationService.cs" />
     <Compile Include="Auth\Services\ControllerMapService.cs" />

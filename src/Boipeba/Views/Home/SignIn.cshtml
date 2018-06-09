@@ -1,0 +1,110 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtus</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/font-awesome/css")
+    <style>
+        .page-header-boipeba {
+            margin: 0px 0 0px;
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #CACACA;
+            padding-bottom: 0px;
+        }
+        .linha-header {
+            background-color: #1ab394;
+            margin-top: 5px;
+            padding-top: 5px;
+            display: block;
+        }
+        .fullback {
+            background: url('/images/mpba2.jpg') no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            background-size: cover;
+            -o-background-size: cover;
+        }
+    </style>
+</head>
+
+<body class="gray-bg fullback">
+
+<div class="page-header page-header-boipeba">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 text-right pull-left">
+                <img ID="img_logo" Class="img-responsive defaultLogo" src="~/images/logo_mp.jpg" />
+            </div>
+        </div>
+    </div>
+    <div class="linha-header">
+    </div>
+    <div class="clearfix">
+    </div>
+</div>
+
+<div class="loginColumns">
+    <div class="row">
+        <div class="col-lg-offset-3 col-md-6 col-lg-offset-3">
+            <div class="">
+                <form id="loginform" action="~/Home/SignIn" method="post" role="form" novalidate="novalidate">
+                    @Html.AntiForgeryToken()
+                    <div class="ibox-title"><h5>Informe Usuário e Senha</h5>
+                    </div>
+                    <div class="ibox-content">
+
+                        @if (ViewData.ModelState.Any(x => x.Value.Errors.Any()))
+                        {
+                            <div class="alert alert-danger alert-dismissible" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                @Html.ValidationSummary()
+                            </div>
+                        }
+
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <span class="glyphicon glyphicon-user"></span>
+                                </div>
+                                <input typ="text" Id="Username" name="Username" class="form-control required" MaxLength="100" placeholder="Usuário"
+                                       TabIndex="1" required="required"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <span class="glyphicon glyphicon-lock"></span>
+                                </div>
+                                <input type="password" name="Password" class="form-control required" placeholder="Senha" TabIndex="2" required="required"/>
+                            </div>
+                        </div>
+                        <div class="checkbox" id="rememberMeDiv">
+                            <label>
+                                <input type="checkbox" id="RememberMe" name="RememberMe" value="true"> Permanecer autenticado neste navegador.
+                            </label>
+                        </div>
+
+                        <button ID="btnAcessar" class="btn btn-primary btn-block">
+                            Entrar
+                        </button>
+
+                        <div class="text-info text-right">@ViewBag.Version</div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>
+
+

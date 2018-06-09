@@ -14,6 +14,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{25536CF4
 		..\ClickToBuild - Release.cmd = ..\ClickToBuild - Release.cmd
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boipeba", "Boipeba\Boipeba.csproj", "{2362C65E-379A-4BC1-B6A5-C072DF005B1F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,6 +30,10 @@ Global
 		{2446FA9A-776D-4B00-90E0-B06F71243F57}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2446FA9A-776D-4B00-90E0-B06F71243F57}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2446FA9A-776D-4B00-90E0-B06F71243F57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2362C65E-379A-4BC1-B6A5-C072DF005B1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2362C65E-379A-4BC1-B6A5-C072DF005B1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2362C65E-379A-4BC1-B6A5-C072DF005B1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2362C65E-379A-4BC1-B6A5-C072DF005B1F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
