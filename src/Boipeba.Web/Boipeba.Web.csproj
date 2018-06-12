@@ -196,7 +196,10 @@
     <Compile Include="Areas\Config\Controllers\SpacecraftController.cs" />
     <Compile Include="Areas\Config\Controllers\PlayerController.cs" />
     <Compile Include="Areas\Config\Controllers\StatusController.cs" />
+    <Content Include="Scripts\app\Processos\cadastrarProcessoGenericoCtrl.js" />
     <Content Include="Areas\Config\Scripts\Tours\statusTour.js" />
+    <Compile Include="Areas\Processos\Controllers\CadastroController.cs" />
+    <Compile Include="Areas\Processos\ProcessosAreaRegistration.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -420,6 +423,10 @@
     <Content Include="Areas\Config\Views\Player\Index.cshtml" />
     <Content Include="Areas\Config\Views\Spacecraft\_form.cshtml" />
     <Content Include="Areas\Config\Views\Spacecraft\Index.cshtml" />
+    <Content Include="Areas\Processos\Views\web.config" />
+    <Content Include="Areas\Processos\Views\Cadastro\Index.cshtml" />
+    <Content Include="Areas\Processos\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Processos\Views\Cadastro\Generico.cshtml" />
     <None Include="Scripts\jquery\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery\jquery-2.2.0.min.js" />
@@ -490,6 +497,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Processos\Models\" />
+    <Folder Include="Areas\Processos\Views\Shared\" />
     <Folder Include="Filters\" />
     <Folder Include="Properties\PublishProfiles\" />
   </ItemGroup>

@@ -1,0 +1,81 @@
+﻿@using System.Web.Optimization
+<br />
+
+<div ng-controller="cadastrarProcessoGenericoCtrl" ng-app="boipeba" class="ng-cloak" ng-init="setup()">
+
+    <div class="container bg-azul">
+        <div class="row">
+            <div class="col-xs-10">Processo Genérico</div>
+            <div class="col-xs-2 text-right">
+                <a href="#" class="button-tour" style="color: white; display: none"><span class="fa fa-question-circle"></span><span>&nbsp;Ajuda Interativa</span></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container bg-branco">
+        <br />
+        <div class="panel panel-default">
+            <div class="panel-heading">Dados</div>
+            <div class="panel-body">
+                <form name="cadastrarProcessoGenerico" ng-validate="{}">
+                    <div class="row">
+                        <div class="form-group col-xs-6 col-lg-3">
+                            <label class="control-label" for="data">Data</label>
+                            <div class="input-group date" data-provide="datepicker" data-date-language="pt-BR">
+                                <input type="text" class="form-control" id="data" name="data" required ng-model="viewdata.model.Data">
+                                <div class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-xs-9">
+                            <label class="control-label" for="interessado">Interessado</label>
+                            <input type="text" class="form-control" id="interessado" placeholder="Interessado">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-xs-12">
+                            <label class="control-label" for="orgaoUnidadeInteressado">Órgão/Unidade Interessado</label>
+                            <div class="input-group">
+                                <span class="input-group-addon" id="spanSociedadeInteressada">
+                                    <label for="sociedadeInteressada">A Sociedade</label>
+                                    <input type="checkbox" id="sociedadeInteressada" name="sociedadeInteressada" ng-disabled="viewdata.model.SociedadeInteressada">
+                                </span>
+                                <input type="text" class="form-control" aria-describedby="divSociedadeInteressada" id="orgaoUnidadeInteressado" name="orgaoUnidadeInteressado" placeholder="Órgão/Unidade Interessado">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label" for="assunto">Assunto</label>
+                                <input type="text" class="form-control" id="assunto" name="assunto" placeholder="Assunto">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label" for="complementoAssunto">Complemento do Assunto</label>
+                                <input type="text" class="form-control" id="complementoAssunto" placeholder="Complemento do Assunto">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <button type="button" class="btn btn-primary btn-block">
+                                Enviar processo <span class="fa fa-paper-plane"></span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br />
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/cadastrarProcessoGenericoCtrl")
+    @Scripts.Render("~/bundles/jquerySetupMasks")
+}

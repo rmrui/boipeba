@@ -1,0 +1,34 @@
+﻿@using System.Web.Optimization
+<br />
+
+<div ng-controller="">
+
+    <div class="container bg-azul">
+        <div class="row">
+            <div class="col-xs-10">Cadastro de Processos</div>
+            <div class="col-xs-2 text-right">
+                <a href="#" class="button-tour" style="color: white; display: none"><span class="fa fa-question-circle"></span><span>&nbsp;Ajuda Interativa</span></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container bg-branco theme-showcase">
+        <br/>
+        <div class="row">
+            <div class="col-xs-3 item-dashboard">
+                <a href="@Url.Action("Generico", "Cadastro")" class="btn btn-lg btn-primary">
+                    <i class="fa fa-book fa-5x"></i><br/>
+                    Processo Genérico
+                </a>
+            </div>
+        </div>
+
+        <br/>
+    </div>
+
+    <br />
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/cadastroCtrl")
+}
