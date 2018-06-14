@@ -1,14 +1,27 @@
 ﻿(function () {
     "use strict";
 
-    cadastrarProcessoGenericoCtrl.$inject = ["$scope"];
+    cadastrarProcessoGenericoCtrl.$inject = ["$scope", "$http"];
 
-    function cadastrarProcessoGenericoCtrl($scope) {
+    function cadastrarProcessoGenericoCtrl($scope, $http) {
         $scope.viewdata = {
             model: {
                 Data: new Date().toLocaleDateString()
             }
         };
+
+        $scope.buscarOU = function(description) {
+            var results = [];
+            $http({
+                    method: "GET",
+                    url: "/Config/OrgaoUnidade/Find",
+                    data: description
+                })
+                .then(function(response) {
+                    results = response.data;
+                });
+            return results;
+        }
     }
 
     angular

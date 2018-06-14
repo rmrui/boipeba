@@ -1,0 +1,46 @@
+﻿@using System.Web.Optimization
+<br />
+
+<div ng-app="boipeba" ng-controller="labCtrl" class="ng-cloak">
+
+    <div class="container bg-azul">
+        <div class="row">
+            <div class="col-xs-10">Titulo da Pagina.</div>
+            <div class="col-xs-2 text-right">
+                <a href="#" class="button-tour" style="color: white; display: none"><span class="fa fa-question-circle"></span><span>&nbsp;Ajuda Interativa</span></a>
+            </div>
+        </div>
+    </div>
+    <div class="container bg-branco">
+        <br />
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Selecione</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <orgao-unidade selected-object="OrgaoUnidade"></orgao-unidade>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+        <div class="alert alert-info" ng-show="OrgaoUnidade">
+            <strong>{{OrgaoUnidade.title}}</strong>
+        </div>
+
+        <br />
+
+        <br />
+    </div>
+
+    <br />
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/labCtrl")
+}

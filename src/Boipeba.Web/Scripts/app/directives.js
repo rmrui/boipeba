@@ -14,17 +14,17 @@
         };
     }
 
-    //function simnaoswitch() {
-    //    return {
-    //        restrict: "A",
-    //        link: function (scope, element, attrs) {
+    function simnaoswitch() {
+        return {
+            restrict: "A",
+            link: function (scope, element, attrs) {
 
-    //            $(element).bootstrapSwitch({
-    //                onText: "Sim", offText: "Não", onColor: "primary", offColor: "default", state: true
-    //            });
-    //        }
-    //    };
-    //}
+                $(element).bootstrapSwitch({
+                    onText: "Sim", offText: "Não", onColor: "primary", offColor: "default", state: true
+                });
+            }
+        };
+    }
 
     function loading() {
         return {
@@ -49,10 +49,22 @@
         };
     }
 
+    orgaoUnidade.$inject = ["apiConfig"];
+    function orgaoUnidade(apiConfig) {
+        return {
+            restrict: "E",
+            template: function (element, attrs) {
+
+                return "<div angucomplete-alt id='ou' placeholder='Digite o Órgão/Unidade' pause='400' selected-object='" + attrs.selectedObject + "' remote-url='" + apiConfig.orgaoUnidade().url + "' remote-url-data-field='' title-field='DsOrgaoUnidade' minlength='3' match-class='highlight' input-class='form-control form-control-small'/>";
+            }
+        };
+    }
+
     angular
         .module("boipeba")
         .directive("loading", loading)
         .directive("ajuda", ajuda)
-        //.directive("simnaoswitch", simnaoswitch)
-        .directive("tooltip", tooltip);
+        .directive("simnaoswitch", simnaoswitch)
+        .directive("tooltip", tooltip)
+        .directive("orgaoUnidade", orgaoUnidade);
 })();

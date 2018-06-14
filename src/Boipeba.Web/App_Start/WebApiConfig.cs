@@ -1,4 +1,5 @@
-﻿using System.Web.Http;
+﻿using System.Net.Http.Headers;
+using System.Web.Http;
 using System.Web.Http.Dependencies;
 
 #pragma warning disable 1591
@@ -29,6 +30,8 @@ namespace Boipeba.Web
             );
 
             config.DependencyResolver = resolver;
+
+            config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
         }
     }
 }

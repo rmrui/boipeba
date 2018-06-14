@@ -1,2 +1,0 @@
-tProcessoDiaria
-tDetalheDiaria

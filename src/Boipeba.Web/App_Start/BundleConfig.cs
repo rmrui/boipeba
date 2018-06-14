@@ -79,6 +79,7 @@ namespace Boipeba.Web
                 "~/Scripts/angular/angular-locale_pt-br.js",
                 "~/Scripts/angular/angular-upload.min.js",
                 "~/Scripts/angular/angular-animate.min.js",
+                "~/Scripts/angular/plugins/angucomplete-alt.min.js",
                 "~/Scripts/angular/plugins/angular-validate.min.js",
                 "~/Scripts/angular/plugins/angular-ladda.min.js",
                 "~/Scripts/angular/plugins/angular-multi-step-form.min.js",
@@ -91,6 +92,7 @@ namespace Boipeba.Web
                 "~/Scripts/angular/plugins/dataTables/angular-datatables.bootstrap.min.js",
                 "~/Scripts/angular/plugins/angular-bootstrap-switch.min.js",
                 "~/Scripts/app/app.js",
+                "~/Scripts/app/apiConfig.js",
                 "~/Scripts/app/config.js",
                 "~/Scripts/app/configSrv.js",
                 "~/Scripts/app/directives.js",
@@ -111,6 +113,8 @@ namespace Boipeba.Web
 
             bundles.Add(new ScriptBundle("~/bundles/dashboardCtrl").Include("~/Scripts/app/Dashboard/dashboardCtrl.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/labCtrl").Include("~/Scripts/app/Lab/labCtrl.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/solicitarDiariaCtrl").Include("~/Scripts/app/Tramitacao/solicitarDiariaCtrl.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/cadastrarProcessoGenericoCtrl").Include("~/Scripts/app/Processos/cadastrarProcessoGenericoCtrl.js"));
@@ -126,6 +130,7 @@ namespace Boipeba.Web
                 "~/Scripts/jquery/plugins/bootstrap-tour/bootstrap-tour.min.css",
                 "~/Scripts/jquery/plugins/bootstrap-tour/bootstrap-tour-standalone.min.css",
 
+                "~/Content/angucomplete-alt.css",
                 "~/Content/bootstrap.css",
                 "~/Content/bootstrap-theme.min.css",
                 "~/Content/bootstrap-checkbox.css",

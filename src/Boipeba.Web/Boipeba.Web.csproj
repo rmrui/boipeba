@@ -186,6 +186,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="API\OrgaosUnidadesController.cs" />
     <Compile Include="App_Start\Bundles\ConfigBundles.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -196,6 +197,10 @@
     <Compile Include="Areas\Config\Controllers\SpacecraftController.cs" />
     <Compile Include="Areas\Config\Controllers\PlayerController.cs" />
     <Compile Include="Areas\Config\Controllers\StatusController.cs" />
+    <Content Include="Content\angucomplete-alt.css" />
+    <Content Include="Scripts\angular\plugins\angucomplete-alt.min.js" />
+    <Content Include="Scripts\app\apiConfig.js" />
+    <Content Include="Scripts\app\Lab\labCtrl.js" />
     <Content Include="Scripts\app\Processos\cadastrarProcessoGenericoCtrl.js" />
     <Content Include="Areas\Config\Scripts\Tours\statusTour.js" />
     <Compile Include="Areas\Processos\Controllers\CadastroController.cs" />
@@ -203,6 +208,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LabController.cs" />
     <Compile Include="Controllers\SimpleCrudController.cs" />
     <Compile Include="Controllers\TramitacaoController.cs" />
     <Compile Include="Global.asax.cs">
@@ -494,6 +500,7 @@
     <Content Include="Templates\Views\_form.cshtml" />
     <Content Include="Views\Tramitacao\Diaria\SolicitarDiaria.cshtml" />
     <Content Include="Views\Tramitacao\Modals\_exibirBeneficiario.cshtml" />
+    <Content Include="Views\Lab\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

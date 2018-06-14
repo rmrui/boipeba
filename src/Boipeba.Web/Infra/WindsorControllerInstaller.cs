@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Web.Http;
 using Boipeba.Core.Auth;
 using Boipeba.Core.Auth.Services;
 using Boipeba.Core.Domain.Controller;
@@ -44,6 +45,9 @@ namespace Boipeba.Web.Infra
             container.Register(Classes.FromAssemblyContaining<HomeController>()
                  .BasedOn(typeof(IBoipebaController))
                  .Configure(c => c.LifestylePerWebRequest()));
+
+            container.Register(Classes.FromThisAssembly().BasedOn(typeof(ApiController))
+                .Configure(c => c.LifestylePerWebRequest()));
         }
 
         private void SetupControllerMap(List<Type> controllers)

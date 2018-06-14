@@ -6,6 +6,7 @@
      */
     
     angular.module("boipeba", [
+        "angucomplete-alt",
         "angular-ladda",
         "datatables",
         "datatables.bootstrap",

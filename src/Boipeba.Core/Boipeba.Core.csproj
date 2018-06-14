@@ -126,6 +126,9 @@
     <Compile Include="Modulos\Cadastro\Player.cs" />
     <Compile Include="Modulos\Cadastro\Spacecraft.cs" />
     <Compile Include="Modulos\Cadastro\Status.cs" />
+    <Compile Include="Modulos\Processos\Map\OrgaoUnidadeMap.cs" />
+    <Compile Include="Modulos\Processos\OrgaoUnidade.cs" />
+    <Compile Include="Modulos\Processos\Repositories\OrgaoUnidadeRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -8,6 +8,7 @@ using Boipeba.Core.Domain.Repositories;
 using Boipeba.Core.Domain.Services;
 using Boipeba.Core.Infra.NHibernate;
 using Boipeba.Core.Modulos.Cadastro;
+using Boipeba.Core.Modulos.Processos;
 using Castle.Core;
 using Castle.Facilities.Startable;
 using Castle.MicroKernel.Registration;
@@ -192,10 +193,18 @@ namespace Boipeba.Core
                     var ship1 = new Spacecraft {Name = "Apollo", Agency = "NASA"};
                     var ship2 = new Spacecraft { Name = "Soyuz", Agency = "Roscosmos" };
 
+                    var ouCsi = new OrgaoUnidade {DsOrgaoUnidade = "CSI", IdOrgaoUnidade = 1};
+                    var ouCorregedoria = new OrgaoUnidade {DsOrgaoUnidade = "Corregedoria-Geral", IdOrgaoUnidade = 2};
+                    var ouGabinete = new OrgaoUnidade {DsOrgaoUnidade = "Gabinete PGJ", IdOrgaoUnidade = 3};
+
                     session.Save(player1);
                     session.Save(player2);
                     session.Save(ship1);
                     session.Save(ship2);
+                    session.Save(ouCsi);
+                    session.Save(ouCorregedoria);
+                    session.Save(ouGabinete);
+                    session.Flush();
                 }
             }
 
