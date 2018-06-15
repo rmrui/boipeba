@@ -4,7 +4,7 @@
     function apiConfig() {
         return {
             orgaoUnidade: function() {
-                return { url: "http://localhost:61815/api/orgaosunidades/?part=" };
+                return { url: "/api/orgaosunidades/?part=" };
             }
         }
     }

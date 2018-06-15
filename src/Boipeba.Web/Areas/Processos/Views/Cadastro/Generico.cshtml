@@ -14,115 +14,118 @@
 
     <div class="container bg-branco">
         <br />
-
-        <div class="row">
-            <div class="col-lg-3">
-                <label for="data">Data</label>
-                <div class="input-group date" data-provide="datepicker" data-date-language="pt-BR">
-                    <input type="text" class="form-control" id="data" name="data" required ng-model="viewdata.model.Data">
-                    <div class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
+        <form name="processoGenericoForm" ng-validate="{}">
+            <div class="row">
+                <div class="col-lg-3">
+                    <label for="data">Data</label>
+                    <div class="input-group date control-label" data-provide="datepicker" data-date-language="pt-BR">
+                        <input type="text" class="form-control" id="data" name="data" required ng-model="viewdata.model.Data">
+                        <div class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="form-group col-lg-3">
-                <label for="Simp">SIMP</label><br />
-                <div class="input-group">
-                    <span class="input-group-addon">Nº</span>
-                    <input placeholder="___._.___/____" class="form-control simp-group simp" id="Simp" name="Simp" ng-model="solicitacao.Simp" />
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="form-group">
-                    <br />
-                    <label for="urgente"><span class="fa fa-warning fa-fw"></span> Urgente</label>
-
-                    <input type="checkbox" id="urgente" name="urgente"
-                           bs-switch switch-on-text="Sim" switch-off-text="Não" switch-on-color="warning" switch-off-color="default"
-                           ng-model="viewdata.model.Urgente">
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="form-group">
-                    <br />
-                    <label for="reservado"><span class="fa fa-lock fa-fw"></span> Reservado</label>
-                    <input type="checkbox" id="reservado" name="urgente"
-                           bs-switch switch-on-text="Sim" switch-off-text="Não" switch-on-color="primary" switch-off-color="default"
-                           ng-model="viewdata.model.Reservado">
-                </div>
-            </div>
-
-        </div>
-
-        <hr />
-
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title">Interessado</h3>
-            </div>
-            <div class="panel-body">
-                <div class="row">
-                    <div class="form-group col-lg-4">
-                        <label for="interessado">Nome</label>
-                        <input type="text" class="form-control" id="interessado" placeholder="Pessoa interessada">
+                <div class="form-group col-lg-3">
+                    <label for="Simp">SIMP</label><br />
+                    <div class="input-group">
+                        <span class="input-group-addon">Nº</span>
+                        <input placeholder="___._.___/____" class="form-control simp-group simp" id="Simp" name="Simp" ng-model="viewdata.model.Simp" />
                     </div>
-                    <div class="form-group col-lg-6">
-                        <label class="control-label" for="orgaoUnidadeInteressado">Órgão/Unidade</label>
-                        <input type="text" ng-model="viewdata.model.DsOrgaoUnidade" ng-disabled="viewdata.model.Sociedade" class="form-control" id="orgaoUnidadeInteressado" name="orgaoUnidadeInteressado" placeholder="Órgão/Unidade Interessado">
-                    </div>
-                    <div class="col-lg-2">
-                        <label for="urgente"> A Sociedade</label>
+                </div>
+                <div class="col-lg-3">
+                    <div class="form-group">
                         <br />
+                        <label for="urgente"><span class="fa fa-warning fa-fw"></span> Urgente</label>
+
                         <input type="checkbox" id="urgente" name="urgente"
+                               bs-switch switch-on-text="Sim" switch-off-text="Não" switch-on-color="warning" switch-off-color="default"
+                               ng-model="viewdata.model.Urgente">
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="form-group">
+                        <br />
+                        <label for="reservado"><span class="fa fa-lock fa-fw"></span> Reservado</label>
+                        <input type="checkbox" id="reservado" name="urgente"
                                bs-switch switch-on-text="Sim" switch-off-text="Não" switch-on-color="primary" switch-off-color="default"
-                               ng-model="viewdata.model.x">
+                               ng-model="viewdata.model.Reservado">
                     </div>
                 </div>
 
             </div>
-        </div>
 
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title">Assunto</h3>
+            <hr />
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Interessado</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+						<div class="form-group col-lg-4">
+                            <label class="control-label" for="pessoaInteressada">Nome</label>
+                            <input type="text" class="form-control" id="pessoaInteressada" name="pessoaInteressada" placeholder="Pessoa interessada" required>
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <label class="control-label" for="ouInteressado">Órgão/Unidade</label>
+                            <div angucomplete-alt id="ouInteressado" input-name="ouInteressado" placeholder="Digite o Órgão/Unidade" pause="400" 
+                                 selected-object="viewdata.OrgaoUnidadeInteressado" remote-url="/api/orgaosunidades/?part=" remote-url-data-field="" 
+                                 title-field="DsOrgaoUnidade" minlength="3" match-class="highlight" input-class="form-control form-control-small interessado-group" 
+                                 disable-input="viewdata.model.Sociedade"></div>
+                        </div>
+                        <div class="col-lg-2">
+                            <label for="sociedade"> A Sociedade</label>
+                            <br />
+                            <input type="checkbox" id="sociedade" name="sociedade" class="interessado-group"
+                                   bs-switch switch-on-text="Sim" switch-off-text="Não" switch-on-color="primary" switch-off-color="default"
+                                   ng-model="viewdata.model.Sociedade" ng-change="tratarOuInteressado()">
+                        </div>
+                    </div>
+
+                </div>
             </div>
-            <div class="panel-body">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="form-group">
-                            <label class="control-label" for="assunto">Assunto</label>
-                            <input type="text" class="form-control" id="assunto" name="assunto" placeholder="Assunto">
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Assunto</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label class="control-label" for="assunto">Assunto</label>
+                                <input type="text" class="form-control" id="assunto" name="assunto" placeholder="Assunto" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label class="control-label" for="complemento">Complemento</label>
+                                <textarea class="form-control" id="complemento"></textarea>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="form-group">
-                            <label class="control-label" for="complemento">Complemento</label>
-                            <textarea class="form-control" id="complemento"></textarea>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Destinatário</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="form-group col-lg-12">
+                            <label for="interessado">Pessoa ou Órgão/Unidade</label>
+                            <orgao-unidade selected-object="viewdata.OrgaoUnidadeDestinatario"></orgao-unidade>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title">Destinatário</h3>
-            </div>
-            <div class="panel-body">
-                <div class="row">
-                    <div class="form-group col-lg-12">
-                        <label for="interessado">Pessoa ou Órgão/Unidade</label>
-                        <orgaounidade />
-                    </div>
-                </div>
-            </div>
-        </div>
-
+        </form>
         <div class="row">
             <div class="col-lg-offset-8 col-xs-12 col-lg-4">
-                <button type="button" class="btn btn-primary btn-block">
+                <button type="button" class="btn btn-primary btn-block" ng-click="validaForm(processoGenericoForm) && salvar(viewdata.model)">
                     Enviar <span class="fa fa-paper-plane"></span>
                 </button>
             </div>
@@ -141,400 +144,439 @@
 
 @section Styles{
     <style>
-            .checkbox {
-                padding-left: 20px;
-            }
+        .checkbox {
+            padding-left: 20px;
+        }
+
             .checkbox label {
                 display: inline-block;
                 vertical-align: middle;
                 position: relative;
                 padding-left: 5px;
             }
-            .checkbox label::before {
-                content: "";
-                display: inline-block;
-                position: absolute;
-                width: 17px;
-                height: 17px;
-                left: 0;
-                margin-left: -20px;
-                border: 1px solid #cccccc;
-                border-radius: 3px;
-                background-color: #fff;
-                -webkit-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
-                -o-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
-                transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
-            }
-            .checkbox label::after {
-                display: inline-block;
-                position: absolute;
-                width: 16px;
-                height: 16px;
-                left: 0;
-                top: 0;
-                margin-left: -20px;
-                padding-left: 3px;
-                padding-top: 1px;
-                font-size: 11px;
-                color: #555555;
-                line-height: 1.4;
-            }
+
+                .checkbox label::before {
+                    content: "";
+                    display: inline-block;
+                    position: absolute;
+                    width: 17px;
+                    height: 17px;
+                    left: 0;
+                    margin-left: -20px;
+                    border: 1px solid #cccccc;
+                    border-radius: 3px;
+                    background-color: #fff;
+                    -webkit-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+                    -o-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+                    transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+                }
+
+                .checkbox label::after {
+                    display: inline-block;
+                    position: absolute;
+                    width: 16px;
+                    height: 16px;
+                    left: 0;
+                    top: 0;
+                    margin-left: -20px;
+                    padding-left: 3px;
+                    padding-top: 1px;
+                    font-size: 11px;
+                    color: #555555;
+                    line-height: 1.4;
+                }
+
             .checkbox input[type="checkbox"],
             .checkbox input[type="radio"] {
                 opacity: 0;
                 z-index: 1;
                 cursor: pointer;
             }
-            .checkbox input[type="checkbox"]:focus + label::before,
-            .checkbox input[type="radio"]:focus + label::before {
-                outline: thin dotted;
-                outline: 5px auto -webkit-focus-ring-color;
-                outline-offset: -2px;
-            }
-            .checkbox input[type="checkbox"]:checked + label::after,
-            .checkbox input[type="radio"]:checked + label::after {
-                font-family: "FontAwesome";
-                content: "\f00c";
-            }
-            .checkbox input[type="checkbox"]:indeterminate + label::after,
-            .checkbox input[type="radio"]:indeterminate + label::after {
-                display: block;
-                content: "";
-                width: 10px;
-                height: 3px;
-                background-color: #555555;
-                border-radius: 2px;
-                margin-left: -16.5px;
-                margin-top: 7px;
-            }
-            .checkbox input[type="checkbox"]:disabled,
-            .checkbox input[type="radio"]:disabled {
-                cursor: not-allowed;
-            }
-            .checkbox input[type="checkbox"]:disabled + label,
-            .checkbox input[type="radio"]:disabled + label {
-                opacity: 0.65;
-            }
-            .checkbox input[type="checkbox"]:disabled + label::before,
-            .checkbox input[type="radio"]:disabled + label::before {
-                background-color: #eeeeee;
-                cursor: not-allowed;
-            }
+
+                .checkbox input[type="checkbox"]:focus + label::before,
+                .checkbox input[type="radio"]:focus + label::before {
+                    outline: thin dotted;
+                    outline: 5px auto -webkit-focus-ring-color;
+                    outline-offset: -2px;
+                }
+
+                .checkbox input[type="checkbox"]:checked + label::after,
+                .checkbox input[type="radio"]:checked + label::after {
+                    font-family: "FontAwesome";
+                    content: "\f00c";
+                }
+
+                .checkbox input[type="checkbox"]:indeterminate + label::after,
+                .checkbox input[type="radio"]:indeterminate + label::after {
+                    display: block;
+                    content: "";
+                    width: 10px;
+                    height: 3px;
+                    background-color: #555555;
+                    border-radius: 2px;
+                    margin-left: -16.5px;
+                    margin-top: 7px;
+                }
+
+                .checkbox input[type="checkbox"]:disabled,
+                .checkbox input[type="radio"]:disabled {
+                    cursor: not-allowed;
+                }
+
+                    .checkbox input[type="checkbox"]:disabled + label,
+                    .checkbox input[type="radio"]:disabled + label {
+                        opacity: 0.65;
+                    }
+
+                        .checkbox input[type="checkbox"]:disabled + label::before,
+                        .checkbox input[type="radio"]:disabled + label::before {
+                            background-color: #eeeeee;
+                            cursor: not-allowed;
+                        }
+
             .checkbox.checkbox-circle label::before {
                 border-radius: 50%;
             }
+
             .checkbox.checkbox-inline {
                 margin-top: 0;
             }
 
-            .checkbox-primary input[type="checkbox"]:checked + label::before,
-            .checkbox-primary input[type="radio"]:checked + label::before {
-                background-color: #337ab7;
-                border-color: #337ab7;
-            }
-            .checkbox-primary input[type="checkbox"]:checked + label::after,
-            .checkbox-primary input[type="radio"]:checked + label::after {
-                color: #fff;
-            }
+        .checkbox-primary input[type="checkbox"]:checked + label::before,
+        .checkbox-primary input[type="radio"]:checked + label::before {
+            background-color: #337ab7;
+            border-color: #337ab7;
+        }
 
-            .checkbox-danger input[type="checkbox"]:checked + label::before,
-            .checkbox-danger input[type="radio"]:checked + label::before {
-                background-color: #d9534f;
-                border-color: #d9534f;
-            }
-            .checkbox-danger input[type="checkbox"]:checked + label::after,
-            .checkbox-danger input[type="radio"]:checked + label::after {
-                color: #fff;
-            }
+        .checkbox-primary input[type="checkbox"]:checked + label::after,
+        .checkbox-primary input[type="radio"]:checked + label::after {
+            color: #fff;
+        }
 
-            .checkbox-info input[type="checkbox"]:checked + label::before,
-            .checkbox-info input[type="radio"]:checked + label::before {
-                background-color: #5bc0de;
-                border-color: #5bc0de;
-            }
-            .checkbox-info input[type="checkbox"]:checked + label::after,
-            .checkbox-info input[type="radio"]:checked + label::after {
-                color: #fff;
-            }
+        .checkbox-danger input[type="checkbox"]:checked + label::before,
+        .checkbox-danger input[type="radio"]:checked + label::before {
+            background-color: #d9534f;
+            border-color: #d9534f;
+        }
 
-            .checkbox-warning input[type="checkbox"]:checked + label::before,
-            .checkbox-warning input[type="radio"]:checked + label::before {
-                background-color: #f0ad4e;
-                border-color: #f0ad4e;
-            }
-            .checkbox-warning input[type="checkbox"]:checked + label::after,
-            .checkbox-warning input[type="radio"]:checked + label::after {
-                color: #fff;
-            }
+        .checkbox-danger input[type="checkbox"]:checked + label::after,
+        .checkbox-danger input[type="radio"]:checked + label::after {
+            color: #fff;
+        }
 
-            .checkbox-success input[type="checkbox"]:checked + label::before,
-            .checkbox-success input[type="radio"]:checked + label::before {
-                background-color: #5cb85c;
-                border-color: #5cb85c;
-            }
-            .checkbox-success input[type="checkbox"]:checked + label::after,
-            .checkbox-success input[type="radio"]:checked + label::after {
-                color: #fff;
-            }
+        .checkbox-info input[type="checkbox"]:checked + label::before,
+        .checkbox-info input[type="radio"]:checked + label::before {
+            background-color: #5bc0de;
+            border-color: #5bc0de;
+        }
 
-            .checkbox-primary input[type="checkbox"]:indeterminate + label::before,
-            .checkbox-primary input[type="radio"]:indeterminate + label::before {
-                background-color: #337ab7;
-                border-color: #337ab7;
-            }
+        .checkbox-info input[type="checkbox"]:checked + label::after,
+        .checkbox-info input[type="radio"]:checked + label::after {
+            color: #fff;
+        }
 
-            .checkbox-primary input[type="checkbox"]:indeterminate + label::after,
-            .checkbox-primary input[type="radio"]:indeterminate + label::after {
-                background-color: #fff;
-            }
+        .checkbox-warning input[type="checkbox"]:checked + label::before,
+        .checkbox-warning input[type="radio"]:checked + label::before {
+            background-color: #f0ad4e;
+            border-color: #f0ad4e;
+        }
 
-            .checkbox-danger input[type="checkbox"]:indeterminate + label::before,
-            .checkbox-danger input[type="radio"]:indeterminate + label::before {
-                background-color: #d9534f;
-                border-color: #d9534f;
-            }
+        .checkbox-warning input[type="checkbox"]:checked + label::after,
+        .checkbox-warning input[type="radio"]:checked + label::after {
+            color: #fff;
+        }
 
-            .checkbox-danger input[type="checkbox"]:indeterminate + label::after,
-            .checkbox-danger input[type="radio"]:indeterminate + label::after {
-                background-color: #fff;
-            }
+        .checkbox-success input[type="checkbox"]:checked + label::before,
+        .checkbox-success input[type="radio"]:checked + label::before {
+            background-color: #5cb85c;
+            border-color: #5cb85c;
+        }
 
-            .checkbox-info input[type="checkbox"]:indeterminate + label::before,
-            .checkbox-info input[type="radio"]:indeterminate + label::before {
-                background-color: #5bc0de;
-                border-color: #5bc0de;
-            }
+        .checkbox-success input[type="checkbox"]:checked + label::after,
+        .checkbox-success input[type="radio"]:checked + label::after {
+            color: #fff;
+        }
 
-            .checkbox-info input[type="checkbox"]:indeterminate + label::after,
-            .checkbox-info input[type="radio"]:indeterminate + label::after {
-                background-color: #fff;
-            }
+        .checkbox-primary input[type="checkbox"]:indeterminate + label::before,
+        .checkbox-primary input[type="radio"]:indeterminate + label::before {
+            background-color: #337ab7;
+            border-color: #337ab7;
+        }
 
-            .checkbox-warning input[type="checkbox"]:indeterminate + label::before,
-            .checkbox-warning input[type="radio"]:indeterminate + label::before {
-                background-color: #f0ad4e;
-                border-color: #f0ad4e;
-            }
+        .checkbox-primary input[type="checkbox"]:indeterminate + label::after,
+        .checkbox-primary input[type="radio"]:indeterminate + label::after {
+            background-color: #fff;
+        }
 
-            .checkbox-warning input[type="checkbox"]:indeterminate + label::after,
-            .checkbox-warning input[type="radio"]:indeterminate + label::after {
-                background-color: #fff;
-            }
+        .checkbox-danger input[type="checkbox"]:indeterminate + label::before,
+        .checkbox-danger input[type="radio"]:indeterminate + label::before {
+            background-color: #d9534f;
+            border-color: #d9534f;
+        }
 
-            .checkbox-success input[type="checkbox"]:indeterminate + label::before,
-            .checkbox-success input[type="radio"]:indeterminate + label::before {
-                background-color: #5cb85c;
-                border-color: #5cb85c;
-            }
+        .checkbox-danger input[type="checkbox"]:indeterminate + label::after,
+        .checkbox-danger input[type="radio"]:indeterminate + label::after {
+            background-color: #fff;
+        }
 
-            .checkbox-success input[type="checkbox"]:indeterminate + label::after,
-            .checkbox-success input[type="radio"]:indeterminate + label::after {
-                background-color: #fff;
-            }
+        .checkbox-info input[type="checkbox"]:indeterminate + label::before,
+        .checkbox-info input[type="radio"]:indeterminate + label::before {
+            background-color: #5bc0de;
+            border-color: #5bc0de;
+        }
 
-            .radio {
-                padding-left: 20px;
-            }
+        .checkbox-info input[type="checkbox"]:indeterminate + label::after,
+        .checkbox-info input[type="radio"]:indeterminate + label::after {
+            background-color: #fff;
+        }
+
+        .checkbox-warning input[type="checkbox"]:indeterminate + label::before,
+        .checkbox-warning input[type="radio"]:indeterminate + label::before {
+            background-color: #f0ad4e;
+            border-color: #f0ad4e;
+        }
+
+        .checkbox-warning input[type="checkbox"]:indeterminate + label::after,
+        .checkbox-warning input[type="radio"]:indeterminate + label::after {
+            background-color: #fff;
+        }
+
+        .checkbox-success input[type="checkbox"]:indeterminate + label::before,
+        .checkbox-success input[type="radio"]:indeterminate + label::before {
+            background-color: #5cb85c;
+            border-color: #5cb85c;
+        }
+
+        .checkbox-success input[type="checkbox"]:indeterminate + label::after,
+        .checkbox-success input[type="radio"]:indeterminate + label::after {
+            background-color: #fff;
+        }
+
+        .radio {
+            padding-left: 20px;
+        }
+
             .radio label {
                 display: inline-block;
                 vertical-align: middle;
                 position: relative;
                 padding-left: 5px;
             }
-            .radio label::before {
-                content: "";
-                display: inline-block;
-                position: absolute;
-                width: 17px;
-                height: 17px;
-                left: 0;
-                margin-left: -20px;
-                border: 1px solid #cccccc;
-                border-radius: 50%;
-                background-color: #fff;
-                -webkit-transition: border 0.15s ease-in-out;
-                -o-transition: border 0.15s ease-in-out;
-                transition: border 0.15s ease-in-out;
-            }
-            .radio label::after {
-                display: inline-block;
-                position: absolute;
-                content: " ";
-                width: 11px;
-                height: 11px;
-                left: 3px;
-                top: 3px;
-                margin-left: -20px;
-                border-radius: 50%;
-                background-color: #555555;
-                -webkit-transform: scale(0, 0);
-                -ms-transform: scale(0, 0);
-                -o-transform: scale(0, 0);
-                transform: scale(0, 0);
-                -webkit-transition: -webkit-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
-                -moz-transition: -moz-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
-                -o-transition: -o-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
-                transition: transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
-            }
+
+                .radio label::before {
+                    content: "";
+                    display: inline-block;
+                    position: absolute;
+                    width: 17px;
+                    height: 17px;
+                    left: 0;
+                    margin-left: -20px;
+                    border: 1px solid #cccccc;
+                    border-radius: 50%;
+                    background-color: #fff;
+                    -webkit-transition: border 0.15s ease-in-out;
+                    -o-transition: border 0.15s ease-in-out;
+                    transition: border 0.15s ease-in-out;
+                }
+
+                .radio label::after {
+                    display: inline-block;
+                    position: absolute;
+                    content: " ";
+                    width: 11px;
+                    height: 11px;
+                    left: 3px;
+                    top: 3px;
+                    margin-left: -20px;
+                    border-radius: 50%;
+                    background-color: #555555;
+                    -webkit-transform: scale(0, 0);
+                    -ms-transform: scale(0, 0);
+                    -o-transform: scale(0, 0);
+                    transform: scale(0, 0);
+                    -webkit-transition: -webkit-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+                    -moz-transition: -moz-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+                    -o-transition: -o-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+                    transition: transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+                }
+
             .radio input[type="radio"] {
                 opacity: 0;
                 z-index: 1;
                 cursor: pointer;
             }
-            .radio input[type="radio"]:focus + label::before {
-                outline: thin dotted;
-                outline: 5px auto -webkit-focus-ring-color;
-                outline-offset: -2px;
-            }
-            .radio input[type="radio"]:checked + label::after {
-                -webkit-transform: scale(1, 1);
-                -ms-transform: scale(1, 1);
-                -o-transform: scale(1, 1);
-                transform: scale(1, 1);
-            }
-            .radio input[type="radio"]:disabled {
-                cursor: not-allowed;
-            }
-            .radio input[type="radio"]:disabled + label {
-                opacity: 0.65;
-            }
-            .radio input[type="radio"]:disabled + label::before {
-                cursor: not-allowed;
-            }
+
+                .radio input[type="radio"]:focus + label::before {
+                    outline: thin dotted;
+                    outline: 5px auto -webkit-focus-ring-color;
+                    outline-offset: -2px;
+                }
+
+                .radio input[type="radio"]:checked + label::after {
+                    -webkit-transform: scale(1, 1);
+                    -ms-transform: scale(1, 1);
+                    -o-transform: scale(1, 1);
+                    transform: scale(1, 1);
+                }
+
+                .radio input[type="radio"]:disabled {
+                    cursor: not-allowed;
+                }
+
+                    .radio input[type="radio"]:disabled + label {
+                        opacity: 0.65;
+                    }
+
+                        .radio input[type="radio"]:disabled + label::before {
+                            cursor: not-allowed;
+                        }
+
             .radio.radio-inline {
                 margin-top: 0;
             }
 
-            .radio-primary input[type="radio"] + label::after {
-                background-color: #337ab7;
-            }
-            .radio-primary input[type="radio"]:checked + label::before {
-                border-color: #337ab7;
-            }
-            .radio-primary input[type="radio"]:checked + label::after {
-                background-color: #337ab7;
-            }
+        .radio-primary input[type="radio"] + label::after {
+            background-color: #337ab7;
+        }
 
-            .radio-danger input[type="radio"] + label::after {
-                background-color: #d9534f;
-            }
-            .radio-danger input[type="radio"]:checked + label::before {
-                border-color: #d9534f;
-            }
-            .radio-danger input[type="radio"]:checked + label::after {
-                background-color: #d9534f;
-            }
+        .radio-primary input[type="radio"]:checked + label::before {
+            border-color: #337ab7;
+        }
 
-            .radio-info input[type="radio"] + label::after {
-                background-color: #5bc0de;
-            }
-            .radio-info input[type="radio"]:checked + label::before {
-                border-color: #5bc0de;
-            }
-            .radio-info input[type="radio"]:checked + label::after {
-                background-color: #5bc0de;
-            }
+        .radio-primary input[type="radio"]:checked + label::after {
+            background-color: #337ab7;
+        }
 
-            .radio-warning input[type="radio"] + label::after {
-                background-color: #f0ad4e;
-            }
-            .radio-warning input[type="radio"]:checked + label::before {
-                border-color: #f0ad4e;
-            }
-            .radio-warning input[type="radio"]:checked + label::after {
-                background-color: #f0ad4e;
-            }
+        .radio-danger input[type="radio"] + label::after {
+            background-color: #d9534f;
+        }
 
-            .radio-success input[type="radio"] + label::after {
-                background-color: #5cb85c;
-            }
-            .radio-success input[type="radio"]:checked + label::before {
-                border-color: #5cb85c;
-            }
-            .radio-success input[type="radio"]:checked + label::after {
-                background-color: #5cb85c;
-            }
+        .radio-danger input[type="radio"]:checked + label::before {
+            border-color: #d9534f;
+        }
 
-            input[type="checkbox"].styled:checked + label:after,
-            input[type="radio"].styled:checked + label:after {
-                font-family: 'FontAwesome';
-                content: "\f00c";
-            }
-            input[type="checkbox"] .styled:checked + label::before,
-            input[type="radio"] .styled:checked + label::before {
-                color: #fff;
-            }
-            input[type="checkbox"] .styled:checked + label::after,
-            input[type="radio"] .styled:checked + label::after {
-                color: #fff;
-            }
+        .radio-danger input[type="radio"]:checked + label::after {
+            background-color: #d9534f;
+        }
 
-            .angucomplete-holder {
-                position: relative;
-            }
+        .radio-info input[type="radio"] + label::after {
+            background-color: #5bc0de;
+        }
 
-            .angucomplete-dropdown {
-                border-color: #ececec;
-                border-width: 1px;
-                border-style: solid;
-                border-radius: 2px;
-                width: 250px;
-                padding: 6px;
-                cursor: pointer;
-                z-index: 9999;
-                position: absolute;
-                /*top: 32px;
+        .radio-info input[type="radio"]:checked + label::before {
+            border-color: #5bc0de;
+        }
+
+        .radio-info input[type="radio"]:checked + label::after {
+            background-color: #5bc0de;
+        }
+
+        .radio-warning input[type="radio"] + label::after {
+            background-color: #f0ad4e;
+        }
+
+        .radio-warning input[type="radio"]:checked + label::before {
+            border-color: #f0ad4e;
+        }
+
+        .radio-warning input[type="radio"]:checked + label::after {
+            background-color: #f0ad4e;
+        }
+
+        .radio-success input[type="radio"] + label::after {
+            background-color: #5cb85c;
+        }
+
+        .radio-success input[type="radio"]:checked + label::before {
+            border-color: #5cb85c;
+        }
+
+        .radio-success input[type="radio"]:checked + label::after {
+            background-color: #5cb85c;
+        }
+
+        input[type="checkbox"].styled:checked + label:after,
+        input[type="radio"].styled:checked + label:after {
+            font-family: 'FontAwesome';
+            content: "\f00c";
+        }
+
+        input[type="checkbox"] .styled:checked + label::before,
+        input[type="radio"] .styled:checked + label::before {
+            color: #fff;
+        }
+
+        input[type="checkbox"] .styled:checked + label::after,
+        input[type="radio"] .styled:checked + label::after {
+            color: #fff;
+        }
+
+        .angucomplete-holder {
+            position: relative;
+        }
+
+        .angucomplete-dropdown {
+            border-color: #ececec;
+            border-width: 1px;
+            border-style: solid;
+            border-radius: 2px;
+            width: 250px;
+            padding: 6px;
+            cursor: pointer;
+            z-index: 9999;
+            position: absolute;
+            /*top: 32px;
         left: 0px;
         */
-                margin-top: -6px;
-                background-color: #ffffff;
-            }
+            margin-top: -6px;
+            background-color: #ffffff;
+        }
 
-            .angucomplete-searching {
-                color: #acacac;
-                font-size: 14px;
-            }
+        .angucomplete-searching {
+            color: #acacac;
+            font-size: 14px;
+        }
 
-            .angucomplete-description {
-                font-size: 14px;
-            }
+        .angucomplete-description {
+            font-size: 14px;
+        }
 
-            .angucomplete-row {
-                padding: 5px;
-                color: #000000;
-                margin-bottom: 4px;
-                clear: both;
-            }
+        .angucomplete-row {
+            padding: 5px;
+            color: #000000;
+            margin-bottom: 4px;
+            clear: both;
+        }
 
-            .angucomplete-selected-row {
-                background-color: lightblue;
-                color: #ffffff;
-            }
+        .angucomplete-selected-row {
+            background-color: lightblue;
+            color: #ffffff;
+        }
 
-            .angucomplete-image-holder {
-                padding-top: 2px;
-                float: left;
-                margin-right: 10px;
-                margin-left: 5px;
-            }
+        .angucomplete-image-holder {
+            padding-top: 2px;
+            float: left;
+            margin-right: 10px;
+            margin-left: 5px;
+        }
 
-            .angucomplete-image {
-                height: 34px;
-                width: 34px;
-                border-radius: 50%;
-                border-color: #ececec;
-                border-style: solid;
-                border-width: 1px;
-            }
+        .angucomplete-image {
+            height: 34px;
+            width: 34px;
+            border-radius: 50%;
+            border-color: #ececec;
+            border-style: solid;
+            border-width: 1px;
+        }
 
-            .angucomplete-image-default {
-                /* Add your own default image here
+        .angucomplete-image-default {
+            /* Add your own default image here
          background-image: url('/assets/default.png');
         */
-                background-position: center;
-                background-size: contain;
-                height: 34px;
-                width: 34px;
-            }
+            background-position: center;
+            background-size: contain;
+            height: 34px;
+            width: 34px;
+        }
     </style>
 }
