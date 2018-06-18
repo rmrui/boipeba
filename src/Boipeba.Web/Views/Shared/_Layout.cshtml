@@ -5,13 +5,13 @@
 <head>
     <meta name="robots" content="noindex,nofollow" />
     <meta http-equiv="CACHE-CONTROL" content="NO-CACHE">
-    <meta http-equiv="CACHE-CONTROL" content="NO-STORE"> 
+    <meta http-equiv="CACHE-CONTROL" content="NO-STORE">
     <meta content="pt-br" http-equiv="Content-Language" />
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=9;" />
     <link rel="icon" href="~/images/favicon_2.png" type="image/x-icon">
-    <title>Tramite</title>
+    <title>SIGA</title>
     <!-- Add local styles, mostly for plugins css file -->
     @if (IsSectionDefined("Styles"))
     {@RenderSection("Styles", required: false)}
@@ -22,25 +22,33 @@
 
 </head>
 <body class="body-cion">
-@Html.TopMessage()
+    @Html.TopMessage()
     <div class="page-header page-header-cion" id="topHeader">
 
         <div class="page-header page-header-cion">
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-3 col-md-3 text-right pull-left">
-                        <img ID="img_logo" Class="img-responsive defaultLogo" src="~/images/logo_mp.jpg" width="240" />
+                    <div class="col-sm-12 col-md-12 col-lg-12 col-xs-12">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6  col-sm-6">
+                                <img ID="img_logo_mp" class="defaultLogo img-responsive" src="~/images/logo_mp.jpg" width="240" alt="" />
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <img id="img_logo_siga" class="defaultLogo img-responsive" src="~/images/logo_siga.jpg" alt=""/>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
-            
+
             @{
                 if (User.Identity.IsAuthenticated)
                 {
                     Html.RenderPartial("_mainMenu");
                 }
             }
-                              
+
             <div class="linha-header">
             </div>
 

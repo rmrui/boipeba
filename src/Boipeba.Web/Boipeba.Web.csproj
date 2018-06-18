@@ -198,6 +198,7 @@
     <Compile Include="Areas\Config\Controllers\PlayerController.cs" />
     <Compile Include="Areas\Config\Controllers\StatusController.cs" />
     <Content Include="Content\angucomplete-alt.css" />
+    <Content Include="images\logo_siga.jpg" />
     <Content Include="Scripts\angular\plugins\angucomplete-alt.min.js" />
     <Content Include="Scripts\app\apiConfig.js" />
     <Content Include="Scripts\app\Lab\labCtrl.js" />
@@ -433,6 +434,7 @@
     <Content Include="Areas\Processos\Views\Cadastro\Index.cshtml" />
     <Content Include="Areas\Processos\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Processos\Views\Cadastro\Generico.cshtml" />
+    <None Include="Properties\PublishProfiles\Local.pubxml" />
     <None Include="Scripts\jquery\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery\jquery-2.2.0.min.js" />
@@ -507,7 +509,6 @@
     <Folder Include="Areas\Processos\Models\" />
     <Folder Include="Areas\Processos\Views\Shared\" />
     <Folder Include="Filters\" />
-    <Folder Include="Properties\PublishProfiles\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

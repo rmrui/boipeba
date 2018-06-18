@@ -13,25 +13,19 @@
         };
 
         $scope.tratarOuInteressado = function () {
-            if ($scope.viewdata.model.Sociedade) {
+            if ($scope.viewdata.model.Sociedade == true) {
                 $scope.$broadcast("angucomplete-alt:clearInput", "ouInteressado");
+                $scope.viewdata.OrgaoUnidadeInteressado = {};
             }
         }
 
         $scope.validaForm = function (form) {
-            jQuery.validator.addClassRules("interessado-group", {
-                require_from_group: [1, ".interessado-group"]
-            });
-
-            if (!form.validate({
-                groups: {
-                interessadogroup: "ouInteressado sociedade"
-            },
-                messages: {
-                ouInteressado: { require_from_group: "Informe um valor." },
-                    sociedade: { require_from_group: "Mensagem bizarra" }
+            if (!$scope.viewdata.model.Sociedade && jQuery.isEmptyObject($scope.viewdata.OrgaoUnidadeInteressado)) {
+                toastr.warning("Informe um valor para o interessado (Órgão/Unidade ou 'A sociedade'.)");
+                return false;
             }
-            })) {
+
+            if (!form.validate()) {
                 return false;
             }
 

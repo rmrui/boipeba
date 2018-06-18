@@ -197,6 +197,7 @@ namespace Boipeba.Core
                     var ouCorregedoria = new OrgaoUnidade {DsOrgaoUnidade = "Corregedoria-Geral", IdOrgaoUnidade = 2};
                     var ouGabinete = new OrgaoUnidade {DsOrgaoUnidade = "Gabinete PGJ", IdOrgaoUnidade = 3};
 
+
                     session.Save(player1);
                     session.Save(player2);
                     session.Save(ship1);
