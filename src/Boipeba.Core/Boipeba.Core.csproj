@@ -80,6 +80,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\Model\IdentifiableDescriptionItem.cs" />
+    <Compile Include="Domain\Model\IIdentifiableDescription.cs" />
+    <Compile Include="Modulos\Processos\Assignee.cs" />
     <Compile Include="Modulos\Processos\Assunto.cs" />
     <Compile Include="Auth\Acesso.cs" />
     <Compile Include="Auth\AuthorizeRoles.cs" />
@@ -134,9 +137,15 @@
     <Compile Include="Modulos\Processos\OrgaoUnidade.cs" />
     <Compile Include="Modulos\Processos\Pessoa.cs" />
     <Compile Include="Modulos\Processos\Processo.cs" />
+    <Compile Include="Modulos\Processos\Movimentacao.cs" />
     <Compile Include="Modulos\Processos\Repositories\AssuntoRepository.cs" />
+    <Compile Include="Modulos\Processos\Repositories\MovimentacaoRepository.cs" />
     <Compile Include="Modulos\Processos\Repositories\OrgaoUnidadeRepository.cs" />
+    <Compile Include="Modulos\Processos\Repositories\PessoaRepository.cs" />
     <Compile Include="Modulos\Processos\Repositories\ProcessoRepository.cs" />
+    <Compile Include="Modulos\Processos\Services\ProcessoService.cs" />
+    <Compile Include="Modulos\Workflow\IFlowable.cs" />
+    <Compile Include="Modulos\Workflow\Services\WorkflowService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

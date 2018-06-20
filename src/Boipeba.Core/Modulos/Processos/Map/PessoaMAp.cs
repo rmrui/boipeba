@@ -7,7 +7,12 @@ namespace Boipeba.Core.Modulos.Processos.Map
     {
         public PessoaMap()
         {
-            Id(x => x.Matricula, y => y.Generator(Generators.Assigned));
+            Id(x => x.Matricula, y =>
+            {
+                y.Generator(Generators.Assigned);
+                y.Column("NuMatricula");
+            });
+
             Property(x => x.Nome, y => y.Column("NmPessoa"));
         }
     }
