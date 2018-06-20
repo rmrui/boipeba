@@ -1,17 +1,17 @@
 ﻿using System.Web.Mvc;
 using Boipeba.Core.Modulos.Processos;
-using Boipeba.Core.Modulos.Processos.Repositories;
+using Boipeba.Core.Modulos.Processos.Services;
 using Boipeba.Web.Controllers;
 
 namespace Boipeba.Web.Areas.Processos.Controllers
 {
     public class CadastroController : BaseController
     {
-        private readonly IProcessoRepository _processoRepository;
+        private readonly IProcessoService _processoService;
 
-        public CadastroController(IProcessoRepository processoRepository)
+        public CadastroController(IProcessoService processoService)
         {
-            _processoRepository = processoRepository;
+            _processoService = processoService;
         }
 
         public ActionResult Index()
@@ -26,7 +26,7 @@ namespace Boipeba.Web.Areas.Processos.Controllers
 
         public JsonResult Salvar(Processo processo)
         {
-            _processoRepository.AddOrUpdate(processo);
+            _processoService.Cadastrar(processo);
 
             return Done();
         }

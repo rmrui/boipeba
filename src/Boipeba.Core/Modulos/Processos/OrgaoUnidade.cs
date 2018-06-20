@@ -4,7 +4,8 @@ namespace Boipeba.Core.Modulos.Processos
 {
     public class OrgaoUnidade
     {
-        public virtual string DsOrgaoUnidade { get; set; }
         public virtual long IdOrgaoUnidade { get; set; }
+
+        public virtual string DsOrgaoUnidade { get; set; }
     }
 }
