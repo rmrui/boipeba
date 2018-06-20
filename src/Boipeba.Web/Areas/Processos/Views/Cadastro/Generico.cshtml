@@ -64,13 +64,13 @@
                     <div class="row">
 						<div class="form-group col-lg-4">
                             <label class="control-label" for="pessoaInteressada">Nome</label>
-                            <input type="text" class="form-control" id="pessoaInteressada" name="pessoaInteressada" placeholder="Pessoa interessada" required>
+                            <input type="text" class="form-control" id="pessoaInteressada" name="pessoaInteressada" placeholder="Pessoa interessada" required ng-model="viewdata.model.Interessado">
                         </div>
                         <div class="form-group col-lg-6">
                             <label for="ouInteressado">Órgão/Unidade</label>
                             <div angucomplete-alt id="ouInteressado" input-name="ouInteressado" placeholder="Digite o Órgão/Unidade" pause="400" 
                                  selected-object="viewdata.OrgaoUnidadeInteressado" remote-url="/api/orgaosunidades/?part=" remote-url-data-field="" 
-                                 title-field="DsOrgaoUnidade" minlength="3" match-class="highlight" input-class="form-control form-control-small interessado-group" 
+                                 title-field="DsOrgaoUnidade" minlength="3" match-class="highlight" input-class="form-control form-control-small" 
                                  disable-input="viewdata.model.Sociedade"></div>
                         </div>
                         <div class="col-lg-2">
@@ -94,7 +94,11 @@
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label class="control-label" for="assunto">Assunto</label>
-                                <input type="text" class="form-control" id="assunto" name="assunto" placeholder="Assunto" required>
+                                <div angucomplete-alt id="assunto" input-name="assunto" placeholder="Digite o Assunto" pause="400"
+                                     selected-object="viewdata.Assunto" remote-url="/api/assuntos/?part=" remote-url-data-field=""
+                                     title-field="DsAssunto,CdAssunto" minlength="0" match-class="highlight" input-class="form-control form-control-small">
+
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -116,8 +120,10 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="form-group col-lg-12">
-                            <label for="interessado">Pessoa ou Órgão/Unidade</label>
-                            <orgao-unidade selected-object="viewdata.OrgaoUnidadeDestinatario"></orgao-unidade>
+                            <label for="ouDestino">Pessoa ou Órgão/Unidade</label>
+                            <div angucomplete-alt id="ouDestino" input-name="ouDestino" placeholder="Digite o Órgão/Unidade" pause="400"
+                                 selected-object="viewdata.OrgaoUnidadeDestinatario" remote-url="/api/orgaosunidades/?part=" remote-url-data-field=""
+                                 title-field="DsOrgaoUnidade" minlength="3" match-class="highlight" input-class="form-control form-control-small"></div>
                         </div>
                     </div>
                 </div>
@@ -125,7 +131,7 @@
         </form>
         <div class="row">
             <div class="col-lg-offset-8 col-xs-12 col-lg-4">
-                <button type="button" class="btn btn-primary btn-block" ng-click="validaForm(processoGenericoForm) && salvar(viewdata.model)">
+                <button type="button" class="btn btn-primary btn-block" ng-click="validaForm(processoGenericoForm) && salvar()">
                     Enviar <span class="fa fa-paper-plane"></span>
                 </button>
             </div>

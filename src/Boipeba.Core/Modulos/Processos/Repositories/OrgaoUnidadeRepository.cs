@@ -18,7 +18,7 @@ namespace Boipeba.Core.Modulos.Processos.Repositories
         public IList<OrgaoUnidade> Find(string description)
         {
             return Session.QueryOver<OrgaoUnidade>()
-                .Where(x => x.DsOrgaoUnidade.IsInsensitiveLike(description, MatchMode.Anywhere)).List();
+                .Where(x => x.DsOrgaoUnidade.IsInsensitiveLike(description, MatchMode.Anywhere)).OrderBy(x => x.DsOrgaoUnidade).Asc.List();
         }
 
         public IEnumerable<OrgaoUnidade> FindAll()

@@ -186,6 +186,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="API\AssuntosController.cs" />
     <Compile Include="API\OrgaosUnidadesController.cs" />
     <Compile Include="App_Start\Bundles\ConfigBundles.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -210,6 +211,7 @@
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LabController.cs" />
+    <Compile Include="Controllers\ReCaptcha.cs" />
     <Compile Include="Controllers\SimpleCrudController.cs" />
     <Compile Include="Controllers\TramitacaoController.cs" />
     <Compile Include="Global.asax.cs">

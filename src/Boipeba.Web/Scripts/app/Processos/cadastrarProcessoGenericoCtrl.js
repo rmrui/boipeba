@@ -13,7 +13,7 @@
         };
 
         $scope.tratarOuInteressado = function () {
-            if ($scope.viewdata.model.Sociedade == true) {
+            if ($scope.viewdata.model.Sociedade === true) {
                 $scope.$broadcast("angucomplete-alt:clearInput", "ouInteressado");
                 $scope.viewdata.OrgaoUnidadeInteressado = {};
             }
@@ -25,20 +25,35 @@
                 return false;
             }
 
-            if (!form.validate()) {
+            if (!$scope.viewdata.Assunto || jQuery.isEmptyObject($scope.viewdata.Assunto)) {
+                toastr.warning("Informe um valor para o assunto.");
                 return false;
             }
 
-            return true;
+            if (!$scope.viewdata.OrgaoUnidadeDestinatario || jQuery.isEmptyObject($scope.viewdata.OrgaoUnidadeDestinatario)) {
+                toastr.warning("Informe um destinatário.");
+                return false;
+            }
+
+            return form.validate();
         }
 
-        $scope.enviar = function () {
+        $scope.salvar = function () {
+            if (!$scope.viewdata.model.Sociedade) {
+                $scope.viewdata.model.OrgaoUnidadeInteressado = $scope.viewdata.OrgaoUnidadeInteressado.originalObject;
+            }
+
+            $scope.viewdata.model.Assunto = $scope.viewdata.Assunto.originalObject;
+            $scope.viewdata.model.OrgaoUnidadeDestinatario = $scope.viewdata.OrgaoUnidadeDestinatario.originalObject;
+
             $http({
                 method: "POST",
-                url: "/Processos/Generico/Salvar",
-                data: item
+                url: "/Processos/Cadastro/Salvar",
+                data: $scope.viewdata.model
             }).then(function successCallback(response) {
                 toastr.success("Operação realizada com sucesso.", "OK");
+            }, function errorCallback(response) {
+                toastr.error("Serviço indisponível no momento.", "Atenção");
             });
         }
     }

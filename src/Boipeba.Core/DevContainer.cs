@@ -197,6 +197,11 @@ namespace Boipeba.Core
                     var ouCorregedoria = new OrgaoUnidade {DsOrgaoUnidade = "Corregedoria-Geral", IdOrgaoUnidade = 2};
                     var ouGabinete = new OrgaoUnidade {DsOrgaoUnidade = "Gabinete PGJ", IdOrgaoUnidade = 3};
 
+                    var assuntoCorreicaoOrdinaria = new Assunto {CdAssunto = 930406, DsAssunto = "Correição Ordinária"};
+                    var assuntoCorreicaoExtra = new Assunto {CdAssunto = 930407, DsAssunto = "Correição Extraordinária"};
+
+                    var ruiDaBaea = new Pessoa {Matricula = 353547, Nome = "Rui da Baea"};
+                    var tiagoCorreria = new Pessoa {Nome = "Tiago Magalhães", Matricula = 352862};
 
                     session.Save(player1);
                     session.Save(player2);
@@ -205,6 +210,10 @@ namespace Boipeba.Core
                     session.Save(ouCsi);
                     session.Save(ouCorregedoria);
                     session.Save(ouGabinete);
+                    session.Save(assuntoCorreicaoExtra);
+                    session.Save(assuntoCorreicaoOrdinaria);
+                    session.Save(ruiDaBaea);
+                    session.Save(tiagoCorreria);
                     session.Flush();
                 }
             }

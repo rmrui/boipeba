@@ -15,6 +15,7 @@ namespace Boipeba.Web.Controllers
     {
         private readonly  IAuthenticationService _authService;
 
+        //TODO incluir captcha
         public HomeController(IAuthenticationService authService)
         {
             _authService = authService;
@@ -43,21 +44,6 @@ namespace Boipeba.Web.Controllers
             {
                 return View(model);
             }
-
-#if !DEBUG
-            var validCaptcha = IsReCaptchaValid();
-            var fallbackCaptcha = this.IsCaptchaValid(string.Empty);
-
-            if (!(validCaptcha || fallbackCaptcha))
-            {
-                var msg = IsFallBackCaptcha()
-                    ? "CAPTCHA não preenchido corretamente. Digite os caracteres impressos na imagem."
-                    : "CAPTCHA não respondido. Por favor, responda o captcha de segurança.";
-
-                ModelState.AddModelError("Captcha", msg);
-                return View(model);
-            }
-#endif
 
             try
             {
@@ -91,6 +77,11 @@ namespace Boipeba.Web.Controllers
             ViewBag.Version = GetVersion();
 
             return View("SignIn", model);
+        }
+
+        private bool IsFallBackCaptcha()
+        {
+            return !string.IsNullOrEmpty(Request.Form["CaptchaInputText"]);
         }
 
         //regex from http://detectmobilebrowsers.com/
