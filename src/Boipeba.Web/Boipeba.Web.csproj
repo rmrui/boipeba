@@ -512,8 +512,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Processos\Models\" />
     <Folder Include="Areas\Processos\Views\Shared\" />
-    <Folder Include="bin\x64\" />
-    <Folder Include="bin\x86\" />
     <Folder Include="Filters\" />
   </ItemGroup>
   <ItemGroup>

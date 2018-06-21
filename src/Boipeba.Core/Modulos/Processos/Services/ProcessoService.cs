@@ -33,19 +33,13 @@ namespace Boipeba.Core.Modulos.Processos.Services
 
         public Processo Cadastrar(Processo processo)
         {
-            var agora = DateTime.Now;
-
-            processo.UltimaAlteracao = agora;
-
             _processoRepository.Add(processo);
-
             var usuarioAutor = _ticketProvider.ResolveUser();
-
             var autor = _pessoaRepository.Find(usuarioAutor.Matricula);
 
             var processoMovimentoEncaminhamento = new ProcessoMovimento
             {
-                Data = agora,
+                Data = DateTime.Now,
                 PessoaOrigem = autor,
                 OrgaoUnidadeOrigem = autor.OrgaoUnidadeLotacao,
                 PessoaDestino = processo.PessoaDestino,

@@ -15,7 +15,6 @@ namespace Boipeba.Core.Modulos.Processos.Map
             Property(x => x.Sociedade, y => y.Column("StSociedadeInteressada"));
             Property(x => x.Complemento, y => y.Column("DsComplementoAssunto"));
             Property(x => x.Interessado, y => y.Column("NmInteressado"));
-            Property(x => x.UltimaAlteracao, y => y.Column("DtUltimaAlteracao"));
             ManyToOne<OrgaoUnidade>(x => x.OrgaoUnidadeInteressado, y => y.Column("IdOuInteressado"));
             ManyToOne<Assunto>(x => x.Assunto, y => y.Column("CdAssunto"));
             ManyToOne<Pessoa>(x => x.Autor, y => y.Column("NuMatriculaAutor"));
