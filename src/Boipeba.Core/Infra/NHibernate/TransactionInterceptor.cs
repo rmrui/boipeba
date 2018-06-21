@@ -28,7 +28,7 @@ namespace Boipeba.Core.Infra.NHibernate
 
                     scope.Complete();
                 }
-                catch(Exception ex)
+                catch(Exception)
                 {
                     scope.Dispose();
                     throw;

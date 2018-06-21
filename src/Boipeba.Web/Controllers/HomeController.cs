@@ -67,7 +67,7 @@ namespace Boipeba.Web.Controllers
             {
                 ModelState.AddModelError(string.Empty, ex.Message);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 //Elmah.ErrorSignal.FromCurrentContext().Raise(ex);
 

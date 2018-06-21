@@ -14,6 +14,8 @@ namespace Boipeba.Core.Modulos.Processos.Map
             });
 
             Property(x => x.Nome, y => y.Column("NmPessoa"));
+
+            ManyToOne(x => x.OrgaoUnidadeLotacao, y => y.Column("IdOuLotacao"));
         }
     }
 }

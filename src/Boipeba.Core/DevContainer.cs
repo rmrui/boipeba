@@ -19,6 +19,7 @@ using NHibernate.Cfg;
 using NHibernate.Connection;
 using NHibernate.Dialect;
 using NHibernate.Driver;
+using NHibernate.Linq.Expressions;
 using NHibernate.Mapping.ByCode;
 using NHibernate.Tool.hbm2ddl;
 using Configuration = NHibernate.Cfg.Configuration;
@@ -194,14 +195,20 @@ namespace Boipeba.Core
                     var ship2 = new Spacecraft { Name = "Soyuz", Agency = "Roscosmos" };
 
                     var ouCsi = new OrgaoUnidade {DsOrgaoUnidade = "CSI", IdOrgaoUnidade = 1};
-                    var ouCorregedoria = new OrgaoUnidade {DsOrgaoUnidade = "Corregedoria-Geral", IdOrgaoUnidade = 2};
-                    var ouGabinete = new OrgaoUnidade {DsOrgaoUnidade = "Gabinete PGJ", IdOrgaoUnidade = 3};
+                    var ouCorregedoria = new OrgaoUnidade {DsOrgaoUnidade = "Corregedoria-Geral do Ministério Público", IdOrgaoUnidade = 2};
 
                     var assuntoCorreicaoOrdinaria = new Assunto {CdAssunto = 930406, DsAssunto = "Correição Ordinária"};
                     var assuntoCorreicaoExtra = new Assunto {CdAssunto = 930407, DsAssunto = "Correição Extraordinária"};
+                    var assuntoFerias = new Assunto {CdAssunto = 930152, DsAssunto = "Férias" };
 
-                    var ruiDaBaea = new Pessoa {Matricula = 353547, Nome = "Rui da Baea"};
-                    var tiagoCorreria = new Pessoa {Nome = "Tiago Magalhães", Matricula = 352862};
+                    var movimentoEncaminhamento = new Movimento {CdMovimento = 920025, DsMovimento = "Encaminhamento a Órgão Interno"};
+                    var movimentoEntrada = new Movimento {CdMovimento = 920246, DsMovimento = "Entrada da carga"};
+                    var movimentoDeferimento = new Movimento {CdMovimento = 920370, DsMovimento = "Deferido / Concedido / Procedente / Autorizado"};
+                    var movimentoIndeferimento = new Movimento {CdMovimento = 920372, DsMovimento  = "Indeferido / Prejudicado / Improcedente / Não autorizado" };
+                    var cienciaDecisao = new Movimento {CdMovimento = 920311, DsMovimento  = "Ciência de Decisão Administrativa" };
+
+                    var ruiDaBaea = new Pessoa {Matricula = 353547, Nome = "Rui Maurício", OrgaoUnidadeLotacao = ouCsi};
+                    var tiagoCorreria = new Pessoa {Nome = "Tiago Magalhães", Matricula = 352862, OrgaoUnidadeLotacao = ouCorregedoria};
 
                     session.Save(player1);
                     session.Save(player2);
@@ -209,9 +216,14 @@ namespace Boipeba.Core
                     session.Save(ship2);
                     session.Save(ouCsi);
                     session.Save(ouCorregedoria);
-                    session.Save(ouGabinete);
                     session.Save(assuntoCorreicaoExtra);
                     session.Save(assuntoCorreicaoOrdinaria);
+                    session.Save(assuntoFerias);
+                    session.Save(movimentoEncaminhamento);
+                    session.Save(movimentoEntrada);
+                    session.Save(movimentoDeferimento);
+                    session.Save(movimentoIndeferimento);
+                    session.Save(cienciaDecisao);
                     session.Save(ruiDaBaea);
                     session.Save(tiagoCorreria);
                     session.Flush();

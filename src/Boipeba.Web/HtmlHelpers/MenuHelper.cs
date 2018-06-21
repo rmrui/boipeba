@@ -38,7 +38,10 @@ namespace Boipeba.Web.HtmlHelpers
         public static bool MenuCadastros(this HtmlHelper helder, IPrincipal user)
         {
             return true;
+            //TODO remover pragma
+#pragma warning disable 162
             return user.IsInRole(Roles.Admin);
+#pragma warning restore 162
         }
     }
 }

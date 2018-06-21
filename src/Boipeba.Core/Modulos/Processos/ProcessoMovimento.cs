@@ -1,0 +1,44 @@
+﻿using System;
+using Boipeba.Core.Domain.Model;
+
+namespace Boipeba.Core.Modulos.Processos
+{
+    public class ProcessoMovimento: IIdentifiable
+    {
+        public virtual long Id { get; set; }
+
+        public virtual Processo Processo { get; set; }
+
+        public virtual DateTime Data { get; set; }
+
+        public virtual Pessoa Autor { get; set; }
+
+        public virtual Movimento Movimento { get; set; }
+
+        public virtual string Parecer { get; set; }
+
+        public virtual OrgaoUnidade OrgaoUnidadeOrigem { get; set; }
+
+        public virtual Pessoa PessoaOrigem { get; set; }
+
+        public virtual OrgaoUnidade OrgaoUnidadeDestino { get; set; }
+
+        public virtual Pessoa PessoaDestino { get; set; }
+
+        //public Arquivo[] Arquivos { get; set; }
+
+        //public bool Start => Origem == null;
+        //public bool End { get; set; }
+    }
+
+    public class Arquivo
+    {
+        public string Nome { get; set; }
+
+        public string Hash { get; set; }
+
+        public string Path { get; set; }
+
+        public ProcessoMovimento ProcessoMovimento { get; set; }
+    }
+}

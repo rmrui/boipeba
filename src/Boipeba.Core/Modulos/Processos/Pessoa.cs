@@ -10,5 +10,7 @@ namespace Boipeba.Core.Modulos.Processos
         public virtual string Nome { get; set; }
 
         public virtual bool IsMembro { get; set; }
+
+        public virtual OrgaoUnidade OrgaoUnidadeLotacao { get; set; }
     }
 }

@@ -16,7 +16,7 @@ namespace Boipeba.Core.Modulos.Processos
 
         public virtual bool Reservado { get; set; }
 
-        public virtual Pessoa Interessado { get; set; }
+        public virtual string Interessado { get; set; }
 
         public virtual OrgaoUnidade OrgaoUnidadeInteressado { get; set; }
 
@@ -28,6 +28,8 @@ namespace Boipeba.Core.Modulos.Processos
 
         public virtual Pessoa Autor { get; set; }
 
-        public virtual Assignee Destinatario { get; set; }
+        public virtual Pessoa PessoaDestino { get; set; }
+
+        public virtual OrgaoUnidade OrgaoUnidadeDestino { get; set; }
     }
 }

@@ -14,29 +14,35 @@ namespace Boipeba.Core.Modulos.Processos.Map
             Property(x => x.Reservado, y => y.Column("StReservado"));
             Property(x => x.Sociedade, y => y.Column("StSociedadeInteressada"));
             Property(x => x.Complemento, y => y.Column("DsComplementoAssunto"));
-
-            ManyToOne<Pessoa>(x => x.Interessado, y => y.Column("NuMatriculaInteressado"));
+            Property(x => x.Interessado, y => y.Column("NmInteressado"));
             ManyToOne<OrgaoUnidade>(x => x.OrgaoUnidadeInteressado, y => y.Column("IdOuInteressado"));
             ManyToOne<Assunto>(x => x.Assunto, y => y.Column("CdAssunto"));
+            ManyToOne<Pessoa>(x => x.Autor, y => y.Column("NuMatriculaAutor"));
+            ManyToOne(x => x.OrgaoUnidadeDestino, y => y.Column("IdOuDestino"));
+            ManyToOne(x => x.PessoaDestino, y => y.Column("NuMatriculaDestino"));
         }
     }
-    public class MovimentacaoMap : ClassMapping<Movimentacao>
+    public class ProcessoMovimentoMap : ClassMapping<ProcessoMovimento>
     {
-        public MovimentacaoMap()
+        public ProcessoMovimentoMap()
         {
             Id(x => x.Id, y => { y.Column("IdMovimentacao"); y.Generator(Generators.Identity); });
 
             Property(x => x.Data, y => y.Column("DtMovimentacao"));
 
-            ManyToOne<Pessoa>(x => x.Autor, y => y.Column("NuMatriculaResponsavel"));
+            ManyToOne<Pessoa>(x => x.Autor, y => y.Column("NuMatriculaAutor"));
+
+            ManyToOne(x => x.Movimento, y => y.Column("CdMovimento"));
 
             Property(x => x.Parecer, y => y.Column("DsParecer"));
 
-            Component(x => x.Origem, c =>
-            {
-                c.Property("Pessoa", m => m.Column("NuMatricula"));
-                c.Property("OrgaoUnidade", m => m.Column("IdOrgaoUnidade"));
-            });
+            ManyToOne(x => x.OrgaoUnidadeOrigem, y => { y.Column("IdOrgaoUnidadeOrigem"); });
+
+            ManyToOne(x => x.PessoaOrigem, y => { y.Column("NuMatriculaOrigem"); });
+
+            ManyToOne(x => x.OrgaoUnidadeDestino, y => { y.Column("IdOrgaoUnidadeDestino"); });
+
+            ManyToOne(x => x.PessoaDestino, y => { y.Column("NuMatriculaDestino"); });
 
             //Component(x => x.Destino, c =>
             //{

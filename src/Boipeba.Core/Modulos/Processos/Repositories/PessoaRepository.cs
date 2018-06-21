@@ -8,6 +8,7 @@ namespace Boipeba.Core.Modulos.Processos.Repositories
     public interface IPessoaRepository : IRepository
     {
         IList<Pessoa> Find(string partName);
+        Pessoa Find(long id);
     }
 
     public class PessoaRepository : IPessoaRepository
@@ -23,6 +24,11 @@ namespace Boipeba.Core.Modulos.Processos.Repositories
         {
             return Session.QueryOver<Pessoa>().Where(x => x.Nome.IsLike(partName, MatchMode.Anywhere))
                 .OrderBy(x => x.Nome).Asc.List();
+        }
+
+        public Pessoa Find(long id)
+        {
+            return Session.Get<Pessoa>(id);
         }
     }
 }

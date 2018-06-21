@@ -6,20 +6,20 @@
     function cadastrarProcessoGenericoCtrl($scope, $http, toastr) {
         $scope.viewdata = {
             model: {
-                Data: new Date().toLocaleDateString(),
+                Cadastro: new Date().toLocaleDateString(),
                 Urgente: false,
                 Reservado: false
             }
         };
 
-        $scope.tratarOuInteressado = function () {
+        $scope.tratarOuInteressado = function() {
             if ($scope.viewdata.model.Sociedade === true) {
                 $scope.$broadcast("angucomplete-alt:clearInput", "ouInteressado");
                 $scope.viewdata.OrgaoUnidadeInteressado = {};
             }
-        }
+        };
 
-        $scope.validaForm = function (form) {
+        $scope.validaForm = function(form) {
             if (!$scope.viewdata.model.Sociedade && jQuery.isEmptyObject($scope.viewdata.OrgaoUnidadeInteressado)) {
                 toastr.warning("Informe um valor para o interessado (Órgão/Unidade ou 'A sociedade'.)");
                 return false;
@@ -30,32 +30,34 @@
                 return false;
             }
 
-            if (!$scope.viewdata.OrgaoUnidadeDestinatario || jQuery.isEmptyObject($scope.viewdata.OrgaoUnidadeDestinatario)) {
+            if (!$scope.viewdata.OrgaoUnidadeDestino ||
+                jQuery.isEmptyObject($scope.viewdata.OrgaoUnidadeDestino)) {
                 toastr.warning("Informe um destinatário.");
                 return false;
             }
 
             return form.validate();
-        }
+        };
 
-        $scope.salvar = function () {
+        $scope.salvar = function() {
             if (!$scope.viewdata.model.Sociedade) {
                 $scope.viewdata.model.OrgaoUnidadeInteressado = $scope.viewdata.OrgaoUnidadeInteressado.originalObject;
             }
 
             $scope.viewdata.model.Assunto = $scope.viewdata.Assunto.originalObject;
-            $scope.viewdata.model.OrgaoUnidadeDestinatario = $scope.viewdata.OrgaoUnidadeDestinatario.originalObject;
+            $scope.viewdata.model.OrgaoUnidadeDestino = $scope.viewdata.OrgaoUnidadeDestino.originalObject;
 
             $http({
                 method: "POST",
                 url: "/Processos/Cadastro/Salvar",
                 data: $scope.viewdata.model
             }).then(function successCallback(response) {
-                toastr.success("Operação realizada com sucesso.", "OK");
-            }, function errorCallback(response) {
-                toastr.error("Serviço indisponível no momento.", "Atenção");
-            });
-        }
+                    toastr.success("Operação realizada com sucesso.", "OK");
+                },
+                function errorCallback(response) {
+                    toastr.error("Serviço indisponível no momento.", "Atenção");
+                });
+        };
     }
 
     angular
