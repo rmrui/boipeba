@@ -31,5 +31,7 @@ namespace Boipeba.Core.Modulos.Processos
         public virtual Pessoa PessoaDestino { get; set; }
 
         public virtual OrgaoUnidade OrgaoUnidadeDestino { get; set; }
+
+        public virtual DateTime UltimaAlteracao { get; set; }
     }
 }
