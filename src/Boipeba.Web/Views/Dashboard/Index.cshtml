@@ -31,29 +31,33 @@
 
         <br />
 
+
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">Caixa de Entrada <span class="badge">3</span></h3>
+                <h3 class="panel-title">Caixa de Entrada <span class="badge">{{viewdata.processos.length}}</span></h3>
             </div>
             <div class="panel-body">
+                
+                <loading target="view.loadingList"></loading>
 
                 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                    <div class="panel panel-default">
+
+                    <div class="panel panel-default" ng-repeat="item in viewdata.processos">
                         <div class="panel-heading" role="tab" id="headingOne">
                             <h4 class="panel-title">
                                 <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    <span class="text-danger"><strong>SIMP: 003.0.345678/2020</strong> <span class="fa fa-warning"></span>  </span><small> Controle e Fiscalização Art. 57 XXIV. Pedido de Providências</small>
+                                    <span class="text-danger"><strong>SIMP: {{item.Simp}}</strong> <span class="fa fa-warning"></span>  </span><small>{{item.Assunto.DsAssunto}}</small>
                                 </a>
                             </h4>
                         </div>
                         <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                             <div class="panel-body">
-                                
+
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label for="Nome">Atribuído Para:</label>
-                                            <input type="text" class="form-control" disabled value="Antônio Vivaldo de Oliveira Filho" />
+                                            <input type="text" class="form-control" disabled value="{{item.PessoaDestino.Nome}}" />
                                         </div>
                                     </div>
                                     <div class="col-lg-3">
@@ -68,11 +72,11 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <div class="row">
                                     <div class="col-lg-2">
                                         <div class="form-group">
-                                            <br/>
+                                            <br />
                                             <button class="btn btn-primary">
                                                 Visão Geral <span class="fa fa-search"></span>
                                             </button>
@@ -80,7 +84,7 @@
                                     </div>
                                     <div class="col-lg-2">
                                         <div class="form-group">
-                                            <br/>
+                                            <br />
                                             <button class="btn btn-default">
                                                 Apensar <span class="fa fa-clipboard"></span>
                                             </button>
@@ -99,34 +103,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading" role="tab" id="headingTwo">
-                            <h4 class="panel-title">
-                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    SIMP: <strong>003.0.123456/2020</strong> <small>  Correição Ordinária Art. 57 XVIII. Correição Ordinária</small>
-                                </a>
-                            </h4>
-                        </div>
-                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                            <div class="panel-body">
-                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading" role="tab" id="headingThree">
-                            <h4 class="panel-title">
-                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    SIMP: <strong>003.0.987651/2020</strong> <small>  Controle e Fiscalização Art. 57 LI. Solicitação de Informações</small>
-                                </a>
-                            </h4>
-                        </div>
-                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                            <div class="panel-body">
-                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </div>
