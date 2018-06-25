@@ -19,7 +19,7 @@
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
-    <IISExpressSSLPort />
+    <IISExpressSSLPort>44377</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -187,7 +187,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="API\AssuntosController.cs" />
-    <Compile Include="API\InteressadoController.cs" />
+    <Compile Include="API\DestinatariosController.cs" />
     <Compile Include="API\MovimentosController.cs" />
     <Compile Include="API\OrgaosUnidadesController.cs" />
     <Compile Include="App_Start\Bundles\ConfigBundles.cs" />
@@ -544,7 +544,9 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>61815</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:5432/</IISUrl>
+          <IISUrl>https://localhost:44377</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>http://localhost:5432/</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web.Http;
 using Boipeba.Core.Modulos.Processos;
 using Boipeba.Core.Modulos.Processos.Repositories;
@@ -16,7 +17,7 @@ namespace Boipeba.Web.API
 
         public IList<Assunto> Get(string part)
         {
-            return _repository.Find(part);
+            return _repository.Find(part).Take(20).ToList();
         }
     }
 }

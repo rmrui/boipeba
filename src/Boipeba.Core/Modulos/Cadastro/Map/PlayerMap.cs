@@ -7,7 +7,9 @@ namespace Boipeba.Core.Modulos.Cadastro.Map
     {
         public PlayerMap()
         {
+#if DEBUG
             Table("tPlayer");
+#endif
 
             Id(x => x.Id, c =>
             {

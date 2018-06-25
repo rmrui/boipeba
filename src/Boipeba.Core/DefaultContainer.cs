@@ -59,16 +59,10 @@ namespace Boipeba.Core
                 .Configure(x => x.Interceptors(typeof(TransactionInterceptor)))
                 .Configure(c => c.LifestyleTransient()));
 
-            Register(Component.For<ITicketProvider>().ImplementedBy<DefaultTicketProvider>().LifeStyle.Transient);
-
             Register(Component.For<IActiveDirectoryService>()
                 .ImplementedBy<ActiveDirectoryService>()
                 .DependsOn(Dependency.OnValue("adConnectionString", adConnectionString))
                 .LifeStyle.Transient);
-
-            Register(Component.For<IAuthenticationService>().ImplementedBy<AuthenticationService>().LifeStyle.Transient);
-
-            Register(Component.For<IRoleService>().ImplementedBy<RoleService>().LifeStyle.Transient);
         }
 
         private void RegisterRepositories()

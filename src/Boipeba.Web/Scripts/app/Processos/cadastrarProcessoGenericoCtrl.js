@@ -30,8 +30,8 @@
                 return false;
             }
 
-            if (!$scope.viewdata.OrgaoUnidadeDestino ||
-                jQuery.isEmptyObject($scope.viewdata.OrgaoUnidadeDestino)) {
+            if (!$scope.viewdata.Destinatario ||
+                jQuery.isEmptyObject($scope.viewdata.Destinatario)) {
                 toastr.warning("Informe um destinatário.");
                 return false;
             }
@@ -45,7 +45,7 @@
             }
 
             $scope.viewdata.model.Assunto = $scope.viewdata.Assunto.originalObject;
-            $scope.viewdata.model.OrgaoUnidadeDestino = $scope.viewdata.OrgaoUnidadeDestino.originalObject;
+            $scope.viewdata.model.Destinatario = $scope.viewdata.Destinatario.originalObject;
 
             $http({
                 method: "POST",

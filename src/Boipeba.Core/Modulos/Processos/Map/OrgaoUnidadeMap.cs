@@ -7,6 +7,7 @@ namespace Boipeba.Core.Modulos.Processos.Map
     {
         public OrgaoUnidadeMap()
         {
+            Table("vw_OrgaoUnidade");
             Id(x => x.IdOrgaoUnidade, y => y.Generator(Generators.Assigned));
             Property(x => x.DsOrgaoUnidade);
         }

@@ -2,8 +2,10 @@
 {
     public class IdentifiableDescriptionItem: IIdentifiableDescription
     {
-        public long Id { get; set; }
+        public virtual long Id { get; set; }
 
-        public string Descricao { get; set; }
+        public virtual string Descricao { get; set; }
+
+        public virtual string Tipo { get; set; }
     }
 }

@@ -7,6 +7,7 @@ namespace Boipeba.Core.Modulos.Processos.Map
     {
         public ProcessoMap()
         {
+            Table("tProcesso");
             Id(x => x.Id, y => { y.Column("IdProcesso"); y.Generator(Generators.Identity); });
             Property(x => x.Cadastro, y => y.Column("DtCadastro"));
             Property(x => x.Simp, y => y.Column("NuSimp"));
@@ -15,6 +16,7 @@ namespace Boipeba.Core.Modulos.Processos.Map
             Property(x => x.Sociedade, y => y.Column("StSociedadeInteressada"));
             Property(x => x.Complemento, y => y.Column("DsComplementoAssunto"));
             Property(x => x.Interessado, y => y.Column("NmInteressado"));
+            Property(x => x.UltimaModificacao, y => y.Column("DtUltimaModificacao"));
             ManyToOne<OrgaoUnidade>(x => x.OrgaoUnidadeInteressado, y => y.Column("IdOuInteressado"));
             ManyToOne<Assunto>(x => x.Assunto, y => y.Column("CdAssunto"));
             ManyToOne<Pessoa>(x => x.Autor, y => y.Column("NuMatriculaAutor"));
@@ -22,19 +24,24 @@ namespace Boipeba.Core.Modulos.Processos.Map
             ManyToOne(x => x.PessoaDestino, y => y.Column("NuMatriculaDestino"));
         }
     }
+
     public class ProcessoMovimentoMap : ClassMapping<ProcessoMovimento>
     {
         public ProcessoMovimentoMap()
         {
+            Table("tProcessoMovimento");
+
             Id(x => x.Id, y => { y.Column("IdMovimentacao"); y.Generator(Generators.Identity); });
 
             Property(x => x.Data, y => y.Column("DtMovimentacao"));
 
-            ManyToOne<Pessoa>(x => x.Autor, y => y.Column("NuMatriculaAutor"));
+            Property(x => x.Parecer, y => y.Column("DsParecer"));
+
+            ManyToOne(x => x.Processo, y => y.Column("IdProcesso"));
+
+            ManyToOne(x => x.Autor, y => y.Column("NuMatriculaAutor"));
 
             ManyToOne(x => x.Movimento, y => y.Column("CdMovimento"));
-
-            Property(x => x.Parecer, y => y.Column("DsParecer"));
 
             ManyToOne(x => x.OrgaoUnidadeOrigem, y => { y.Column("IdOrgaoUnidadeOrigem"); });
 
@@ -43,12 +50,6 @@ namespace Boipeba.Core.Modulos.Processos.Map
             ManyToOne(x => x.OrgaoUnidadeDestino, y => { y.Column("IdOrgaoUnidadeDestino"); });
 
             ManyToOne(x => x.PessoaDestino, y => { y.Column("NuMatriculaDestino"); });
-
-            //Component(x => x.Destino, c =>
-            //{
-            //    c.Property(y => y.Pessoa, m => m.Column("NuMatriculaDestino"));
-            //    c.Property(x => x.OrgaoUnidade, m => m.Column("IdOrgaoUnidadeDestino"));
-            //});
         }
     }
 }

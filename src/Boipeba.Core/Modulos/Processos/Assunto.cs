@@ -1,4 +1,5 @@
-﻿namespace Boipeba.Core.Modulos.Processos
+﻿
+namespace Boipeba.Core.Modulos.Processos
 {
     public class Assunto
     {

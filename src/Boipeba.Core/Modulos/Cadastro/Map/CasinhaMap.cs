@@ -7,7 +7,9 @@ namespace Boipeba.Core.Modulos.Cadastro.Map
     {
         public CasinhaMap()
         {
+#if DEBUG
             Table("tCasinha");
+#endif
 
             Id(x => x.Id, y =>
             {

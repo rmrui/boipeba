@@ -24,6 +24,19 @@
         }
     };
 
+    /* extrai apenas os números da formatação /date(num)/ */
+    function jsdatetime(datetime) {
+        return function (item) {
+
+            if (item == null) return "";
+
+            var num = new Date(parseInt(item.substr(6)));
+
+            var parser = datetime("dd/MM/yyyy HH:mm:ss");
+            parser.setDate(num);
+            return parser.getText();
+        }
+    };
 
     /* transforma bool em texto Sim ou Não */
     function simnao() {
@@ -70,6 +83,7 @@
         .filter("cpfmask", cpfmask)
         .filter("cnpjmask", cnpjmask)
         .filter("removemask", removemask)
-        .filter("jsdate", jsdate);
+        .filter("jsdate", jsdate)
+        .filter("jsdatetime", jsdatetime);
 })();
 

@@ -31,5 +31,11 @@ namespace Boipeba.Core.Modulos.Processos
         public virtual Pessoa PessoaDestino { get; set; }
 
         public virtual OrgaoUnidade OrgaoUnidadeDestino { get; set; }
+
+        public virtual IdentifiableDescriptionItem Destinatario { get; set; }
+
+        public virtual DateTime UltimaModificacao { get; set; }
+
+        public virtual string Destino => OrgaoUnidadeDestino?.DsOrgaoUnidade ?? PessoaDestino?.Nome;
     }
 }

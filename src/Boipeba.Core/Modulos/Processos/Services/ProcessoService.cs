@@ -33,13 +33,31 @@ namespace Boipeba.Core.Modulos.Processos.Services
 
         public Processo Cadastrar(Processo processo)
         {
-            _processoRepository.Add(processo);
+            var agora = DateTime.Now;
+            processo.UltimaModificacao = agora;
             var usuarioAutor = _ticketProvider.ResolveUser();
             var autor = _pessoaRepository.Find(usuarioAutor.Matricula);
 
+            processo.Autor = autor;
+
+            if (processo.Destinatario.Tipo.Equals(new OrgaoUnidade().GetType().Name))
+            {
+                processo.OrgaoUnidadeDestino = OrgaoUnidade.FromIdenfiableDescriptionItem(processo.Destinatario);
+            }
+            else if (processo.Destinatario.Tipo.Equals(new Pessoa().GetType().Name))
+            {
+                processo.PessoaDestino = Pessoa.FromIdentifiableDescriptionItem(processo.Destinatario);
+            }
+            else
+            {
+                throw new NotImplementedException("Destinatário inválido.");
+            }
+
+            _processoRepository.Add(processo);
+
             var processoMovimentoEncaminhamento = new ProcessoMovimento
             {
-                Data = DateTime.Now,
+                Data = agora,
                 PessoaOrigem = autor,
                 OrgaoUnidadeOrigem = autor.OrgaoUnidadeLotacao,
                 PessoaDestino = processo.PessoaDestino,

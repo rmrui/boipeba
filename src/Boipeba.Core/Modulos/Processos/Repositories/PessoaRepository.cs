@@ -7,7 +7,7 @@ namespace Boipeba.Core.Modulos.Processos.Repositories
 {
     public interface IPessoaRepository : IRepository
     {
-        IList<Pessoa> Find(string partName);
+        IList<Pessoa> Find(string partName, bool ativo);
         Pessoa Find(long id);
     }
 
@@ -20,9 +20,9 @@ namespace Boipeba.Core.Modulos.Processos.Repositories
             Session = session;
         }
 
-        public IList<Pessoa> Find(string partName)
+        public IList<Pessoa> Find(string partName, bool ativo)
         {
-            return Session.QueryOver<Pessoa>().Where(x => x.Nome.IsLike(partName, MatchMode.Anywhere))
+            return Session.QueryOver<Pessoa>().Where(x => x.Nome.IsLike(partName, MatchMode.Anywhere) && x.Ativo == ativo)
                 .OrderBy(x => x.Nome).Asc.List();
         }
 

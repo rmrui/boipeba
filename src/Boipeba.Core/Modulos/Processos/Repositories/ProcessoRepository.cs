@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Boipeba.Core.Domain.Repositories;
 using NHibernate;
+using NHibernate.Criterion;
 
 namespace Boipeba.Core.Modulos.Processos.Repositories
 {
@@ -11,18 +12,39 @@ namespace Boipeba.Core.Modulos.Processos.Repositories
 
     public class ProcessoRepository : DefaultRepository<Processo, long>, IProcessoRepository
     {
-        public ProcessoRepository(ISession session) : base(session)
-        {
+        private readonly IPessoaRepository _pessoaRepository;
 
+        public ProcessoRepository(ISession session, IPessoaRepository pessoaRepository) : base(session)
+        {
+            _pessoaRepository = pessoaRepository;
         }
 
         //TODO: Incluir atribuidos ao Orgao Unidade da pessoa.
         //TODO: Onde consultar qual orgao unidade a pessoa esta associada?
         public IList<Processo> AtribuidosPara(int matricula)
         {
-            return Session.QueryOver<Processo>()
-                .Where(x => x.PessoaDestino.Matricula == matricula)
-                .List();
+            var pessoa = _pessoaRepository.Find(matricula);
+            Processo processo = null;
+            Pessoa pessoaDestino = null;
+            OrgaoUnidade orgaoUnidadeDestino = null;
+
+            var consulta = Session.QueryOver<Processo>(() => processo);
+
+            consulta.Left.JoinQueryOver(() => processo.PessoaDestino, () => pessoaDestino);
+
+            consulta.Left.JoinQueryOver(() => processo.OrgaoUnidadeDestino, () => orgaoUnidadeDestino);
+
+            var condicoes = Restrictions.Disjunction();
+
+            condicoes.Add(Restrictions.Eq(
+                Projections.Property(() => orgaoUnidadeDestino.IdOrgaoUnidade),
+                pessoa.OrgaoUnidadeLotacao.IdOrgaoUnidade));
+
+            condicoes.Add(Restrictions.Eq(Projections.Property(() => pessoaDestino.Matricula),
+                pessoa.Matricula));
+
+
+            return consulta.Where(condicoes).OrderBy(() => processo.UltimaModificacao).Desc.List();
         }
     }
 }

@@ -7,7 +7,9 @@ namespace Boipeba.Core.Modulos.Cadastro.Map
     {
         public StatusMap()
         {
+#if DEBUG
             Table("tStatus");
+#endif
 
             Id(x => x.Id, c =>
             {

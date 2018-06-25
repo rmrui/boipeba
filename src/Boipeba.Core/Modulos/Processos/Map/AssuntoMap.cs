@@ -7,7 +7,7 @@ namespace Boipeba.Core.Modulos.Processos.Map
     {
         public AssuntoMap()
         {
-            Table("tAssunto");
+            Table("vw_Assunto");
             Id(x => x.CdAssunto, y => y.Generator(Generators.Assigned));
             Property(x => x.DsAssunto);
         }

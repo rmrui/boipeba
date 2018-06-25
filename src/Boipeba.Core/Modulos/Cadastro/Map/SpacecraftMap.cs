@@ -7,7 +7,9 @@ namespace Boipeba.Core.Modulos.Cadastro.Map
     {
         public SpacecraftMap()
         {
+#if DEBUG
             Table("tSpacecraft");
+#endif
 
             Id(x => x.Id, c =>
             {

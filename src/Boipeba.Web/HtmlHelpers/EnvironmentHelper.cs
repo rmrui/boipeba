@@ -46,12 +46,12 @@ namespace Boipeba.Web.HtmlHelpers
 
         private static string BuildMsg()
         {
-            if (ConfigurationManager.ConnectionStrings["tramite"].ConnectionString.ToLower().Contains("tramite_dsv"))
+            if (ConfigurationManager.ConnectionStrings["boipeba"].ConnectionString.ToLower().Contains("teste"))
             {
                 return "AMBIENTE NÃO OFICIAL - DESENVOLVIMENTO";
             }
 
-            if (ConfigurationManager.ConnectionStrings["tramite"].ConnectionString.ToLower().Contains("tramite_tst"))
+            if (ConfigurationManager.ConnectionStrings["boipeba"].ConnectionString.ToLower().Contains("teste"))
             {
                 return "AMBIENTE NÃO OFICIAL - HOMOLOGAÇÃO";
             }

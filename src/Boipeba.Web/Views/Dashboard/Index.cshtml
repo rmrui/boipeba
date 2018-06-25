@@ -57,14 +57,14 @@
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label for="Nome">Atribuído Para:</label>
-                                            <input type="text" class="form-control" disabled value="{{item.PessoaDestino.Nome}}" />
+                                            <input type="text" class="form-control" disabled value="{{item.Destino}}" />
                                         </div>
                                     </div>
                                     <div class="col-lg-3">
                                         <div class="form-group">
                                             <label for="nascimento">Atribuído Em:</label>
                                             <div class="input-group date">
-                                                <input type="text" class="form-control" disabled="" width="10" id="nascimento" name="nascimento" value="01/01/2020 15:25:39">
+                                                <input type="text" class="form-control" disabled="" width="10" id="nascimento" name="nascimento" value="{{item.UltimaModificacao | jsdatetime}}">
                                                 <div class="input-group-addon">
                                                     <span class="glyphicon glyphicon-calendar"></span>
                                                 </div>
