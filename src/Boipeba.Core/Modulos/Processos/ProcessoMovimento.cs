@@ -15,7 +15,7 @@ namespace Boipeba.Core.Modulos.Processos
 
         public virtual Movimento Movimento { get; set; }
 
-        public virtual string Parecer { get; set; }
+        public virtual string Complemento { get; set; }
 
         public virtual OrgaoUnidade OrgaoUnidadeOrigem { get; set; }
 

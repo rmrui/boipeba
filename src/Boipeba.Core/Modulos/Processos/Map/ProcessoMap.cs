@@ -31,11 +31,11 @@ namespace Boipeba.Core.Modulos.Processos.Map
         {
             Table("tProcessoMovimento");
 
-            Id(x => x.Id, y => { y.Column("IdMovimentacao"); y.Generator(Generators.Identity); });
+            Id(x => x.Id, y => { y.Column("IdProcessoMovimento"); y.Generator(Generators.Identity); });
 
             Property(x => x.Data, y => y.Column("DtMovimentacao"));
 
-            Property(x => x.Parecer, y => y.Column("DsParecer"));
+            Property(x => x.Complemento, y => y.Column("DsComplemento"));
 
             ManyToOne(x => x.Processo, y => y.Column("IdProcesso"));
 

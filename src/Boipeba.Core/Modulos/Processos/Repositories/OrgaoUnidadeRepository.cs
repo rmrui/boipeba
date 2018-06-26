@@ -15,10 +15,10 @@ namespace Boipeba.Core.Modulos.Processos.Repositories
             Session = session;
         }
 
-        public IList<OrgaoUnidade> Find(string description)
+        public IList<OrgaoUnidade> Find(string part)
         {
             return Session.QueryOver<OrgaoUnidade>()
-                .Where(x => x.DsOrgaoUnidade.IsInsensitiveLike(description, MatchMode.Anywhere)).OrderBy(x => x.DsOrgaoUnidade).Asc.List();
+                .Where(x => x.DsOrgaoUnidade.IsInsensitiveLike(part, MatchMode.Anywhere)).OrderBy(x => x.DsOrgaoUnidade).Asc.List();
         }
 
         public IEnumerable<OrgaoUnidade> FindAll()
@@ -34,7 +34,7 @@ namespace Boipeba.Core.Modulos.Processos.Repositories
 
     public interface IOrgaoUnidadeRepository : IRepository
     {
-        IList<OrgaoUnidade> Find(string description);
+        IList<OrgaoUnidade> Find(string part);
         IEnumerable<OrgaoUnidade> FindAll();
         OrgaoUnidade Find(int id);
     }

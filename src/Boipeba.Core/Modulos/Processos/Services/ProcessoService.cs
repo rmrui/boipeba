@@ -82,7 +82,7 @@ namespace Boipeba.Core.Modulos.Processos.Services
                 OrgaoUnidadeDestino = orgaoUnidadeDestinatario,
                 Autor = autor,
                 Processo = processo,
-                Parecer = parecer
+                Complemento = parecer
             };
 
             _processoMovimentoRepository.Add(movimento);

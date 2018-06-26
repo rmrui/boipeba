@@ -10,6 +10,7 @@ namespace Boipeba.Core.Modulos.Processos.Map
             Table("vw_OrgaoUnidade");
             Id(x => x.IdOrgaoUnidade, y => y.Generator(Generators.Assigned));
             Property(x => x.DsOrgaoUnidade);
+            Property(x => x.Atributos);
         }
     }
 }

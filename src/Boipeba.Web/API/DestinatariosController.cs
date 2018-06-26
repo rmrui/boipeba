@@ -4,6 +4,7 @@ using System.Web.Http;
 using Boipeba.Core.Domain.Model;
 using Boipeba.Core.Modulos.Processos;
 using Boipeba.Core.Modulos.Processos.Repositories;
+using NHibernate.Criterion;
 
 namespace Boipeba.Web.API
 {
@@ -22,7 +23,7 @@ namespace Boipeba.Web.API
         {
             var list = new List<IdentifiableDescriptionItem>();
 
-            list.AddRange(_orgaoUnidadeRepository.Find(part).Select(x => new IdentifiableDescriptionItem
+            list.AddRange(_orgaoUnidadeRepository.Find(part).Where(x => x.IsTramitacaoDocumentos).Select(x => new IdentifiableDescriptionItem
             {
                 Id = x.IdOrgaoUnidade,
                 Descricao = x.DsOrgaoUnidade,
