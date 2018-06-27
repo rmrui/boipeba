@@ -23,7 +23,7 @@ namespace Boipeba.Web.Areas.Processos.Controllers
         {
             return View();
         }
-
+        
         public JsonResult Salvar(Processo processo)
         {
             _processoService.Cadastrar(processo);

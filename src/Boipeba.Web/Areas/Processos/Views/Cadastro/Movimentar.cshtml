@@ -1,0 +1,69 @@
+﻿@using System.Web.Optimization
+<br />
+
+<div ng-controller="movimentarProcessoCtrl" ng-app="boipeba" class="ng-cloak" ng-init="setup();">
+
+    <div class="container bg-azul">
+        <div class="row">
+            <div class="col-xs-10">Movimentar Processo</div>
+            <div class="col-xs-2 text-right">
+                <a href="#" class="button-tour" style="color: white; display: none"><span class="fa fa-question-circle"></span><span>&nbsp;Ajuda Interativa</span></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container bg-branco">
+        <br />
+        <form name="movimentarProcessoForm" ng-validate="{}">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label class="control-label" for="movimento">Movimento</label>
+                        <div angucomplete-alt id="movimento" input-name="movimento" placeholder="Informe o Movimento" pause="400"
+                             selected-object="viewdata.Movimento" remote-url="/api/movimentos/?part=" remote-url-data-field=""
+                             title-field="DsMovimentoSimples" description-field="DsMovimento" minlength="3" match-class="highlight" input-class="form-control form-control-small"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label class="control-label" for="glossario">Glossário</label>
+                        <textarea class="form-control" id="glossario" name="glossario" rows="2" placeholder="Glossário" disabled ng-model="viewdata.Movimento.originalObject.DsGlossario"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label class="control-label" for="complemento">Complemento</label>
+                        <textarea class="form-control" id="complemento" name="complemento" rows="5" placeholder="Complemento" ng-model="viewdata.model.Complemento"></textarea>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Encaminhar</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="form-group col-lg-12">
+                            <label for="ouDestino">Pessoa ou Órgão/Unidade</label>
+                            <div angucomplete-alt id="ouDestino" input-name="ouDestino" placeholder="Digite o Órgão/Unidade" pause="400"
+                                 selected-object="viewdata.Destinatario" remote-url="/api/destinatarios/?part=" remote-url-data-field=""
+                                 title-field="Descricao" minlength="3" match-class="highlight" input-class="form-control form-control-small"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <br />
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/movimentarProcessoCtrl")
+    @Scripts.Render("~/bundles/jquerySetupMasks")
+}

@@ -208,6 +208,7 @@
     <Content Include="Scripts\app\Processos\cadastrarProcessoGenericoCtrl.js" />
     <Content Include="Areas\Config\Scripts\Tours\statusTour.js" />
     <Compile Include="Areas\Processos\Controllers\CadastroController.cs" />
+    <Compile Include="Areas\Processos\Controllers\MovimentarController.cs" />
     <Compile Include="Areas\Processos\ProcessosAreaRegistration.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
@@ -398,6 +399,7 @@
     <Content Include="Scripts\app\jquery.config.js" />
     <Content Include="Scripts\app\jquerySetupMasks.js" />
     <Content Include="Scripts\app\Login\loginManager.js" />
+    <Content Include="Scripts\app\Processos\movimentarProcessoCtrl.js" />
     <Content Include="Scripts\app\Tramitacao\solicitarDiariaCtrl.js" />
     <Content Include="Scripts\bootstrap\bootstrap-checkbox.js" />
     <Content Include="Scripts\bootstrap\bootstrap-datepicker.js" />
@@ -438,6 +440,7 @@
     <Content Include="Areas\Processos\Views\Cadastro\Index.cshtml" />
     <Content Include="Areas\Processos\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Processos\Views\Cadastro\Generico.cshtml" />
+    <Content Include="Areas\Processos\Views\Cadastro\Movimentar.cshtml" />
     <None Include="Properties\PublishProfiles\Local.pubxml" />
     <None Include="Scripts\jquery\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery\jquery-2.2.0.js" />

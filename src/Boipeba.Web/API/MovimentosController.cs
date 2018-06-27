@@ -14,7 +14,7 @@ namespace Boipeba.Web.API
             _movimentoRepository = movimentoRepository;
         }
 
-        public IList<Movimento> Find(string part)
+        public IList<Movimento> Get(string part)
         {
             return _movimentoRepository.Find(part);
         }
