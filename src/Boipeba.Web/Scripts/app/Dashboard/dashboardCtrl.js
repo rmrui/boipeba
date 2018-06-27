@@ -18,6 +18,7 @@
                         $scope.viewdata.processos = response.data.Processos;
                     },
                     function error(response) {
+                        console.log(response);
                         $scope.view.loadingList = false;
                     });
         }

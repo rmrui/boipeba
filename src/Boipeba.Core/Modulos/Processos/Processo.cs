@@ -1,6 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web.Script.Serialization;
 using Boipeba.Core.Domain.Model;
 using Boipeba.Core.Modulos.Workflow;
+using NHibernate.Tuple;
 
 namespace Boipeba.Core.Modulos.Processos
 {
@@ -37,5 +41,10 @@ namespace Boipeba.Core.Modulos.Processos
         public virtual DateTime UltimaModificacao { get; set; }
 
         public virtual string Destino => OrgaoUnidadeDestino?.DsOrgaoUnidade ?? PessoaDestino?.Nome;
+
+        [ScriptIgnore]
+        public virtual IList<ProcessoMovimento> Movimentos { get; set; }
+
+        public virtual ProcessoMovimento UltimoMovimento => Movimentos.OrderByDescending(x => x.Data).FirstOrDefault();
     }
 }

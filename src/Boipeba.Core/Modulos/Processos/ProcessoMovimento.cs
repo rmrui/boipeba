@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Web.Script.Serialization;
 using Boipeba.Core.Domain.Model;
 
 namespace Boipeba.Core.Modulos.Processos
@@ -7,6 +8,7 @@ namespace Boipeba.Core.Modulos.Processos
     {
         public virtual long Id { get; set; }
 
+        [ScriptIgnore]
         public virtual Processo Processo { get; set; }
 
         public virtual DateTime Data { get; set; }

@@ -1,4 +1,5 @@
-﻿using Boipeba.Core.Domain.Model;
+﻿using System.Web.Script.Serialization;
+using Boipeba.Core.Domain.Model;
 using NHibernate.Criterion;
 
 namespace Boipeba.Core.Modulos.Processos
@@ -9,6 +10,7 @@ namespace Boipeba.Core.Modulos.Processos
 
         public virtual string DsOrgaoUnidade { get; set; }
 
+        [ScriptIgnore]
         public virtual string Atributos { get; set; }
 
         public virtual bool IsTramitacaoDocumentos => Atributos.Contains("D");
