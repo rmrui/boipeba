@@ -21,11 +21,12 @@ namespace Boipeba.Web
 
         protected void Application_Start()
         {
-#if DEBUG
-            SetupDevContainer();
-#else
+//#if DEBUG
+//            SetupDevContainer();
+//#else
+//            SetupContainer();
+//#endif            
             SetupContainer();
-#endif            
 
             WebApiConfig.resolver = _resolver;
 

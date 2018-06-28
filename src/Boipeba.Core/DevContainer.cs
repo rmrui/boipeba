@@ -2,6 +2,7 @@
 using System.Configuration;
 using System.Data;
 using System.IO;
+using System.Reflection;
 using System.Web;
 using Boipeba.Core.Auth.Services;
 using Boipeba.Core.Domain.Repositories;
@@ -48,6 +49,20 @@ namespace Boipeba.Core
 
             Register(Component.For<SQLiteSchemaService>());
             Register(Component.For<SQLiteData>());
+        }
+
+        /// <summary>
+        /// Esta configuração utiliza o SQL Server.
+        /// </summary>
+        /// <param name="type"></param>
+        public void SetupForDev(LifestyleType type)
+        {
+            //throw new Exception("Are you sure about this?");
+
+            AddFacility<StartableFacility>();
+            RegisterPersistence(type, BuildDatabaseConfiguration());
+            RegisterRepositories();
+            RegisterServices();
         }
 
         /// <summary>
@@ -104,7 +119,23 @@ namespace Boipeba.Core
                 Component.For<ISession>().UsingFactoryMethod(k => k.Resolve<ISessionFactory>().OpenSession(), false).LifeStyle.Is(lifestyle),
                 Component.For<Configuration>().Instance(config));
         }
-        
+
+        private static Configuration BuildDatabaseConfiguration()
+        {
+            var config = new Configuration().Configure();
+
+            var mapper = new ModelMapper();
+
+            mapper.AddMappings(Assembly.GetExecutingAssembly().GetExportedTypes());
+
+            var domainMapping = mapper.CompileMappingForAllExplicitlyAddedEntities();
+
+            if (domainMapping.Items != null)
+                config.AddMapping(domainMapping);
+
+            return config;
+        }
+
         private Configuration BuildSQLiteConfiguration()
         {
             var config = new Configuration();
