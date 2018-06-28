@@ -6,10 +6,10 @@ namespace Boipeba.Web.Areas.Processos.Controllers
 {
     public class MovimentarController : BaseController
     {
-        // GET
+        // /Processos/Movimentar/1
         public ActionResult Index(int id)
         {
-            return View("../Cadastro/Movimentar");
+            return View();
         }
 
         public JsonResult Salvar(Movimento movimento)

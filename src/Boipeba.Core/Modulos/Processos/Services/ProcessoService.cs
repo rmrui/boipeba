@@ -9,6 +9,7 @@ namespace Boipeba.Core.Modulos.Processos.Services
     public interface IProcessoService : IService
     {
         Processo Cadastrar(Processo processo);
+
         ProcessoMovimento Movimentar(Processo processo, Pessoa autor, Pessoa pessoaDestinatario, OrgaoUnidade orgaoUnidadeDestinatario, string parecer);
     }
 
@@ -16,16 +17,18 @@ namespace Boipeba.Core.Modulos.Processos.Services
     {
         private readonly IProcessoRepository _processoRepository;
         private readonly IProcessoMovimentoRepository _processoMovimentoRepository;
-        private readonly ITicketProvider _ticketProvider;
         private readonly IPessoaRepository _pessoaRepository;
         private readonly IMovimentoRepository _movimentoRepository;
         private readonly GlobalSettings _globalSettings;
 
-        public ProcessoService(IProcessoMovimentoRepository processoMovimentoRepository, IProcessoRepository processoRepository, ITicketProvider ticketProvider, IPessoaRepository pessoaRepository, IMovimentoRepository movimentoRepository, GlobalSettings globalSettings)
+        public ProcessoService(IProcessoMovimentoRepository processoMovimentoRepository, 
+            IProcessoRepository processoRepository, 
+            IPessoaRepository pessoaRepository, 
+            IMovimentoRepository movimentoRepository, 
+            GlobalSettings globalSettings)
         {
             _processoMovimentoRepository = processoMovimentoRepository;
             _processoRepository = processoRepository;
-            _ticketProvider = ticketProvider;
             _pessoaRepository = pessoaRepository;
             _movimentoRepository = movimentoRepository;
             _globalSettings = globalSettings;
@@ -34,11 +37,12 @@ namespace Boipeba.Core.Modulos.Processos.Services
         public Processo Cadastrar(Processo processo)
         {
             var agora = DateTime.Now;
-            processo.UltimaModificacao = agora;
-            var usuarioAutor = _ticketProvider.ResolveUser();
-            var autor = _pessoaRepository.Find(usuarioAutor.Matricula);
 
-            processo.Autor = autor;
+            processo.UltimaModificacao = agora;
+
+            var autor = _pessoaRepository.Find(processo.Autor.Id);
+
+            //processo.Autor = new Pessoa{ Id = matriculaAutor };
 
             if (processo.Destinatario.Tipo.Equals(new OrgaoUnidade().GetType().Name))
             {

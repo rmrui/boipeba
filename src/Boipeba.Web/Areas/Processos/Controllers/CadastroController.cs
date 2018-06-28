@@ -26,6 +26,8 @@ namespace Boipeba.Web.Areas.Processos.Controllers
         
         public JsonResult Salvar(Processo processo)
         {
+            processo.Autor = new Pessoa {Id = Usuario.Matricula};
+
             _processoService.Cadastrar(processo);
 
             return Done();
