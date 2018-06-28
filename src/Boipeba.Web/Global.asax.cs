@@ -2,6 +2,7 @@
 
 using Castle.Windsor;
 using System;
+using System.Linq;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
@@ -38,6 +39,9 @@ namespace Boipeba.Web
 #if !DEBUG
             GlobalFilters.Filters.Add(new RequireHttpsAttribute());
 #endif
+            ValueProviderFactories.Factories.Remove(ValueProviderFactories.Factories.OfType<JsonValueProviderFactory>().FirstOrDefault());
+
+            ValueProviderFactories.Factories.Add(new DefaultJsonValueProviderFactory());
         }
         
         private void SetupContainer()

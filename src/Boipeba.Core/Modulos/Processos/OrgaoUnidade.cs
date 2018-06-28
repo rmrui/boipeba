@@ -10,18 +10,13 @@ namespace Boipeba.Core.Modulos.Processos
 
         public virtual string DsOrgaoUnidade { get; set; }
 
-        [ScriptIgnore]
         public virtual string Atributos { get; set; }
 
         public virtual bool IsTramitacaoDocumentos => Atributos.Contains("D");
 
-        public static OrgaoUnidade FromIdenfiableDescriptionItem(IdentifiableDescriptionItem item)
+        public virtual OrgaoUnidade FromIdentifiableDescription()
         {
-            return new OrgaoUnidade
-            {
-                IdOrgaoUnidade = item.Id,
-                DsOrgaoUnidade = item.Descricao
-            };
+            return this;
         }
     }
 }

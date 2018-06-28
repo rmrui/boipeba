@@ -27,6 +27,8 @@ namespace Boipeba.Core.Modulos.Processos
 
         public virtual Pessoa PessoaDestino { get; set; }
 
+        public virtual IdentifiableDescriptionItem Destino { get; set; }
+
         //public Arquivo[] Arquivos { get; set; }
 
         //public bool Start => Origem == null;

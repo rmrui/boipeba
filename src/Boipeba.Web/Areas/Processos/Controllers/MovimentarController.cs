@@ -1,19 +1,47 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
 using Boipeba.Core.Modulos.Processos;
+using Boipeba.Core.Modulos.Processos.Exceptions;
+using Boipeba.Core.Modulos.Processos.Repositories;
+using Boipeba.Core.Modulos.Processos.Services;
 using Boipeba.Web.Controllers;
 
 namespace Boipeba.Web.Areas.Processos.Controllers
 {
     public class MovimentarController : BaseController
     {
-        // /Processos/Movimentar/1
-        public ActionResult Index(int id)
+        private readonly IProcessoRepository _processoRepository;
+        private readonly IProcessoService _processoService;
+
+        public MovimentarController(IProcessoRepository processoRepository, IProcessoService processoService)
         {
-            return View();
+            _processoRepository = processoRepository;
+            _processoService = processoService;
         }
 
-        public JsonResult Salvar(Movimento movimento)
+        [HttpPost]
+        public ActionResult Index(long id)
         {
+            var processo = _processoRepository.Find(id);
+
+            return View(processo);
+        }
+
+        public JsonResult Salvar(ProcessoMovimento processoMovimento)
+        {
+            try
+            {
+                _processoService.Movimentar(processoMovimento);
+            }
+            catch (MovimentoRepetidoException ex)
+            {
+                return JsonError("Movimento repetido.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                throw;
+            }
             return Done();
         }
     }

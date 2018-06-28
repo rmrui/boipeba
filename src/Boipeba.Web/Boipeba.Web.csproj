@@ -20,9 +20,12 @@
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort>44377</IISExpressSSLPort>
-    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
-    <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
-    <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
+    <IISExpressAnonymousAuthentication>
+    </IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>
+    </IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode>
+    </IISExpressUseClassicPipelineMode>
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -223,6 +226,7 @@
     <Compile Include="HtmlHelpers\EnvironmentHelper.cs" />
     <Compile Include="HtmlHelpers\JsonHtmlHelper.cs" />
     <Compile Include="HtmlHelpers\MenuHelper.cs" />
+    <Compile Include="Infra\DefaultJsonValueProviderFactory.cs" />
     <Compile Include="Infra\WindsorControllerFactory.cs" />
     <Compile Include="Infra\WindsorControllerInstaller.cs" />
     <Compile Include="Infra\WindsorDependencyScope.cs" />

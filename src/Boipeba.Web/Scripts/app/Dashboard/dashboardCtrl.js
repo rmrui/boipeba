@@ -22,8 +22,10 @@
                     });
         }
 
-        $scope.movimentar = function(item) {
-            window.location.href = "/Processos/Movimentar/Index/" +item.Id;
+        $scope.movimentar = function (id) {
+            console.log(id);
+            $("#id").val(id);
+            $("#movimentarForm").submit();
         }
 
     }

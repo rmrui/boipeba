@@ -1,7 +1,10 @@
 ﻿@using System.Web.Optimization
-<br />
+@using Boipeba.Web.HtmlHelpers
 
-<div ng-controller="movimentarProcessoCtrl" ng-app="boipeba" class="ng-cloak" ng-init="setup();">
+@model Boipeba.Core.Modulos.Processos.Processo
+
+<br />
+<div ng-controller="movimentarProcessoCtrl" ng-app="boipeba" class="ng-cloak" ng-init='setup(@Html.JsonFor(@Model))'>
 
     <div class="container bg-azul">
         <div class="row">
@@ -17,7 +20,7 @@
         <form name="movimentarProcessoForm" ng-validate="{}">
             <div class="row">
                 <div class="col-xs-12">
-                    <div class="form-group">
+                    <div class="form-group" ng-class="{'has-error': view.invalidMovimento}">
                         <label class="control-label" for="movimento">Movimento</label>
                         <div angucomplete-alt id="movimento" input-name="movimento" placeholder="Informe o Movimento" pause="400"
                              selected-object="viewdata.Movimento" remote-url="/api/movimentos/?part=" remote-url-data-field="" field-required="true" field-required-class="has-error"
@@ -50,7 +53,7 @@
                     <div class="row">
                         <div class="form-group col-lg-12">
                             <label for="ouDestino">Pessoa ou Órgão/Unidade</label>
-                            <div angucomplete-alt id="ouDestino" input-name="ouDestino" placeholder="Digite o Órgão/Unidade" pause="400"
+                            <div angucomplete-alt id="ouDestino" input-name="ouDestino" placeholder="Em caso de encaminhamento, informe um destino diferente do atual." pause="400"
                                  selected-object="viewdata.Destinatario" remote-url="/api/destinatarios/?part=" remote-url-data-field=""
                                  title-field="Descricao" minlength="3" match-class="highlight" input-class="form-control form-control-small"></div>
                         </div>
@@ -58,6 +61,14 @@
                 </div>
             </div>
         </form>
+        <div class="row" ng-if="viewdata.errorMsg">
+            <div class="col-lg-12">
+                <div class="alert alert-danger alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    {{viewdata.errorMsg}}
+                </div>
+            </div>
+        </div>
         <div class="row">
             <div class="col-lg-12">
                 <div class="form-group">

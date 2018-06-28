@@ -15,13 +15,9 @@ namespace Boipeba.Core.Modulos.Processos
 
         public virtual bool Ativo { get; set; }
 
-        public static Pessoa FromIdentifiableDescriptionItem(IdentifiableDescriptionItem item)
+        public virtual Pessoa FromIdentifiableDescription()
         {
-            return new Pessoa
-            {
-                Matricula = item.Id,
-                Nome = item.Descricao
-            };
+            return this;
         }
     }
 }

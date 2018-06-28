@@ -130,6 +130,7 @@
     <Compile Include="Modulos\Cadastro\Player.cs" />
     <Compile Include="Modulos\Cadastro\Spacecraft.cs" />
     <Compile Include="Modulos\Cadastro\Status.cs" />
+    <Compile Include="Modulos\Processos\Exceptions\MovimentoRepetidoException.cs" />
     <Compile Include="Modulos\Processos\Map\AssuntoMap.cs" />
     <Compile Include="Modulos\Processos\Map\MovimentoMap.cs" />
     <Compile Include="Modulos\Processos\Map\OrgaoUnidadeMap.cs" />
@@ -139,6 +140,7 @@
     <Compile Include="Modulos\Processos\Pessoa.cs" />
     <Compile Include="Modulos\Processos\Processo.cs" />
     <Compile Include="Modulos\Processos\ProcessoMovimento.cs" />
+    <Compile Include="Modulos\Processos\ProcessoSettings.cs" />
     <Compile Include="Modulos\Processos\Repositories\AssuntoRepository.cs" />
     <Compile Include="Modulos\Processos\Repositories\MovimentoRepository.cs" />
     <Compile Include="Modulos\Processos\Repositories\ProcessoMovimentoRepository.cs" />

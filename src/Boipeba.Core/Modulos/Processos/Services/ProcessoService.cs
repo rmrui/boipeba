@@ -1,16 +1,17 @@
 ﻿using System;
 using Boipeba.Core.Auth;
 using Boipeba.Core.Auth.Services;
+using Boipeba.Core.Domain.Model;
 using Boipeba.Core.Domain.Services;
+using Boipeba.Core.Modulos.Processos.Exceptions;
 using Boipeba.Core.Modulos.Processos.Repositories;
 
 namespace Boipeba.Core.Modulos.Processos.Services
 {
     public interface IProcessoService : IService
     {
-        Processo Cadastrar(Processo processo);
-
-        ProcessoMovimento Movimentar(Processo processo, Pessoa autor, Pessoa pessoaDestinatario, OrgaoUnidade orgaoUnidadeDestinatario, string parecer);
+        Processo Salvar(Processo processo);
+        ProcessoMovimento Movimentar(ProcessoMovimento processoMovimento);
     }
 
     public class ProcessoService : IProcessoService
@@ -19,22 +20,21 @@ namespace Boipeba.Core.Modulos.Processos.Services
         private readonly IProcessoMovimentoRepository _processoMovimentoRepository;
         private readonly IPessoaRepository _pessoaRepository;
         private readonly IMovimentoRepository _movimentoRepository;
-        private readonly GlobalSettings _globalSettings;
+        private readonly ProcessoSettings _processoSettings;
 
-        public ProcessoService(IProcessoMovimentoRepository processoMovimentoRepository, 
-            IProcessoRepository processoRepository, 
-            IPessoaRepository pessoaRepository, 
-            IMovimentoRepository movimentoRepository, 
-            GlobalSettings globalSettings)
+        public ProcessoService(IProcessoMovimentoRepository processoMovimentoRepository,
+            IProcessoRepository processoRepository,
+            IPessoaRepository pessoaRepository,
+            IMovimentoRepository movimentoRepository, ProcessoSettings processoSettings)
         {
             _processoMovimentoRepository = processoMovimentoRepository;
             _processoRepository = processoRepository;
             _pessoaRepository = pessoaRepository;
             _movimentoRepository = movimentoRepository;
-            _globalSettings = globalSettings;
+            _processoSettings = processoSettings;
         }
 
-        public Processo Cadastrar(Processo processo)
+        public Processo Salvar(Processo processo)
         {
             var agora = DateTime.Now;
 
@@ -42,22 +42,20 @@ namespace Boipeba.Core.Modulos.Processos.Services
 
             var autor = _pessoaRepository.Find(processo.Autor.Id);
 
-            //processo.Autor = new Pessoa{ Id = matriculaAutor };
-
             if (processo.Destinatario.Tipo.Equals(new OrgaoUnidade().GetType().Name))
             {
-                processo.OrgaoUnidadeDestino = OrgaoUnidade.FromIdenfiableDescriptionItem(processo.Destinatario);
+                processo.OrgaoUnidadeDestino = ((OrgaoUnidade)processo.Destinatario).FromIdentifiableDescription();
             }
             else if (processo.Destinatario.Tipo.Equals(new Pessoa().GetType().Name))
             {
-                processo.PessoaDestino = Pessoa.FromIdentifiableDescriptionItem(processo.Destinatario);
+                processo.PessoaDestino = ((Pessoa)processo.Destinatario).FromIdentifiableDescription();
             }
             else
             {
                 throw new NotImplementedException("Destinatário inválido.");
             }
 
-            _processoRepository.Add(processo);
+            _processoRepository.AddOrUpdate(processo);
 
             var processoMovimentoEncaminhamento = new ProcessoMovimento
             {
@@ -68,7 +66,7 @@ namespace Boipeba.Core.Modulos.Processos.Services
                 OrgaoUnidadeDestino = processo.OrgaoUnidadeDestino,
                 Autor = autor,
                 Processo = processo,
-                Movimento = _movimentoRepository.Get(_globalSettings.MovimentoEncaminhamentoOrgaoInterno)
+                Movimento = _movimentoRepository.Get(_processoSettings.CodigoMovimentoEncaminhamentoOrgaoInterno)
             };
 
             _processoMovimentoRepository.Add(processoMovimentoEncaminhamento);
@@ -76,22 +74,64 @@ namespace Boipeba.Core.Modulos.Processos.Services
             return processo;
         }
 
-        public ProcessoMovimento Movimentar(Processo processo, Pessoa autor, Pessoa pessoaDestinatario, OrgaoUnidade orgaoUnidadeDestinatario, string parecer)
+        public ProcessoMovimento Movimentar(ProcessoMovimento processoMovimento)
         {
-            var movimento = new ProcessoMovimento
+            processoMovimento.Processo = _processoRepository.Find(processoMovimento.Processo.Id);
+
+            if (MovimentoRepetido(processoMovimento))
+                throw new MovimentoRepetidoException();
+
+            processoMovimento.Data = DateTime.Now;
+
+            _processoMovimentoRepository.Add(processoMovimento);
+
+            if (ProcessoEncaminhavel(processoMovimento))
             {
+                Encaminhar(processoMovimento);
+            }
+
+            return processoMovimento;
+        }
+
+        public ProcessoMovimento Encaminhar(ProcessoMovimento processoMovimento)
+        {
+            var movimentoEncaminhamento = new ProcessoMovimento
+            {
+                Processo = processoMovimento.Processo,
                 Data = DateTime.Now,
-                PessoaOrigem = autor,
-                PessoaDestino = pessoaDestinatario,
-                OrgaoUnidadeDestino = orgaoUnidadeDestinatario,
-                Autor = autor,
-                Processo = processo,
-                Complemento = parecer
+                Movimento =
+                {
+                    CdMovimento = _processoSettings.CodigoMovimentoEncaminhamentoOrgaoInterno
+                }
             };
 
-            _processoMovimentoRepository.Add(movimento);
 
-            return movimento;
+            if (processoMovimento.Destino.Tipo.Equals(new OrgaoUnidade().GetType().Name))
+            {
+                movimentoEncaminhamento.OrgaoUnidadeDestino = ((OrgaoUnidade)processoMovimento.Destino).FromIdentifiableDescription();
+            }
+            else if (processoMovimento.Destino.Tipo.Equals(new Pessoa().GetType().Name))
+            {
+                movimentoEncaminhamento.PessoaDestino = ((Pessoa)processoMovimento.Destino).FromIdentifiableDescription();
+            }
+            else
+            {
+                throw new NotImplementedException("Destinatário inválido.");
+            }
+
+            _processoMovimentoRepository.Add(movimentoEncaminhamento);
+            return movimentoEncaminhamento;
+        }
+
+        private bool ProcessoEncaminhavel(ProcessoMovimento processoMovimento)
+        {
+            return processoMovimento.Destino != null;
+        }
+
+        private bool MovimentoRepetido(ProcessoMovimento processoMovimento)
+        {
+            return processoMovimento.Processo.UltimoMovimento.Movimento.CdMovimento.Equals(processoMovimento.Movimento
+                .CdMovimento);
         }
     }
 }
