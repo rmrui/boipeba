@@ -101,9 +101,11 @@
                                     <div class="col-lg-2">
                                         <div class="form-group">
                                             <br />
-                                            <button class="btn btn-default" ng-click="movimentar(item)">
+                                            
+                                            <button class="btn btn-default" ng-click="movimentar(item.Id)">
                                                 Movimentar <span class="fa fa-forward"></span>
                                             </button>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -111,7 +113,9 @@
                             </div>
                         </div>
                     </div>
-
+                    <form id="movimentarForm" action="/Processos/Movimentar" method="post">
+                        <input type="hidden" id="id" name="id"/>
+                    </form>
                 </div>
             </div>
         </div>

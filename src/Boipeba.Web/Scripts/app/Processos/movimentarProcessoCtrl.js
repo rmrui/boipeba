@@ -6,6 +6,10 @@
     function movimentarProcessoCtrl($scope, $http, toastr) {
         $scope.viewdata = {}
 
+        $scope.setup = function (model) {
+            $scope.viewdata.Processo = model;
+        }
+
         $scope.validaForm = function (form) {
             if (!$scope.viewdata.Movimento ||
                 jQuery.isEmptyObject($scope.viewdata.Movimento)) {

@@ -1,7 +1,10 @@
 ﻿@using System.Web.Optimization
-<br />
+@using Boipeba.Web.HtmlHelpers
 
-<div ng-controller="movimentarProcessoCtrl" ng-app="boipeba" class="ng-cloak" ng-init="setup();">
+@model Boipeba.Core.Modulos.Processos.Processo
+
+<br />
+<div ng-controller="movimentarProcessoCtrl" ng-app="boipeba" class="ng-cloak" ng-init='setup(@Html.JsonFor(@Model))'>
 
     <div class="container bg-azul">
         <div class="row">
