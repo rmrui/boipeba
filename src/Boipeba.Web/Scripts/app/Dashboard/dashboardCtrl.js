@@ -18,9 +18,12 @@
                         $scope.viewdata.processos = response.data.Processos;
                     },
                     function error(response) {
-                        console.log(response);
                         $scope.view.loadingList = false;
                     });
+        }
+
+        $scope.movimentar = function(item) {
+            window.location.href = "/Processos/Movimentar/Index/" +item.Id;
         }
 
     }
