@@ -14,6 +14,10 @@
             $scope.viewdata = { model: { Processo: {Id: processo.Id} } }
         }
 
+        $scope.setup = function (model) {
+            $scope.viewdata.Processo = model;
+        }
+
         $scope.validaForm = function (form) {
 
             if (!$scope.viewdata.Movimento) {
