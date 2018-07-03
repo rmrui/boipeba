@@ -9,7 +9,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE TABLE [dbo].[tProcessoMovimento](
-	[IdProcessoMovimento] [int] IDENTITY(1,1) NOT NULL,
+	[IdProcessoMovimento] [bigint] IDENTITY(1,1) NOT NULL,
 	[IdProcesso] [bigint] NULL,
 	[DtMovimentacao] [datetime] NULL,
 	[NuMatriculaAutor] [bigint] NULL,
@@ -35,3 +35,5 @@ ALTER TABLE [dbo].[tProcessoMovimento] CHECK CONSTRAINT [FK8633B7D28B4F9CB9]
 GO
 
 
+ALTER TABLE [dbo].[tProcesso]  WITH CHECK ADD  CONSTRAINT [FK_tProcessoMovimento_CdUltimoMovimento] FOREIGN KEY([CdUltimoMovimento])
+REFERENCES [dbo].[tProcessoMovimento] ([IdProcessoMovimento])

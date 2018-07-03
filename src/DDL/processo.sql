@@ -23,6 +23,7 @@ CREATE TABLE [dbo].[tProcesso](
 	[NuMatriculaDestino] [bigint] NULL,
 	[IdOuDestino] [bigint] NULL,
 	[DtUltimaModificacao] [datetime] NULL,
+	[CdUltimoMovimento] [bigint] NULL
 PRIMARY KEY CLUSTERED 
 (
 	[IdProcesso] ASC

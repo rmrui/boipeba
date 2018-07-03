@@ -42,9 +42,6 @@ namespace Boipeba.Core.Modulos.Processos
 
         public virtual string Destino => OrgaoUnidadeDestino?.DsOrgaoUnidade ?? PessoaDestino?.Nome;
 
-        [ScriptIgnore]
-        public virtual IList<ProcessoMovimento> Movimentos { get; set; }
-
-        public virtual ProcessoMovimento UltimoMovimento => Movimentos.OrderByDescending(x => x.Data).FirstOrDefault();
+        public virtual ProcessoMovimento UltimoMovimento { get; set; }
     }
 }

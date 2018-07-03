@@ -23,17 +23,7 @@ namespace Boipeba.Core.Modulos.Processos.Map
             ManyToOne<Pessoa>(x => x.Autor, y => y.Column("NuMatriculaAutor"));
             ManyToOne(x => x.OrgaoUnidadeDestino, y => y.Column("IdOuDestino"));
             ManyToOne(x => x.PessoaDestino, y => y.Column("NuMatriculaDestino"));
-            Bag(
-                x => x.Movimentos,
-                map =>
-                {
-                    map.Cascade(Cascade.None);
-                    map.Key(k => k.Column("IdProcesso"));
-                    map.Lazy(CollectionLazy.Lazy);
-                    map.Inverse(true);
-                },
-                rel => rel.OneToMany()
-            );
+            ManyToOne(x => x.UltimoMovimento, y => y.Column("CdUltimoMovimento"));
         }
     }
 

@@ -42,13 +42,23 @@ namespace Boipeba.Core.Modulos.Processos.Services
 
             var autor = _pessoaRepository.Find(processo.Autor.Id);
 
+            processo.Autor = autor;
+
             if (processo.Destinatario.Tipo.Equals(new OrgaoUnidade().GetType().Name))
             {
-                processo.OrgaoUnidadeDestino = ((OrgaoUnidade)processo.Destinatario).FromIdentifiableDescription();
+                processo.OrgaoUnidadeDestino = new OrgaoUnidade
+                {
+                    IdOrgaoUnidade = processo.Destinatario.Id,
+                    DsOrgaoUnidade = processo.Destinatario.Descricao
+                };
             }
             else if (processo.Destinatario.Tipo.Equals(new Pessoa().GetType().Name))
             {
-                processo.PessoaDestino = ((Pessoa)processo.Destinatario).FromIdentifiableDescription();
+                processo.PessoaDestino = new Pessoa
+                {
+                    Matricula = processo.Destinatario.Id,
+                    Nome = processo.Destinatario.Descricao
+                };
             }
             else
             {
@@ -71,24 +81,38 @@ namespace Boipeba.Core.Modulos.Processos.Services
 
             _processoMovimentoRepository.Add(processoMovimentoEncaminhamento);
 
+            processo.UltimoMovimento = processoMovimentoEncaminhamento;
+
+            _processoRepository.AddOrUpdate(processo);
+
             return processo;
         }
 
         public ProcessoMovimento Movimentar(ProcessoMovimento processoMovimento)
         {
-            processoMovimento.Processo = _processoRepository.Find(processoMovimento.Processo.Id);
+            var agora = DateTime.Now;
+
+            var processo = _processoRepository.Find(processoMovimento.Processo.Id);
+
+            processoMovimento.Processo = processo;
 
             if (MovimentoRepetido(processoMovimento))
                 throw new MovimentoRepetidoException();
 
-            processoMovimento.Data = DateTime.Now;
+            processoMovimento.Data = agora;
 
-            _processoMovimentoRepository.Add(processoMovimento);
+            processo.UltimoMovimento = _processoMovimentoRepository.Add(processoMovimento);
 
             if (ProcessoEncaminhavel(processoMovimento))
             {
-                Encaminhar(processoMovimento);
+                processo.UltimoMovimento = Encaminhar(processoMovimento);
+                processo.PessoaDestino = processo.UltimoMovimento.PessoaDestino;
+                processo.OrgaoUnidadeDestino = processo.UltimoMovimento.OrgaoUnidadeDestino;
             }
+
+            processo.UltimaModificacao = agora;
+
+            _processoRepository.AddOrUpdate(processo);
 
             return processoMovimento;
         }
@@ -99,20 +123,27 @@ namespace Boipeba.Core.Modulos.Processos.Services
             {
                 Processo = processoMovimento.Processo,
                 Data = DateTime.Now,
-                Movimento =
+                Movimento = new Movimento
                 {
                     CdMovimento = _processoSettings.CodigoMovimentoEncaminhamentoOrgaoInterno
                 }
             };
 
-
             if (processoMovimento.Destino.Tipo.Equals(new OrgaoUnidade().GetType().Name))
             {
-                movimentoEncaminhamento.OrgaoUnidadeDestino = ((OrgaoUnidade)processoMovimento.Destino).FromIdentifiableDescription();
+                movimentoEncaminhamento.OrgaoUnidadeDestino = new OrgaoUnidade
+                {
+                    IdOrgaoUnidade = processoMovimento.Destino.Id,
+                    DsOrgaoUnidade = processoMovimento.Destino.Descricao
+                };
             }
             else if (processoMovimento.Destino.Tipo.Equals(new Pessoa().GetType().Name))
             {
-                movimentoEncaminhamento.PessoaDestino = ((Pessoa)processoMovimento.Destino).FromIdentifiableDescription();
+                movimentoEncaminhamento.PessoaDestino = new Pessoa
+                {
+                    Matricula = processoMovimento.Destino.Id,
+                    Nome = processoMovimento.Destino.Descricao
+                };
             }
             else
             {
@@ -130,7 +161,8 @@ namespace Boipeba.Core.Modulos.Processos.Services
 
         private bool MovimentoRepetido(ProcessoMovimento processoMovimento)
         {
-            return processoMovimento.Processo.UltimoMovimento.Movimento.CdMovimento.Equals(processoMovimento.Movimento
+            var processo = _processoRepository.Find(processoMovimento.Processo.Id);
+            return processo.UltimoMovimento.Movimento.CdMovimento.Equals(processoMovimento.Movimento
                 .CdMovimento);
         }
     }

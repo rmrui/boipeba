@@ -11,11 +11,8 @@
         }
 
         $scope.setup = function (processo) {
-            $scope.viewdata = { model: { Processo: {Id: processo.Id} } }
-        }
-
-        $scope.setup = function (model) {
-            $scope.viewdata.Processo = model;
+            $scope.viewdata = { model: { Movimento: {} } }
+            $scope.viewdata.model.Processo = processo;
         }
 
         $scope.validaForm = function (form) {
@@ -28,9 +25,9 @@
             $scope.view.invalidMovimento = false;
 
 
-            if ($scope.viewdata.Destinatario) {
+            if ($scope.viewdata.Destino) {
 
-                var destino = $scope.viewdata.Destinatario.originalObject;
+                var destino = $scope.viewdata.Destino.originalObject;
 
                 if ($scope.verificarMesmaPessoa(destino) || $scope.verificarMesmoOU(destino)) {
 
@@ -49,21 +46,23 @@
         }
 
         $scope.verificarMesmaPessoa = function (destino) {
-            return destino.Tipo === "Pessoa" && $scope.viewdata.model.Processo.PessoaDestino && destino.Id === $scope.viewdata.Processo.PessoaDestino.Matricula;
+            return destino.Tipo === "Pessoa" && $scope.viewdata.model.Processo.PessoaDestino && destino.Id === $scope.viewdata.model.Processo.PessoaDestino.Matricula;
         }
 
         $scope.verificarMesmoOU = function (destino) {
-            return destino.Tipo === "OrgaoUnidade" && $scope.viewdata.model.Processo.OrgaoUnidadeDestino && destino.Id === $scope.viewdata.Processo.OrgaoUnidadeDestino.IdOrgaoUnidade;
+            return destino.Tipo === "OrgaoUnidade" && $scope.viewdata.model.Processo.OrgaoUnidadeDestino && destino.Id === $scope.viewdata.model.Processo.OrgaoUnidadeDestino.IdOrgaoUnidade;
         }
 
 
         $scope.salvar = function () {
+            var processoLimpo = {Id: $scope.viewdata.model.Processo.Id}
             $scope.viewdata.model.Movimento = {
-                CdMovimento: $scope.viewdata.Movimento.originalObject.CdMovimento
+                CdMovimento: $scope.viewdata.Movimento.originalObject.CdMovimento,
+                Processo: processoLimpo
             };
 
-            if ($scope.viewdata.Destinatario) {
-                $scope.viewdata.model.Destinatario = $scope.viewdata.Destinatario.originalObject;
+            if ($scope.viewdata.Destino) {
+                $scope.viewdata.model.Destino = $scope.viewdata.Destino.originalObject;
             }
 
             $http({
