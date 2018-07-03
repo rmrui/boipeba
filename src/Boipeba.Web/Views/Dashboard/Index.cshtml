@@ -85,8 +85,8 @@
                                     <div class="col-lg-2">
                                         <div class="form-group">
                                             <br />
-                                            <button class="btn btn-primary">
-                                                Visão Geral <span class="fa fa-search"></span>
+                                            <button class="btn btn-default" ng-click="historico(item.Id)">
+                                                Histórico <span class="fa fa-search"></span>
                                             </button>
                                         </div>
                                     </div>
@@ -115,6 +115,9 @@
                     </div>
                     <form id="movimentarForm" action="/Processos/Movimentar" method="post">
                         <input type="hidden" id="id" name="id"/>
+                    </form>
+                    <form id="historicoForm" action="/Processos/Historico" method="post">
+                        <input type="hidden" id="idHistorico" name="idHistorico" />
                     </form>
                 </div>
             </div>

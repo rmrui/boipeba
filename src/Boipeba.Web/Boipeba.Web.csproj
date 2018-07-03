@@ -204,6 +204,7 @@
     <Compile Include="Areas\Config\Controllers\PlayerController.cs" />
     <Compile Include="Areas\Config\Controllers\StatusController.cs" />
     <Content Include="Content\angucomplete-alt.css" />
+    <Content Include="Content\timeline.css" />
     <Content Include="images\logo_siga.jpg" />
     <Content Include="Scripts\angular\plugins\angucomplete-alt.min.js" />
     <Content Include="Scripts\app\apiConfig.js" />
@@ -211,6 +212,7 @@
     <Content Include="Scripts\app\Processos\cadastrarProcessoGenericoCtrl.js" />
     <Content Include="Areas\Config\Scripts\Tours\statusTour.js" />
     <Compile Include="Areas\Processos\Controllers\CadastroController.cs" />
+    <Compile Include="Areas\Processos\Controllers\HistoricoController.cs" />
     <Compile Include="Areas\Processos\Controllers\MovimentarController.cs" />
     <Compile Include="Areas\Processos\ProcessosAreaRegistration.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -403,6 +405,7 @@
     <Content Include="Scripts\app\jquery.config.js" />
     <Content Include="Scripts\app\jquerySetupMasks.js" />
     <Content Include="Scripts\app\Login\loginManager.js" />
+    <Content Include="Scripts\app\Processos\historicoProcessoCtrl.js" />
     <Content Include="Scripts\app\Processos\movimentarProcessoCtrl.js" />
     <Content Include="Scripts\app\Tramitacao\solicitarDiariaCtrl.js" />
     <Content Include="Scripts\bootstrap\bootstrap-checkbox.js" />
@@ -445,6 +448,7 @@
     <Content Include="Areas\Processos\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Processos\Views\Cadastro\Generico.cshtml" />
     <Content Include="Areas\Processos\Views\Movimentar\Index.cshtml" />
+    <Content Include="Areas\Processos\Views\Historico\Index.cshtml" />
     <None Include="Properties\PublishProfiles\Local.pubxml" />
     <None Include="Scripts\jquery\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery\jquery-2.2.0.js" />

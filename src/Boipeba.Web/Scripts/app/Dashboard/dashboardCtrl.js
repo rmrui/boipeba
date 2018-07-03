@@ -23,9 +23,13 @@
         }
 
         $scope.movimentar = function (id) {
-            console.log(id);
             $("#id").val(id);
             $("#movimentarForm").submit();
+        }
+
+        $scope.historico = function (id) {
+            $("#idHistorico").val(id);
+            $("#historicoForm").submit();
         }
 
     }
