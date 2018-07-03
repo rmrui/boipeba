@@ -206,6 +206,7 @@
     <Content Include="Content\angucomplete-alt.css" />
     <Content Include="Content\timeline.css" />
     <Content Include="images\logo_siga.jpg" />
+    <Content Include="images\logo_siga_sigla.jpg" />
     <Content Include="Scripts\angular\plugins\angucomplete-alt.min.js" />
     <Content Include="Scripts\app\apiConfig.js" />
     <Content Include="Scripts\app\Lab\labCtrl.js" />
