@@ -1,7 +1,4 @@
 ﻿using System;
-using Boipeba.Core.Auth;
-using Boipeba.Core.Auth.Services;
-using Boipeba.Core.Domain.Model;
 using Boipeba.Core.Domain.Services;
 using Boipeba.Core.Modulos.Processos.Exceptions;
 using Boipeba.Core.Modulos.Processos.Repositories;

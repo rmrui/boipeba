@@ -1,0 +1,80 @@
+﻿@using System.Web.Optimization
+@using Boipeba.Web.HtmlHelpers
+@model long
+<br />
+
+<div ng-app="boipeba" ng-controller="historicoProcessoCtrl" ng-init="setup(@Html.JsonFor(@Model))">
+
+    <div class="container bg-azul">
+        <div class="row">
+            <div class="col-xs-10">Histórico do Processo</div>
+            <div class="col-xs-2 text-right">
+                <a href="#" class="button-tour" style="color: white; display: none"><span class="fa fa-question-circle"></span><span>&nbsp;Ajuda Interativa</span></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container bg-branco">
+        <br />
+
+        <div class="timeline">
+            <div class="line text-muted"></div>
+            <div ng-repeat="item in viewdata.model.Items">
+                <article class="panel" ng-class-even="'panel-primary'" ng-class-odd="'panel-info'">
+
+                    <div class="panel-heading icon">
+                        <i class="glyphicon glyphicon-pencil"></i>
+                    </div>
+
+                    <div class="panel-heading">
+                        <h2 class="panel-title">{{item.Movimento.DsMovimentoSimples}}</h2>
+                    </div>
+
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <strong>Data:</strong> {{item.Data | jsdatetime}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <strong>Autor:</strong> {{item.Autor.Nome}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <strong>Complemento:</strong> {{item.Complemento}}
+                            </div>
+                        </div>
+                        <div class="row" ng-if="item.OrgaoUnidadeDestino">
+                            <div class="col-lg-12">
+                                <strong>Destino:</strong> {{item.OrgaoUnidadeDestino.DsOrgaoUnidade}}
+                            </div>
+                        </div>
+                        <div class="row" ng-if="item.PessoaDestino">
+                            <div class="col-lg-12">
+                                <strong>Destino:</strong> {{item.PessoaDestino.Nome}}
+                            </div>
+                        </div>
+
+                    </div>
+                </article>
+            </div>
+
+            <article class="panel panel-info">
+                <div class="panel-heading icon">
+                    <i class="glyphicon glyphicon-info-sign"></i>
+                </div>
+                <div class="panel-body">
+                    Fim do histórico
+                </div>
+            </article>
+        </div>
+    </div>
+
+    <br />
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/historicoProcessoCtrl")
+}

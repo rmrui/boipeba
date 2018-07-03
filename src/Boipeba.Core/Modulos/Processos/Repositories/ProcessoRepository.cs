@@ -8,6 +8,7 @@ namespace Boipeba.Core.Modulos.Processos.Repositories
     public interface IProcessoRepository : ICrudRepository<Processo, long>
     {
         IList<Processo> AtribuidosPara(int matricula);
+        IList<ProcessoMovimento> HistoricoProcesso(long idProcesso);
     }
 
     public class ProcessoRepository : DefaultRepository<Processo, long>, IProcessoRepository
@@ -19,8 +20,6 @@ namespace Boipeba.Core.Modulos.Processos.Repositories
             _pessoaRepository = pessoaRepository;
         }
 
-        //TODO: Incluir atribuidos ao Orgao Unidade da pessoa.
-        //TODO: Onde consultar qual orgao unidade a pessoa esta associada?
         public IList<Processo> AtribuidosPara(int matricula)
         {
             var pessoa = _pessoaRepository.Find(matricula);
@@ -45,6 +44,12 @@ namespace Boipeba.Core.Modulos.Processos.Repositories
 
 
             return consulta.Where(condicoes).OrderBy(() => processo.UltimaModificacao).Desc.List();
+        }
+
+        public IList<ProcessoMovimento> HistoricoProcesso(long idProcesso)
+        {
+            return Session.QueryOver<ProcessoMovimento>().Where(x => x.Processo.Id == idProcesso).OrderBy(x => x.Data)
+                .Asc.List();
         }
     }
 }
