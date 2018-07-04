@@ -37,7 +37,7 @@ namespace Boipeba.Web
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 #if !DEBUG
-            GlobalFilters.Filters.Add(new RequireHttpsAttribute());
+          //  GlobalFilters.Filters.Add(new RequireHttpsAttribute());
 #endif
             ValueProviderFactories.Factories.Remove(ValueProviderFactories.Factories.OfType<JsonValueProviderFactory>().FirstOrDefault());
 

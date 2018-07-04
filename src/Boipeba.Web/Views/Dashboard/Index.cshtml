@@ -43,78 +43,59 @@
                 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
                     <div class="panel panel-default" ng-repeat="item in viewdata.processos">
-                        <div class="panel-heading" role="tab" id="headingOne">
+                        <div class="panel-heading" role="tab" id="headingOne{{item.Id}}">
                             <h4 class="panel-title">
                                 <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                     <span class="text-danger"><strong>SIMP: {{item.Simp}}</strong> <span class="fa fa-warning"></span>  </span><small>{{item.Assunto.DsAssunto}}</small>
                                 </a>
                             </h4>
                         </div>
-                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne{{item.Id}}">
                             <div class="panel-body">
 
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label for="Nome">Atribuído Para:</label>
-                                            <input type="text" class="form-control" disabled value="{{item.Destino}}" />
+                                            <label for="Nome">Atribuído Para:</label><br/>
+                                            <span>{{item.Destino}}</span>
                                         </div>
                                     </div>
                                     <div class="col-lg-3">
                                         <div class="form-group">
-                                            <label for="nascimento">Atribuído Em:</label>
+                                            <label for="nascimento">Atribuído Em:</label> <br/>
                                             <div class="input-group date">
-                                                <input type="text" class="form-control" disabled="" width="10" id="nascimento" name="nascimento" value="{{item.UltimaModificacao | jsdatetime}}">
-                                                <div class="input-group-addon">
-                                                    <span class="glyphicon glyphicon-calendar"></span>
-                                                </div>
+                                               {{item.UltimaModificacao | jsdatetime}}
                                             </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="btn-group btn-group-primary">
+                                            <br/>
+                                            <button class="btn btn-primary" type="button">Ações</button>
+                                            <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle" type="button">
+                                                <span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="#" ng-click="historico(item.Id)">Histórico&nbsp;<span class="fa fa-search"></span></a></li>
+                                                <li class="divider"></li>
+                                                <li><a href="#" ng-click="movimentar(item.Id)">Movimentar&nbsp;<span class="fa fa-forward"></span></a></li>
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-xs-12">
                                         <div class="form-group">
-                                            <label class="control-label" for="ultimoMovimento">Último Movimento</label>
-                                            <input type="text" class="form-control" id="ultimoMovimento" placeholder="Último Movimento" disabled value="{{item.UltimoMovimento.Movimento.DsMovimentoSimples}}">
+                                            <label class="control-label" for="ultimoMovimento">Último Movimento</label> <br/>
+                                            {{item.UltimoMovimento.Movimento.DsMovimentoSimples}}
                                         </div>
                                     </div>
                                 </div>
-
-                                <div class="row">
-                                    <div class="col-lg-2">
-                                        <div class="form-group">
-                                            <br />
-                                            <button class="btn btn-default" ng-click="historico(item.Id)">
-                                                Histórico <span class="fa fa-search"></span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-2">
-                                        <div class="form-group">
-                                            <br />
-                                            <button class="btn btn-default">
-                                                Apensar <span class="fa fa-clipboard"></span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-2">
-                                        <div class="form-group">
-                                            <br />
-                                            
-                                            <button class="btn btn-default" ng-click="movimentar(item.Id)">
-                                                Movimentar <span class="fa fa-forward"></span>
-                                            </button>
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-
                             </div>
                         </div>
                     </div>
                     <form id="movimentarForm" action="/Processos/Movimentar" method="post">
-                        <input type="hidden" id="id" name="id"/>
+                        <input type="hidden" id="id" name="id" />
                     </form>
                     <form id="historicoForm" action="/Processos/Historico" method="post">
                         <input type="hidden" id="idHistorico" name="idHistorico" />
