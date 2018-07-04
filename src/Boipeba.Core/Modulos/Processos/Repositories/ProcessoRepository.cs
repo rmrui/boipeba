@@ -49,7 +49,7 @@ namespace Boipeba.Core.Modulos.Processos.Repositories
         public IList<ProcessoMovimento> HistoricoProcesso(long idProcesso)
         {
             return Session.QueryOver<ProcessoMovimento>().Where(x => x.Processo.Id == idProcesso).OrderBy(x => x.Data)
-                .Asc.List();
+                .Desc.List();
         }
     }
 }
