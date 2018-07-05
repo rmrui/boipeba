@@ -3,6 +3,6 @@ Configuration=Release
 
 del "\\bespin.intranet.mpba.mp.br\Aplicacoes\SIGAEV_Desenvolvimento\*" /s /q
 
-xcopy "_build\_PublishedWebsites\Boipeba.Web"\*" "\\bespin.intranet.mpba.mp.br\Aplicacoes\SIGAEV_Desenvolvimento\" /y
+xcopy "_build\_PublishedWebsites\Boipeba.Web\*" "\\bespin.intranet.mpba.mp.br\Aplicacoes\SIGAEV_Desenvolvimento\" /y /e
 
 if errorlevel 1 pause
