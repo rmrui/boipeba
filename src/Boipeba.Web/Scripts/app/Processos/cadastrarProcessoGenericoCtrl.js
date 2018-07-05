@@ -63,8 +63,6 @@
                 $scope.view.showsuccess = true;
 
                 $scope.view.showform = false;
-
-                $("#inicio").addClass("animated infinite pulse");
             },
                 function errorCallback(response) {
                     toastr.error("Serviço indisponível no momento.", "Atenção");
