@@ -38,6 +38,20 @@
         }
     };
 
+    /* extrai apenas os números da formatação /date(num)/ */
+    function jsyear(datetime) {
+        return function (item) {
+
+            if (item == null) return "";
+
+            var num = new Date(parseInt(item.substr(6)));
+
+            var parser = datetime("yyyy");
+            parser.setDate(num);
+            return parser.getText();
+        }
+    };
+
     /* transforma bool em texto Sim ou Não */
     function simnao() {
         return function (valor) {
@@ -84,6 +98,7 @@
         .filter("cnpjmask", cnpjmask)
         .filter("removemask", removemask)
         .filter("jsdate", jsdate)
-        .filter("jsdatetime", jsdatetime);
+        .filter("jsdatetime", jsdatetime)
+        .filter("jsyear", jsyear);
 })();
 

@@ -12,6 +12,7 @@ namespace Boipeba.Core.Modulos.Processos
 
         public virtual string Atributos { get; set; }
 
+        [ScriptIgnore]
         public virtual bool IsTramitacaoDocumentos => Atributos.Contains("D");
 
         public virtual OrgaoUnidade FromIdentifiableDescription()

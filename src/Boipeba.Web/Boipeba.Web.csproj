@@ -204,6 +204,7 @@
     <Compile Include="Areas\Config\Controllers\PlayerController.cs" />
     <Compile Include="Areas\Config\Controllers\StatusController.cs" />
     <Content Include="Content\angucomplete-alt.css" />
+    <Content Include="Content\animate.css" />
     <Content Include="Content\dropdown-buttons.css" />
     <Content Include="Content\timeline.css" />
     <Content Include="images\logo_siga.jpg" />

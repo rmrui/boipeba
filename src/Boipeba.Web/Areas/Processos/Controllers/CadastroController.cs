@@ -28,9 +28,7 @@ namespace Boipeba.Web.Areas.Processos.Controllers
         {
             processo.Autor = new Pessoa {Id = Usuario.Matricula};
 
-            _processoService.Salvar(processo);
-
-            return Done();
+            return Json(_processoService.Salvar(processo));
         }
     }
 }

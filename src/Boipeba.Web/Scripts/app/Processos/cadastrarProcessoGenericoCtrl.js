@@ -4,6 +4,12 @@
     cadastrarProcessoGenericoCtrl.$inject = ["$scope", "$http", "toastr"];
 
     function cadastrarProcessoGenericoCtrl($scope, $http, toastr) {
+
+        $scope.view = {
+            showform: true,
+            showsuccess: false
+        }
+
         $scope.viewdata = {
             model: {
                 Cadastro: new Date().toLocaleDateString(),
@@ -12,14 +18,14 @@
             }
         };
 
-        $scope.tratarOuInteressado = function() {
+        $scope.tratarOuInteressado = function () {
             if ($scope.viewdata.model.Sociedade === true) {
                 $scope.$broadcast("angucomplete-alt:clearInput", "ouInteressado");
                 $scope.viewdata.OrgaoUnidadeInteressado = {};
             }
         };
 
-        $scope.validaForm = function(form) {
+        $scope.validaForm = function (form) {
             if (!$scope.viewdata.model.Sociedade && jQuery.isEmptyObject($scope.viewdata.OrgaoUnidadeInteressado)) {
                 toastr.warning("Informe um valor para o interessado (Órgão/Unidade ou 'A sociedade'.)");
                 return false;
@@ -39,7 +45,7 @@
             return form.validate();
         };
 
-        $scope.salvar = function() {
+        $scope.salvar = function () {
             if (!$scope.viewdata.model.Sociedade) {
                 $scope.viewdata.model.OrgaoUnidadeInteressado = $scope.viewdata.OrgaoUnidadeInteressado.originalObject;
             }
@@ -52,11 +58,21 @@
                 url: "/Processos/Cadastro/Salvar",
                 data: $scope.viewdata.model
             }).then(function successCallback(response) {
-                    toastr.success("Operação realizada com sucesso.", "OK");
-                },
+                $scope.viewdata.processoSalvo = response.data;
+
+                $scope.view.showsuccess = true;
+
+                $scope.view.showform = false;
+
+                $("#inicio").addClass("animated infinite pulse");
+            },
                 function errorCallback(response) {
                     toastr.error("Serviço indisponível no momento.", "Atenção");
                 });
+        };
+
+        $scope.refresh = function() {
+            location.reload();
         };
     }
 

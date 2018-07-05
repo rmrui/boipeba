@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27703.2026
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boipeba.Web", "Boipeba.Web\Boipeba.Web.csproj", "{D81334C2-C9EB-4972-A4CB-3DD41CE2D1BC}"
 EndProject
@@ -12,6 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{25536CF4
 		..\build.config = ..\build.config
 		..\ClickToBuild - Debug.cmd = ..\ClickToBuild - Debug.cmd
 		..\ClickToBuild - Release.cmd = ..\ClickToBuild - Release.cmd
+		..\ClickToBuild - Teste.cmd = ..\ClickToBuild - Teste.cmd
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boipeba.Tests", "Boipeba.Tests\Boipeba.Tests.csproj", "{AAEE6542-1DA2-4D07-871F-E62209309F0C}"

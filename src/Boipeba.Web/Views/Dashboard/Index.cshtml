@@ -17,23 +17,6 @@
 
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">Notificações <span class="badge">2</span></h3>
-            </div>
-            <div class="panel-body">
-                <div class="alert alert-success">
-                    <strong>Atenção</strong> Você tem uma nova entrada.
-                </div>
-                <div class="alert alert-warning">
-                    <strong>Pendência</strong> Documento xxxxx pendente de encaminhamento.
-                </div>
-            </div>
-        </div>
-
-        <br />
-
-
-        <div class="panel panel-default">
-            <div class="panel-heading">
                 <h3 class="panel-title">Caixa de Entrada <span class="badge">{{viewdata.processos.length}}</span></h3>
             </div>
             <div class="panel-body">
@@ -43,34 +26,18 @@
                 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
                     <div class="panel panel-default" ng-repeat="item in viewdata.processos">
-                        <div class="panel-heading" role="tab" id="headingOne{{item.Id}}">
+                        <div class="panel-heading" role="tab" id="heading{{item.Id}}">
                             <h4 class="panel-title">
-                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    <span class="text-danger"><strong>SIMP: {{item.Simp}}</strong> <span class="fa fa-warning"></span>  </span><small>{{item.Assunto.DsAssunto}}</small>
+                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne{{item.Id}}" aria-expanded="true" aria-controls="collapseOne{{item.Id}}">
+                                    <span class="text-danger"><strong ng-if="item.Simp">SIMP: {{item.Simp}}</strong> <span class="fa fa-warning" ng-if="item.Urgente"></span>  </span><small>{{item.Assunto.DsAssunto}}</small>
                                 </a>
                             </h4>
                         </div>
-                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne{{item.Id}}">
+                        <div id="collapseOne{{item.Id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{item.Id}}">
                             <div class="panel-body">
-
                                 <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label for="Nome">Atribuído Para:</label><br/>
-                                            <span>{{item.Destino}}</span>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <div class="form-group">
-                                            <label for="nascimento">Atribuído Em:</label> <br/>
-                                            <div class="input-group date">
-                                               {{item.UltimaModificacao | jsdatetime}}
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3">
+                                    <div class="col-lg-12">
                                         <div class="btn-group btn-group-primary">
-                                            <br/>
                                             <button class="btn btn-primary" type="button">Ações</button>
                                             <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle" type="button">
                                                 <span class="caret"></span>
@@ -81,12 +48,31 @@
                                                 <li><a href="#" ng-click="movimentar(item.Id)">Movimentar&nbsp;<span class="fa fa-forward"></span></a></li>
                                             </ul>
                                         </div>
+                                        
                                     </div>
+                                </div>
+                                <hr />
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label for="Nome">Atribuído Para:</label><br />
+                                            <span>{{item.Destino}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label for="nascimento">Atribuído Em:</label> <br />
+                                            <div class="input-group date">
+                                                {{item.UltimaModificacao | jsdatetime}}
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                                 <div class="row">
                                     <div class="col-xs-12">
                                         <div class="form-group">
-                                            <label class="control-label" for="ultimoMovimento">Último Movimento</label> <br/>
+                                            <label class="control-label" for="ultimoMovimento">Último Movimento</label> <br />
                                             {{item.UltimoMovimento.Movimento.DsMovimentoSimples}}
                                         </div>
                                     </div>
