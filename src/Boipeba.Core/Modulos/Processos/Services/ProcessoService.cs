@@ -120,6 +120,7 @@ namespace Boipeba.Core.Modulos.Processos.Services
             {
                 Processo = processoMovimento.Processo,
                 Data = DateTime.Now,
+                Autor = processoMovimento.Autor,
                 Movimento = new Movimento
                 {
                     CdMovimento = _processoSettings.CodigoMovimentoEncaminhamentoOrgaoInterno

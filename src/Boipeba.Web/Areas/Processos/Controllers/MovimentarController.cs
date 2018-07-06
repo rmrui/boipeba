@@ -31,7 +31,7 @@ namespace Boipeba.Web.Areas.Processos.Controllers
         {
             try
             {
-                processoMovimento.Autor = new Pessoa { Id = Usuario.Matricula };
+                processoMovimento.Autor = new Pessoa { Matricula = Usuario.Matricula };
                 _processoService.Movimentar(processoMovimento);
             }
             catch (MovimentoRepetidoException ex)
