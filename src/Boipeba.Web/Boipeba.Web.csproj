@@ -525,7 +525,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Processos\Models\" />
-    <Folder Include="Areas\Processos\Views\Shared\" />
     <Folder Include="Filters\" />
   </ItemGroup>
   <ItemGroup>

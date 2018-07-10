@@ -8,25 +8,26 @@
         $scope.view = {
         }
 
-        $scope.viewdata = {model: {} }
+        $scope.viewdata = { model: {} }
 
         $scope.setup = function (idProcesso) {
-            
+
             $scope.view.loadingList = true;
 
             $http({ method: "POST", url: "/Processos/Historico/GetViewData", data: { idProcesso } })
                 .then(function success(response) {
-                        $scope.view.loadingList = false;
-                        $scope.viewdata.model.Items = response.data;
-                        
-                    },
+                    $scope.view.loadingList = false;
+                    $scope.viewdata.model.Items = response.data.Movimentos;
+                    $scope.viewdata.model.Processo = response.data.Processo;
+                },
                     function error(response) {
                         $scope.view.loadingList = false;
-                        console.log(response);
-                        console.log(idProcesso);
                     });
+        }
 
-            console.log("boa 06");
+        $scope.movimentar = function () {
+            $("#id").val($scope.viewdata.model.Processo.Id);
+            $("#movimentarForm").submit();
         }
     }
 

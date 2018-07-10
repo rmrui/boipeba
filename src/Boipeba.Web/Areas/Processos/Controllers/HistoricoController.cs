@@ -1,6 +1,11 @@
-﻿using System.Web.Mvc;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web.Mvc;
+using Boipeba.Core.Modulos.Processos;
 using Boipeba.Core.Modulos.Processos.Repositories;
 using Boipeba.Web.Controllers;
+using NHibernate.Util;
 
 namespace Boipeba.Web.Areas.Processos.Controllers
 {
@@ -21,7 +26,14 @@ namespace Boipeba.Web.Areas.Processos.Controllers
 
         public JsonResult GetViewData(long idProcesso)
         {
-            return Json(_processoRepository.HistoricoProcesso(idProcesso));
+            var listaMovimentos = _processoRepository.HistoricoProcesso(idProcesso);
+
+            return Json(new
+            {
+                Movimentos = listaMovimentos,
+
+                Processo = listaMovimentos.Count > 0 ? listaMovimentos.First().Processo : null
+            });
         }
     }
 }

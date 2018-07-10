@@ -15,7 +15,7 @@
         </div>
     </div>
 
-    <div class="container bg-branco">
+    <div class="container bg-branco" ng-show="view.showform">
         <br />
         <form name="movimentarProcessoForm" ng-validate="{}">
             <div class="row">
@@ -77,7 +77,26 @@
             </div>
         </div>
     </div>
-
+    
+    <div class="container bg-branco" ng-show="view.showsuccess">
+        <br />
+        <div class="alert alert-success">
+            <div class="row">
+                <div class="col-lg-12">
+                    Movimento cadastrado com sucesso!
+                </div>
+            </div>
+            <br/>
+            <div class="row">
+                <div class="col-lg-4 col-lg-offset-8">
+                    <a href="#" ng-click="historico()" class="btn btn-sq-lg btn-primary">Ver histórico <span class="fa fa-search"></span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <form id="historicoForm" action="/Processos/Historico" method="post">
+        <input type="hidden" id="idHistorico" name="idHistorico" />
+    </form>
     <br />
 </div>
 

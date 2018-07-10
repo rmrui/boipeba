@@ -7,7 +7,9 @@
 
         $scope.view = {
             invalidMovimento: false,
-            invalidDestino: false
+            invalidDestino: false,
+            showform: true,
+            showsuccess: false
         }
 
         $scope.setup = function (processo) {
@@ -70,12 +72,18 @@
                 url: "/Processos/Movimentar/Salvar",
                 data: $scope.viewdata.model
             }).then(function successCallback(response) {
-                toastr.success("Operação realizada com sucesso.", "OK");
+                $scope.view.showform = false;
+                $scope.view.showsuccess = true;
             }, function errorCallback(response) {
                 if (response.status === 500) {
                     $scope.viewdata.errorMsg = response.data.message;
                 }
             });
+        }
+
+        $scope.historico = function () {
+            $("#idHistorico").val($scope.viewdata.model.Processo.Id);
+            $("#historicoForm").submit();
         }
     }
 
