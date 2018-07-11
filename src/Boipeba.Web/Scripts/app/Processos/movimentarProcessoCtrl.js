@@ -4,6 +4,8 @@
     movimentarProcessoCtrl.$inject = ["$scope", "$http", "toastr"];
 
     function movimentarProcessoCtrl($scope, $http, toastr) {
+        
+        $(".summernote").summernote({ height: 320, lang:"pt-BR" });
 
         $scope.view = {
             invalidMovimento: false,
@@ -58,10 +60,13 @@
 
         $scope.salvar = function () {
             var processoLimpo = {Id: $scope.viewdata.model.Processo.Id}
+
             $scope.viewdata.model.Movimento = {
                 CdMovimento: $scope.viewdata.Movimento.originalObject.CdMovimento,
                 Processo: processoLimpo
             };
+
+            $scope.viewdata.model.Complemento = $(".summernote").summernote("code");
 
             if ($scope.viewdata.Destino) {
                 $scope.viewdata.model.Destino = $scope.viewdata.Destino.originalObject;

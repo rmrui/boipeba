@@ -29,6 +29,12 @@
             $("#id").val($scope.viewdata.model.Processo.Id);
             $("#movimentarForm").submit();
         }
+
+        $scope.exibirComplemento = function(item) {
+            $scope.viewdata.Complemento = item;
+            console.log(item);
+            $("#detalheMovimentoModal").modal("show");
+        }
     }
 
     angular

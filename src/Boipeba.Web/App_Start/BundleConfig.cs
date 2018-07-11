@@ -13,7 +13,7 @@ namespace Boipeba.Web
 
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                 "~/Scripts/jquery/jquery-{version}.js"));
-
+            
             bundles.Add(new ScriptBundle("~/bundles/jquery-plugins").Include(
                 "~/Scripts/jquery/plugins/spin/spin.js",
                 "~/Scripts/jquery/plugins/ladda/ladda.js",
@@ -23,7 +23,9 @@ namespace Boipeba.Web
                 "~/Scripts/jquery/plugins/bloodhound/bloodhound.js",
                 "~/Scripts/jquery/plugins/bootbox/bootbox.min.js",
                 "~/Scripts/jquery/plugins/bootstrap-tour/bootstrap-tour.min.js",
-                "~/Scripts/jquery/plugins/bootstrap-tour/bootstrap-tour-standalone.min.js"
+                "~/Scripts/jquery/plugins/bootstrap-tour/bootstrap-tour-standalone.min.js",
+                "~/Scripts/jquery/plugins/summernote/summernote.min.js",
+                "~/Scripts/jquery/plugins/summernote/summernote-pt-BR.min.js"
             ));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
@@ -152,7 +154,10 @@ namespace Boipeba.Web
                 "~/Scripts/angular/plugins/dataTables/datatables.bootstrap.min.css",
 
                 "~/Content/site.css",
-                "~/Content/dropdown-buttons.css"));
+                "~/Content/dropdown-buttons.css",
+                
+                "~/Content/plugins/summernote/summernote.css",
+                "~/Content/plugins/summernote/summernote-bs3.css"));
         }
     }
 }

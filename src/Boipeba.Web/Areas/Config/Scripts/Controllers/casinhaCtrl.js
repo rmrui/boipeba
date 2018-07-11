@@ -21,7 +21,6 @@
 
         $scope.editar = function (item) {
             $scope.viewdata.casinha = angular.copy(item);
-            console.log(item);
             $scope.viewdata.casinha.Data = $filter("jsdate")(item.Data);
             $("#casinhaModal").modal("show");
         }

@@ -452,6 +452,7 @@
     <Content Include="Areas\Processos\Views\Cadastro\Generico.cshtml" />
     <Content Include="Areas\Processos\Views\Movimentar\Index.cshtml" />
     <Content Include="Areas\Processos\Views\Historico\Index.cshtml" />
+    <Content Include="Areas\Processos\Views\Shared\_detalheMovimento.cshtml" />
     <None Include="Properties\PublishProfiles\Local.pubxml" />
     <None Include="Scripts\jquery\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery\jquery-2.2.0.js" />
@@ -490,6 +491,9 @@
     <Content Include="Scripts\jquery\plugins\spin\spin.min.js" />
     <Content Include="Scripts\jquery\plugins\star-rating\star-rating.min.css" />
     <Content Include="Scripts\jquery\plugins\star-rating\star-rating.min.js" />
+    <Content Include="Content\plugins\summernote\summernote-bs3.css" />
+    <Content Include="Content\plugins\summernote\summernote.css" />
+    <Content Include="Scripts\jquery\plugins\summernote\summernote-pt-BR.min.js" />
     <Content Include="Scripts\jquery\plugins\summernote\summernote.min.js" />
     <Content Include="Scripts\jquery\plugins\typeahead\typeahead.bundle.js" />
     <Content Include="Scripts\jquery\plugins\typeahead\typeahead.bundle.min.js" />

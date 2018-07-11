@@ -86,11 +86,6 @@
                                 <strong>Autor:</strong> {{item.Autor.Nome}}
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <strong>Complemento:</strong> {{item.Complemento}}
-                            </div>
-                        </div>
                         <div class="row" ng-if="item.OrgaoUnidadeDestino">
                             <div class="col-lg-12">
                                 <strong>Destino:</strong> {{item.OrgaoUnidadeDestino.DsOrgaoUnidade}}
@@ -101,7 +96,11 @@
                                 <strong>Destino:</strong> {{item.PessoaDestino.Nome}}
                             </div>
                         </div>
-
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <button class="btn btn-default" data-style="expand-left" ng-click="exibirComplemento(item.Complemento)">Complemento <span class="fa fa-search"></span></button>
+                            </div>
+                        </div>
                     </div>
                 </article>
             </div>
@@ -118,6 +117,8 @@
     </div>
 
     <br />
+    
+    @Html.Partial("_detalheMovimento")
 </div>
 
 @section Scripts {
