@@ -453,6 +453,7 @@
     <Content Include="Areas\Processos\Views\Movimentar\Index.cshtml" />
     <Content Include="Areas\Processos\Views\Historico\Index.cshtml" />
     <Content Include="Areas\Processos\Views\Shared\_detalheMovimento.cshtml" />
+    <Content Include="Areas\Processos\Views\Shared\_editarComplemento.cshtml" />
     <None Include="Properties\PublishProfiles\Local.pubxml" />
     <None Include="Scripts\jquery\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery\jquery-2.2.0.js" />

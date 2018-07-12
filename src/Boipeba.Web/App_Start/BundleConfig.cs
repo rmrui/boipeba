@@ -125,6 +125,8 @@ namespace Boipeba.Web
 
             bundles.Add(new ScriptBundle("~/bundles/historicoProcessoCtrl").Include("~/Scripts/app/Processos/historicoProcessoCtrl.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/summernoteCtrl").Include("~/Scripts/app/summernoteCtrl.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/simpleCrudCtrl").Include("~/Scripts/app/crud/simpleCrudCtrl.js"));
 
             ConfigBundles.RegisterBundles(bundles);
@@ -148,16 +150,18 @@ namespace Boipeba.Web
                 "~/Content/font-awesome.min.css",
                 "~/Content/timeline.css",
                 "~/Content/animate.css",
+                
                 "~/Scripts/angular/plugins/angular-toastr/angular-toastr.min.css",
                 "~/Scripts/angular/plugins/dataTables/datatables.min.css",
                 "~/Scripts/angular/plugins/dataTables/angular-datatables.min.css",
                 "~/Scripts/angular/plugins/dataTables/datatables.bootstrap.min.css",
-
-                "~/Content/site.css",
+                
                 "~/Content/dropdown-buttons.css",
                 
                 "~/Content/plugins/summernote/summernote.css",
-                "~/Content/plugins/summernote/summernote-bs3.css"));
+                "~/Content/plugins/summernote/summernote-bs3.css",
+
+                "~/Content/site.css"));
         }
     }
 }

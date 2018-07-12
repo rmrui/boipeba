@@ -5,7 +5,20 @@
 
     function movimentarProcessoCtrl($scope, $http, toastr) {
         
-        $(".summernote").summernote({ height: 320, lang:"pt-BR" });
+        $(".summernote").summernote({
+             height: 350, 
+             lang:"pt-BR",
+             hint: {
+                 words: ['Rui Maurício de Oliveira dos Santos', '353547', 'CSI-Coordenadoria de Segurança Institucional e Inteligência', 'Ricardo Oliveira Borges da Silva'],
+                 match: /\b(\w{1,})$/,
+                 search: function (keyword, callback) {
+                     callback($.grep(this.words, function (item) {
+                         return item.indexOf(keyword) === 0;
+                     }));
+                 }
+             }
+            
+        });
 
         $scope.view = {
             invalidMovimento: false,
@@ -18,6 +31,11 @@
             $scope.viewdata = { model: { Movimento: {} } }
             $scope.viewdata.model.Processo = processo;
         }
+
+        $scope.editarComplemento = function() {
+            $("#editarComplementoModal").modal("show");
+        }
+        
 
         $scope.validaForm = function (form) {
 

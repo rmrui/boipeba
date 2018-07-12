@@ -5,7 +5,7 @@
 
 <br />
 <div ng-controller="movimentarProcessoCtrl" ng-app="boipeba" class="ng-cloak" ng-init='setup(@Html.JsonFor(@Model))'>
-
+    @Html.Partial("_editarComplemento")
     <div class="container bg-azul">
         <div class="row">
             <div class="col-xs-10">Movimentar Processo</div>
@@ -28,24 +28,25 @@
                     </div>
                 </div>
             </div>
+
             <div class="row">
                 <div class="col-xs-12">
                     <div class="form-group">
                         <label class="control-label" for="glossario">Glossário</label>
-                        <textarea class="form-control" id="glossario" name="glossario" rows="2" placeholder="Glossário" disabled ng-model="viewdata.Movimento.originalObject.DsGlossario"></textarea>
+                        <div class="well">{{viewdata.Movimento.originalObject.DsGlossario}}</div>
+                        @*<textarea class="form-control" id="glossario" name="glossario" rows="2" placeholder="Glossário" disabled ng-model="viewdata.Movimento.originalObject.DsGlossario"></textarea>*@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-xs-12">
-                    <div class="form-group">
-                        <label class="control-label" for="complemento">Complemento</label>
-                        <div class="summernote" id="complemento">
 
-                        </div>
-                    </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <label class="control-label">Complemento</label>
+                    <div class="summernote"></div>
                 </div>
             </div>
+
+
 
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -100,6 +101,8 @@
         <input type="hidden" id="idHistorico" name="idHistorico" />
     </form>
     <br />
+    
+
 </div>
 
 @section Scripts {
