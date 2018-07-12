@@ -45,5 +45,9 @@ RESUMO DA TRAMITAÇÃO: 
 3 ) Terceira pessoa que juntou ou se pronunciou; ....
 (*) na verdade submeter a COGI para acréscimo na árvore de assuntos do MPBA)
 
+--- Construção de Documento e Juntada ---
+1. Construção de documento: editor de texto, podendo inclusive chamar campos preenchidos nas telas de processo e/ou movimento... como o Gmail.
+2. Juntada: anexar n documentos
+
 ------------- Inferências -------------
 Campos para tramitar = campos do processo/procedimento/solicitação (SIMP/SIGA)?
