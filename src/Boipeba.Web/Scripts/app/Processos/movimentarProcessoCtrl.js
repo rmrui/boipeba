@@ -4,21 +4,8 @@
     movimentarProcessoCtrl.$inject = ["$scope", "$http", "toastr"];
 
     function movimentarProcessoCtrl($scope, $http, toastr) {
-        
-        $(".summernote").summernote({
-             height: 350, 
-             lang:"pt-BR",
-             hint: {
-                 words: ['Rui Maurício de Oliveira dos Santos', '353547', 'CSI-Coordenadoria de Segurança Institucional e Inteligência', 'Ricardo Oliveira Borges da Silva'],
-                 match: /\b(\w{1,})$/,
-                 search: function (keyword, callback) {
-                     callback($.grep(this.words, function (item) {
-                         return item.indexOf(keyword) === 0;
-                     }));
-                 }
-             }
-            
-        });
+
+        CKEDITOR.replace(document.getElementById("editor"));
 
         $scope.view = {
             invalidMovimento: false,
@@ -84,7 +71,7 @@
                 Processo: processoLimpo
             };
 
-            $scope.viewdata.model.Complemento = $(".summernote").summernote("code");
+            $scope.viewdata.model.Complemento = CKEDITOR.instances.editor.getData();
 
             if ($scope.viewdata.Destino) {
                 $scope.viewdata.model.Destino = $scope.viewdata.Destino.originalObject;
@@ -99,7 +86,7 @@
                 $scope.view.showsuccess = true;
             }, function errorCallback(response) {
                 if (response.status === 500) {
-                    $scope.viewdata.errorMsg = response.data.message;
+                    $scope.viewdata.errorMsg = "Serviço insidponível no momento.";
                 }
             });
         }

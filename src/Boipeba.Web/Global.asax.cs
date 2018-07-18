@@ -22,13 +22,11 @@ namespace Boipeba.Web
 
         protected void Application_Start()
         {
-//#if DEBUG
-//            SetupDevContainer();
-//#else
-//            SetupContainer();
-//#endif            
-            SetupContainer();
-
+#if DEBUG
+            SetupDevContainer();
+#else
+                        SetupContainer();
+#endif
             WebApiConfig.resolver = _resolver;
 
             AreaRegistration.RegisterAllAreas();
@@ -36,8 +34,8 @@ namespace Boipeba.Web
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-#if !DEBUG
-          //  GlobalFilters.Filters.Add(new RequireHttpsAttribute());
+#if DEBUG
+            GlobalFilters.Filters.Add(new RequireHttpsAttribute());
 #endif
             ValueProviderFactories.Factories.Remove(ValueProviderFactories.Factories.OfType<JsonValueProviderFactory>().FirstOrDefault());
 

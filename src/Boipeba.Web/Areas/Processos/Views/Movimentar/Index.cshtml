@@ -38,11 +38,15 @@
                     </div>
                 </div>
             </div>
+            
+            
 
             <div class="row">
                 <div class="col-lg-12">
-                    <label class="control-label">Complemento</label>
-                    <div class="summernote"></div>
+                    <div class="form-group">
+                        <label class="control-label">Complemento</label>
+                        <div id="editor"></div>
+                    </div>
                 </div>
             </div>
 
@@ -104,6 +108,10 @@
     
 
 </div>
+
+<script type="text/javascript">
+    CKEDITOR_BASEPATH = "@Url.Content("~/Scripts/jquery/plugins/ckeditor/")";
+</script>
 
 @section Scripts {
     @Scripts.Render("~/bundles/movimentarProcessoCtrl")

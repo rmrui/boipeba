@@ -24,8 +24,7 @@ namespace Boipeba.Web
                 "~/Scripts/jquery/plugins/bootbox/bootbox.min.js",
                 "~/Scripts/jquery/plugins/bootstrap-tour/bootstrap-tour.min.js",
                 "~/Scripts/jquery/plugins/bootstrap-tour/bootstrap-tour-standalone.min.js",
-                "~/Scripts/jquery/plugins/summernote/summernote.min.js",
-                "~/Scripts/jquery/plugins/summernote/summernote-pt-BR.min.js"
+                "~/Scripts/jquery/plugins/ckeditor/ckeditor.js"
             ));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
@@ -158,9 +157,6 @@ namespace Boipeba.Web
                 
                 "~/Content/dropdown-buttons.css",
                 
-                "~/Content/plugins/summernote/summernote.css",
-                "~/Content/plugins/summernote/summernote-bs3.css",
-
                 "~/Content/site.css"));
         }
     }

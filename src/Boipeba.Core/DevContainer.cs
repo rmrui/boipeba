@@ -225,21 +225,42 @@ namespace Boipeba.Core
                     var ship1 = new Spacecraft {Name = "Apollo", Agency = "NASA"};
                     var ship2 = new Spacecraft { Name = "Soyuz", Agency = "Roscosmos" };
 
-                    var ouCsi = new OrgaoUnidade {DsOrgaoUnidade = "CSI", IdOrgaoUnidade = 1};
-                    var ouCorregedoria = new OrgaoUnidade {DsOrgaoUnidade = "Corregedoria-Geral do Ministério Público", IdOrgaoUnidade = 2};
+                    var ouCsi = new OrgaoUnidade {DsOrgaoUnidade = "CSI", IdOrgaoUnidade = 1, Atributos = "D"};
+                    var ouCorregedoria = new OrgaoUnidade {DsOrgaoUnidade = "Corregedoria-Geral do Ministério Público", IdOrgaoUnidade = 2, Atributos = "D"};
 
                     var assuntoCorreicaoOrdinaria = new Assunto {CdAssunto = 930406, DsAssunto = "Correição Ordinária"};
                     var assuntoCorreicaoExtra = new Assunto {CdAssunto = 930407, DsAssunto = "Correição Extraordinária"};
                     var assuntoFerias = new Assunto {CdAssunto = 930152, DsAssunto = "Férias" };
 
-                    var movimentoEncaminhamento = new Movimento {CdMovimento = 920025, DsMovimento = "Encaminhamento a Órgão Interno"};
-                    var movimentoEntrada = new Movimento {CdMovimento = 920246, DsMovimento = "Entrada da carga"};
-                    var movimentoDeferimento = new Movimento {CdMovimento = 920370, DsMovimento = "Deferido / Concedido / Procedente / Autorizado"};
-                    var movimentoIndeferimento = new Movimento {CdMovimento = 920372, DsMovimento  = "Indeferido / Prejudicado / Improcedente / Não autorizado" };
-                    var cienciaDecisao = new Movimento {CdMovimento = 920311, DsMovimento  = "Ciência de Decisão Administrativa" };
+                    var movimentoEncaminhamento = new Movimento {CdMovimento = 920025, DsMovimento = "Encaminhamento a Órgão Interno", DsMovimentoSimples = "Encaminhamento a Órgão Interno"};
+                    var movimentoEntrada = new Movimento {CdMovimento = 920246, DsMovimento = "Entrada da carga", DsMovimentoSimples = "Entrada da carga"};
+                    var movimentoDeferimento = new Movimento {CdMovimento = 920370, DsMovimento = "Deferido / Concedido / Procedente / Autorizado", DsMovimentoSimples = "Deferido / Concedido / Procedente / Autorizado"};
+                    var movimentoIndeferimento = new Movimento {CdMovimento = 920372, DsMovimento  = "Indeferido / Prejudicado / Improcedente / Não autorizado", DsMovimentoSimples  = "Indeferido / Prejudicado / Improcedente / Não autorizado" };
+                    var cienciaDecisao = new Movimento {CdMovimento = 920311, DsMovimento  = "Ciência de Decisão Administrativa" , DsMovimentoSimples  = "Ciência de Decisão Administrativa" };
 
                     var ruiDaBaea = new Pessoa {Matricula = 353547, Nome = "Rui Maurício", OrgaoUnidadeLotacao = ouCsi};
                     var tiagoCorreria = new Pessoa {Nome = "Tiago Magalhães", Matricula = 352862, OrgaoUnidadeLotacao = ouCorregedoria};
+
+                    var processoCorreicao = new Processo
+                    {
+                        Assunto = assuntoCorreicaoOrdinaria,
+                        Autor = tiagoCorreria,
+                        Cadastro = DateTime.Now,
+                        Complemento = "Se ligue aí",
+                        OrgaoUnidadeDestino = ouCsi,
+                        Interessado = ruiDaBaea.Nome
+                    };
+
+                    var movimentoEncaminhamentoCorreicao = new ProcessoMovimento
+                    {
+                        Autor = tiagoCorreria,
+                        Data = DateTime.Now,
+                        Movimento = movimentoEncaminhamento,
+                        OrgaoUnidadeDestino = ouCsi,
+                        OrgaoUnidadeOrigem = ouCorregedoria,
+                        PessoaOrigem = tiagoCorreria,
+                        Processo = processoCorreicao
+                    };
 
                     session.Save(player1);
                     session.Save(player2);
@@ -257,6 +278,11 @@ namespace Boipeba.Core
                     session.Save(cienciaDecisao);
                     session.Save(ruiDaBaea);
                     session.Save(tiagoCorreria);
+                    session.Save(processoCorreicao);
+                    session.Save(movimentoEncaminhamentoCorreicao);
+                    processoCorreicao.UltimoMovimento = movimentoEncaminhamentoCorreicao;
+                    processoCorreicao.UltimaModificacao = movimentoEncaminhamentoCorreicao.Data;
+                    session.Save(processoCorreicao);
                     session.Flush();
                 }
             }
